@@ -7,14 +7,13 @@ export default {
       center: true,
       padding: "1.5rem",
     },
-
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
+      poppins: ["Poppins", "sans-serif"],
+      dmsans: ["DM Sans", "sans-serif"],
+      playfair: ["Playfair Display", "serif"],
+    },
     extend: {
-      fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
-        dmsans: ["DM Sans", "sans-serif"],
-        playfair: ["Playfair Display", "serif"],
-      },
       colors: {
         primary: "#5143D9",
         primaryopacity: "#EDECFB",
