@@ -1,11 +1,26 @@
-import { FaEye } from "react-icons/fa";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function SignUp() {
+  // show password
+  const [showPassword, setShowPassword] = useState(false);
+
+  // show confirm password
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // handle sign in form
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+  };
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-        <form className=" ring-1 ring-slate-100 rounded-md hover:ring-primary my-transition p-8 w-full max-w-md">
+        <form
+          onSubmit={handleSignIn}
+          className=" ring-1 ring-slate-100 rounded-md hover:ring-primary my-transition p-8 w-full max-w-md"
+        >
           {/* logo */}
           <Link to="/">
             <h1 className="text-center text-3xl font-bold text-primary font-dmsans">
@@ -85,11 +100,18 @@ function SignUp() {
             </span>
 
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               className="block w-full px-10 py-3 text-dark bg-white rounded-lg dark:bg-gray-900 dark:text-gray-300 ring-1 ring-slate-100 focus:ring-primary outline-none "
               placeholder="Enter Your Password..."
             />
-            <FaEye className="text-xl text-dark absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer"></FaEye>
+            <button
+              onClick={() => {
+                setShowPassword(!showPassword);
+              }}
+              className="text-xl text-dark absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer"
+            >
+              {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+            </button>
           </div>
           <div className="relative flex items-center mt-4">
             <span className="absolute">
@@ -110,11 +132,22 @@ function SignUp() {
             </span>
 
             <input
-              type="password"
+              type={showConfirmPassword ? "text" : "password"}
               className="block w-full px-10 py-3 text-dark bg-white rounded-lg dark:bg-gray-900 dark:text-gray-300 ring-1 ring-slate-100 focus:ring-primary outline-none "
               placeholder="Enter Your Confirm Password..."
             />
-            <FaEye className="text-xl text-dark absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer"></FaEye>
+            <button
+              onClick={() => {
+                setShowConfirmPassword(!showConfirmPassword);
+              }}
+              className="text-xl text-dark absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer"
+            >
+              {showConfirmPassword ? (
+                <FaEyeSlash></FaEyeSlash>
+              ) : (
+                <FaEye></FaEye>
+              )}
+            </button>
           </div>
           <div className="mt-6">
             <button className="w-full px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl ">
