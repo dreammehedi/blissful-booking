@@ -18,8 +18,8 @@ function Rooms() {
         ></SectionTitle>
 
         {/* room filter by price */}
-        <div className="container py-8 my:py-12 flex flex-col items-end text-right space-y-3 justify-end">
-          <form className="max-w-sm ml-auto">
+        <div className="container py-8 my:py-12 flex flex-col items-center lg:items-end text-right space-y-3 justify-center lg:justify-end">
+          <form className="max-w-sm mx-auto lg:!ml-auto lg:!mr-0">
             <label
               htmlFor="countries"
               className="flex items-center gap-2
