@@ -6,37 +6,61 @@ import "swiper/css";
 import "swiper/css/navigation";
 import SliderItem from "../slider/SliderItem";
 import "./myCss.css";
+// banner image
+import slider1 from "../../assets/slider/slider1.avif";
+import slider2 from "../../assets/slider/slider2.jpg";
+import slider3 from "../../assets/slider/slider3.avif";
+
+// banner video
+import video1 from "../../assets/video/video1.mp4";
+import video3 from "../../assets/video/video3.mp4";
 
 function Banner() {
   return (
     <>
       <Swiper
         autoplay={{
-          delay: 5000,
+          delay: 7000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Navigation]}
         navigation
-        spaceBetween={50}
-        className="h-[450px] md:h-[500px] lg:!h-[calc(100vh-84px)] w-full "
+        className="overflow-hidden h-[450px] md:h-[500px] lg:!h-[calc(100vh-84px)] w-full "
       >
         <SwiperSlide>
           <SliderItem
-            bg={
-              "https://img.freepik.com/free-photo/comfortable-modern-bedroom-with-elegant-decoration-lighting-generative-ai_188544-7715.jpg?t=st=1715274886~exp=1715278486~hmac=b6a96b14af6a946adf869cb1ddb23b1333ac1199070577b61fc69ed10412cc6d&w=740"
-            }
-            title="Nature's Palette: A Journey Through Landscape Paintings"
-            des="Experience the tranquil beauty of nature captured on canvas in our immersive landscape painting collection. Let these breathtaking vistas transport you to serene and picturesque destinations."
-          ></SliderItem>
+            video={video1}
+            bg={slider1}
+            title="Discover Your Next Escape"
+            des="Unlock a world of possibilities with our hotel booking platform. Browse thousands of accommodations, from luxury resorts to budget-friendly stays, and find the perfect destination for your next adventure."
+          >
+            <button className="px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl ">
+              Explore Destinations
+            </button>
+          </SliderItem>
         </SwiperSlide>
         <SwiperSlide>
           <SliderItem
-            bg={
-              "https://img.freepik.com/free-photo/3d-rendering-modern-dining-room-living-room-with-luxury-decor_105762-2000.jpg?t=st=1715274922~exp=1715278522~hmac=a70e483bfe3a91c65056aceb40df6ea66a064fd2dfb6757aecf03e193be86a0e&w=900"
-            }
-            title="Watercolor Wonders: A Splash of Nature's Beauty"
-            des="Dive into the mesmerizing world of watercolor painting and witness nature come alive with vibrant hues and fluid strokes. Explore our collection of watercolor masterpieces that capture the essence of landscapes in every brushstroke."
-          ></SliderItem>
+            bg={slider2}
+            title="Your Gateway to Extraordinary Experiences"
+            des="Elevate your travel experience with our unparalleled selection of hotels. Whether you seek a tranquil retreat, a vibrant urban oasis, or a cultural immersion, we've got you covered. Dive into our diverse range of accommodations and start crafting memories that last a lifetime."
+          >
+            <button className="px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl ">
+              Start Your Journey
+            </button>
+          </SliderItem>
+        </SwiperSlide>
+        <SwiperSlide>
+          <SliderItem
+            video={video3}
+            bg={slider3}
+            title="Escape to Tranquility"
+            des="Discover serenity amidst picturesque landscapes and unparalleled hospitality. Our carefully curated selection of boutique hotels and intimate retreats offers a sanctuary for relaxation and rejuvenation. Embrace tranquility and immerse yourself in the beauty of your surroundings."
+          >
+            <button className="px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl ">
+              Find Peaceful Getaways
+            </button>
+          </SliderItem>
         </SwiperSlide>
       </Swiper>
     </>
