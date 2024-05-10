@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
+import ContactUs from "../pages/contact_us/ContactUs";
 import Error from "../pages/error/Error";
 import Home from "../pages/home/Home";
 import MyBookings from "../pages/my_bookings/MyBookings";
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/my-bookings",
         element: <MyBookings></MyBookings>,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs></ContactUs>,
       },
     ],
   },
