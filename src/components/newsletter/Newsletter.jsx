@@ -1,19 +1,17 @@
+import SectionTitle from "../section_title/SectionTitle";
+
 function Newsletter() {
   return (
     <section className="py-8 md:py-12">
-      <div className="container flex flex-col space-y-3 justify-center items-center text-center md:max-w-2xl md:mx-auto">
-        <div>
-          <h1 className="text-primary font-bold text-3xl font-dmsans">
-            Subscribe to Our Newsletter{" "}
-          </h1>
-          <p className="text-slate-400">
-            Be the first to know about irresistible hotel booking, exclusive
+      {/* section title */}
+      <SectionTitle
+        title=" Subscribe to Our Newsletter"
+        description=" Be the first to know about irresistible hotel booking, exclusive
             packages, and insider tips straight to your inbox! Subscribe to our
             newsletter and elevate your travel experience with access to
-            unbeatable offers tailored just for you.
-          </p>
-        </div>
-
+            unbeatable offers tailored just for you."
+      ></SectionTitle>
+      <div className="container flex flex-col space-y-3 justify-center items-center text-center md:max-w-2xl md:mx-auto">
         <form className="relative py-6 md:py-8 w-full md:max-w-md md:mx-auto">
           <input
             className="w-full ring-1 ring-dark focus:ring-primary my-transition rounded-full px-6 py-3 font-medium font-poppins outline-none"
