@@ -1,14 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LiaWindowClose } from "react-icons/lia";
 import { LuMenuSquare } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import MenuContent from "./MenuContent";
 
 function Header() {
+  // toggle mobile menu
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  // sticky header
+  const [stickyHeader, setStickyHeader] = useState(false);
+
+  useEffect(() => {
+    const handleStickyHeader = () => {
+      if (window.scrollY > 50) {
+        setStickyHeader(true);
+      } else {
+        setStickyHeader(false);
+      }
+    };
+    window.addEventListener("scroll", handleStickyHeader);
+    return () => {
+      window.removeEventListener("scroll", handleStickyHeader);
+    };
+  }, []);
+
   return (
-    <header className={`w-full h-auto bg-white`}>
+    <header
+      className={`w-full h-auto bg-white ${
+        stickyHeader ? "sticky top-0 left-0 z-[999] drop-shadow-lg" : undefined
+      }`}
+    >
       <nav className="container flex justify-between items-center py-6">
         {/* logo */}
         <Link to="/">
