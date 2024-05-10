@@ -51,7 +51,7 @@ function MenuContent() {
       })}
       <li>
         <NavLink
-          to={"/sign-up"}
+          to={"/signup"}
           className={({ isActive }) => {
             return isActive
               ? "text-primary font-semibold"
