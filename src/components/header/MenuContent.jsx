@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider";
@@ -31,7 +32,7 @@ const menuContent = [
   },
 ];
 
-function MenuContent() {
+function MenuContent({ handleMobileMenuHide }) {
   // get user
   const { user } = useContext(AuthContext);
 
@@ -40,7 +41,7 @@ function MenuContent() {
       {menuContent.map((menuItem) => {
         const { id, name, path } = menuItem;
         return (
-          <li key={id}>
+          <li onClick={handleMobileMenuHide} key={id}>
             <NavLink
               to={path}
               className={({ isActive }) => {
@@ -56,7 +57,7 @@ function MenuContent() {
       })}
 
       {user ? null : (
-        <li>
+        <li onClick={handleMobileMenuHide}>
           <NavLink
             to={"/signup"}
             className={({ isActive }) => {
@@ -73,4 +74,7 @@ function MenuContent() {
   );
 }
 
+MenuContent.propTypes = {
+  handleMobileMenuHide: PropTypes.func,
+};
 export default MenuContent;

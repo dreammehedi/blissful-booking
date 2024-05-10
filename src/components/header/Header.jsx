@@ -41,6 +41,15 @@ function Header() {
       });
   };
 
+  // handle mobile menu hide
+  const handleMobileMenuHide = () => {
+    setShowMobileMenu(false);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <header
       className={`w-full h-auto bg-white ${
@@ -57,12 +66,14 @@ function Header() {
 
         {/* mobile menu */}
         <ul
-          className={`lg:hidden z-10 flex flex-col gap-4 w-3/5 md:w-1/3 h-screen bg-white fixed top-0 ${
-            showMobileMenu ? "right-0" : " -right-full"
+          className={`hidden z-10 flex-col gap-4 w-3/5 md:w-1/3 h-screen bg-white fixed top-0 ${
+            showMobileMenu ? "right-0 !flex lg:!hidden" : "-right-full"
           }  shadow-lg p-8`}
         >
           {/* menu content */}
-          <MenuContent></MenuContent>
+          <MenuContent
+            handleMobileMenuHide={handleMobileMenuHide}
+          ></MenuContent>
         </ul>
 
         {/* desktop menu */}
@@ -71,57 +82,62 @@ function Header() {
           <MenuContent></MenuContent>
         </ul>
 
-        {/* user profile */}
-        {user && (
-          <div className="group my-transition relative z-[999999] flex-shrink-0 cursor-pointer">
-            <span className="absolute bottom-0 right-0 w-4 h-4  border rounded-full bg-green-500"></span>
-            <img
-              src={user?.photoURL}
-              alt=""
-              className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
-            />
-            <ul
-              className="hidden group-hover:inline-block my-transition absolute top-12 rounded-tr-3xl rounded-md min-w-[350px] right-0 bg-white shadow shadow-primary p-4 space-y-2 
-          "
-            >
-              <li className="flex items-center gap-2 pb-3">
-                <img
-                  src={user?.photoURL}
-                  alt=""
-                  className="w-8 h-8 rounded-full "
-                />
-                <div>
-                  <p className="text-sm font-semibold text-primary ">
-                    {user?.displayName}
-                  </p>
-                  <p className="text-sm  text-dark">{user?.email}</p>
-                </div>
-              </li>
-              <li>
-                <button
-                  onClick={handleSignOut}
-                  className="px-4 py-2 text-sm bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl "
-                >
-                  Sign Out
-                </button>
-              </li>
-            </ul>
-          </div>
-        )}
-
-        {/* toggle menu button */}
-        <button
-          onClick={() => {
-            setShowMobileMenu(!showMobileMenu);
-          }}
-          className="lg:hidden z-30 text-dark my-transition hover:text-primary"
+        <div
+          className="flex items-center gap-4
+        "
         >
-          {showMobileMenu ? (
-            <LiaWindowClose className="text-3xl "></LiaWindowClose>
-          ) : (
-            <LuMenuSquare className="text-3xl "></LuMenuSquare>
+          {/* user profile */}
+          {user && (
+            <div className="group my-transition relative z-[999999] flex-shrink-0 cursor-pointer">
+              <span className="absolute bottom-0 right-0 w-4 h-4  border rounded-full bg-green-500"></span>
+              <img
+                src={user?.photoURL}
+                alt=""
+                className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
+              />
+              <ul
+                className="hidden group-hover:inline-block my-transition absolute top-12 rounded-tr-3xl rounded-md min-w-[350px] right-0 bg-white shadow shadow-primary p-4 space-y-2 
+          "
+              >
+                <li className="flex items-center gap-2 pb-3">
+                  <img
+                    src={user?.photoURL}
+                    alt=""
+                    className="w-8 h-8 rounded-full "
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-primary ">
+                      {user?.displayName}
+                    </p>
+                    <p className="text-sm  text-dark">{user?.email}</p>
+                  </div>
+                </li>
+                <li>
+                  <button
+                    onClick={handleSignOut}
+                    className="px-4 py-2 text-sm bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl "
+                  >
+                    Sign Out
+                  </button>
+                </li>
+              </ul>
+            </div>
           )}
-        </button>
+
+          {/* toggle menu button */}
+          <div
+            onClick={() => {
+              setShowMobileMenu(!showMobileMenu);
+            }}
+            className="lg:hidden z-30 text-dark my-transition hover:text-primary"
+          >
+            {showMobileMenu ? (
+              <LiaWindowClose className="text-3xl "></LiaWindowClose>
+            ) : (
+              <LuMenuSquare className="text-3xl "></LuMenuSquare>
+            )}
+          </div>
+        </div>
       </nav>
     </header>
   );
