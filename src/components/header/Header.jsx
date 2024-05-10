@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LiaWindowClose } from "react-icons/lia";
 import { LuMenuSquare } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../auth/AuthProvider";
 import MenuContent from "./MenuContent";
 
 function Header() {
+  // get user
+  const { user, userSignOut } = useContext(AuthContext);
+
   // toggle mobile menu
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -24,6 +29,17 @@ function Header() {
       window.removeEventListener("scroll", handleStickyHeader);
     };
   }, []);
+
+  // handle sign out user
+  const handleSignOut = () => {
+    userSignOut()
+      .then(() => {
+        toast.success("User Signed Out.");
+      })
+      .catch(() => {
+        toast.error("Sign Out Error!");
+      });
+  };
 
   return (
     <header
@@ -50,10 +66,48 @@ function Header() {
         </ul>
 
         {/* desktop menu */}
-        <ul className="hidden lg:flex justify-center items-center gap-4 font-poppins">
+        <ul className="hidden lg:flex justify-center items-center gap-4 md:gap-6 font-poppins">
           {/* menu content */}
           <MenuContent></MenuContent>
         </ul>
+
+        {/* user profile */}
+        {user && (
+          <div className="group my-transition relative z-[999999] flex-shrink-0 cursor-pointer">
+            <span className="absolute bottom-0 right-0 w-4 h-4  border rounded-full bg-green-500"></span>
+            <img
+              src={user?.photoURL}
+              alt=""
+              className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
+            />
+            <ul
+              className="hidden group-hover:inline-block my-transition absolute top-12 rounded-tr-3xl rounded-md min-w-[350px] right-0 bg-white shadow shadow-primary p-4 space-y-2 
+          "
+            >
+              <li className="flex items-center gap-2 pb-3">
+                <img
+                  src={user?.photoURL}
+                  alt=""
+                  className="w-8 h-8 rounded-full "
+                />
+                <div>
+                  <p className="text-sm font-semibold text-primary ">
+                    {user?.displayName}
+                  </p>
+                  <p className="text-sm  text-dark">{user?.email}</p>
+                </div>
+              </li>
+              <li>
+                <button
+                  onClick={handleSignOut}
+                  className="px-4 py-2 text-sm bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl "
+                >
+                  Sign Out
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
 
         {/* toggle menu button */}
         <button

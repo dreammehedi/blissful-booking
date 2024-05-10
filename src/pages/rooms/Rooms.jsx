@@ -33,7 +33,7 @@ function Rooms() {
               className="bg-transparent ring-1 ring-dark text-dark text-sm rounded-lg outline-none focus:ring-primary block w-full p-2.5 "
             >
               <option disabled></option>
-              <option selected>Choose a Range</option>
+              <option defaultValue>Choose a Range</option>
               <option disabled></option>
               <option value="100">$ 100</option>
               <option value="200">$ 200</option>

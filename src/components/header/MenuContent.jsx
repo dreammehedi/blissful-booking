@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthProvider";
 
 // menu all pages
 const menuContent = [
@@ -30,6 +32,9 @@ const menuContent = [
 ];
 
 function MenuContent() {
+  // get user
+  const { user } = useContext(AuthContext);
+
   return (
     <>
       {menuContent.map((menuItem) => {
@@ -49,18 +54,21 @@ function MenuContent() {
           </li>
         );
       })}
-      <li>
-        <NavLink
-          to={"/signup"}
-          className={({ isActive }) => {
-            return isActive
-              ? "text-primary font-semibold"
-              : "text-dark my-transition font-semibold hover:text-primary";
-          }}
-        >
-          Sign Up
-        </NavLink>
-      </li>
+
+      {user ? null : (
+        <li>
+          <NavLink
+            to={"/signup"}
+            className={({ isActive }) => {
+              return isActive
+                ? "text-primary font-semibold"
+                : "text-dark my-transition font-semibold hover:text-primary";
+            }}
+          >
+            Sign Up
+          </NavLink>
+        </li>
+      )}
     </>
   );
 }
