@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <header className={`w-full h-auto bg-white`}>
-      <nav className="container flex justify-between items-center py-2">
+      <nav className="container flex justify-between items-center py-6">
         {/* logo */}
         <Link to="/">
           <h1 className="text-3xl font-bold text-primary font-dmsans">

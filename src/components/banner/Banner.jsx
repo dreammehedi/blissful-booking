@@ -18,7 +18,7 @@ function Banner() {
         modules={[Autoplay, Navigation]}
         navigation
         spaceBetween={50}
-        className="h-[450px] md:h-[500px] lg:h-[100vh] w-full "
+        className="h-[450px] md:h-[500px] lg:!h-[calc(100vh-84px)] w-full "
       >
         <SwiperSlide>
           <SliderItem
