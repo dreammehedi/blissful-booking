@@ -69,14 +69,14 @@ function SignUp() {
   };
   return (
     <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
-      <div className="ring-1 ring-slate-100 rounded-md hover:ring-primary my-transition p-8 w-full max-w-lg container flex flex-col items-center justify-center mx-auto">
+      <div className="container flex flex-col items-center justify-center h-auto mx-auto ring-1 ring-slate-100 rounded-md hover:ring-primary my-transition p-4 md:p-8 w-full max-w-md">
         <form onSubmit={handleSignIn} className="w-full ">
           {/* logo */}
-          <Link to="/">
+          {/* <Link to="/">
             <h1 className="text-center text-3xl font-bold text-primary font-dmsans">
               Blissful Bookings
             </h1>
-          </Link>
+          </Link> */}
 
           <h1 className="mt-6 text-center text-2xl font-semibold text-dark capitalize sm:text-3xl dark:text-white">
             Sign Up
