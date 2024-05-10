@@ -4,6 +4,11 @@
 @tailwind utilities;
 
 /* my classes */
+@layer base {
+  p {
+    @apply font-poppins;
+  }
+}
 @layer components {
   .my-transition {
     @apply transition-all duration-300 ease-linear;
