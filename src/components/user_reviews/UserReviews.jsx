@@ -22,7 +22,6 @@ function UserReviews() {
 
       <div className="container py-8">
         <Swiper
-          slidesPerView={2}
           spaceBetween={30}
           navigation={true}
           autoplay={{
@@ -30,6 +29,20 @@ function UserReviews() {
             disableOnInteraction: false,
           }}
           modules={[Navigation, Autoplay]}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+          }}
           className="py-8"
         >
           <SwiperSlide className="p-4">

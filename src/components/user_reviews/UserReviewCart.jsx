@@ -3,8 +3,8 @@ import { MdStar } from "react-icons/md";
 function UserReviewCart() {
   return (
     <>
-      <div className="ring-1 ring-slate-100 flex items-center gap-4 md:gap-6 p-6 md:p-8 rounded-md my-transition hover:ring-primary group">
-        <div className="flex flex-col space-y-3">
+      <div className="ring-1 ring-slate-100 flex flex-col lg:flex-row justify-center lg:justify-start text-center lg:text-left items-center gap-4 md:gap-6 p-6 md:p-8 rounded-md my-transition hover:ring-primary group">
+        <div className="flex flex-col justify-center items-center text-center lg:justify-normal lg:items-start lg:text-left space-y-3">
           <img
             className="ring-1 ring-primary w-16 h-16 object-cover rounded-full my-transition group-hover:!rounded-br-3xl "
             src="https://img.freepik.com/free-photo/young-handsome-guy-wearing-checkered-shirt-looking-happily-standing-white-wall_141793-30788.jpg?t=st=1715330610~exp=1715334210~hmac=9f2dfef54a9cdad04395af9f9f30beb83f39cca9a261e251da0284377c68aaa1&w=740"

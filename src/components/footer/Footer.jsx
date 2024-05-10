@@ -7,23 +7,23 @@ function Footer() {
     <>
       <footer className="bg-white dark:bg-gray-900">
         <div className="container pt-12 pb-8 mx-auto">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-center text-center md:items-start lg:text-left ">
             <div>
-              <h2 className="font-bold text-xl text-gray-800 dark:text-white">
+              <h2 className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
                 Pages
               </h2>
 
-              <ul className="flex flex-col items-start mt-5 space-y-2">
+              <ul className="flex flex-col items-center lg:items-start mt-5 space-y-2">
                 <MenuContent></MenuContent>
               </ul>
             </div>
 
             <div>
-              <p className="font-bold text-xl text-gray-800 dark:text-white">
+              <p className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
                 Industries
               </p>
 
-              <div className="flex flex-col items-start mt-5 space-y-2">
+              <div className="flex flex-col items-center lg:items-start mt-5 space-y-2">
                 <a
                   href="#"
                   className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
@@ -46,11 +46,11 @@ function Footer() {
             </div>
 
             <div>
-              <p className="font-bold text-xl text-gray-800 dark:text-white">
+              <p className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
                 Services
               </p>
 
-              <div className="flex flex-col items-start mt-5 space-y-2">
+              <div className="flex flex-col items-center lg:items-start mt-5 space-y-2">
                 <a
                   href="#"
                   className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
@@ -73,15 +73,15 @@ function Footer() {
             </div>
 
             <div>
-              <p className="font-bold text-xl text-gray-800 dark:text-white">
+              <p className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
                 Contact Us
               </p>
 
-              <div className="flex flex-col items-start mt-5 space-y-2">
+              <div className="flex flex-col items-center lg:items-start mt-5 space-y-2">
                 <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:text-blue-500">
                   +880 1716059182
                 </p>
-                <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400  hover:text-blue-500">
+                <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400  hover:text-blue-500 break-words text-wrap lg:max-w-[230px]">
                   dreammehedihassan@gmail.com
                 </p>
               </div>
@@ -90,7 +90,7 @@ function Footer() {
 
           <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
 
-          <div className="flex flex-col items-center justify-between sm:flex-row">
+          <div className="flex flex-col lg:flex-row gap-3 items-center justify-between ">
             {/* logo */}
             <Link to="/">
               <h1 className="text-3xl font-bold text-primary font-dmsans">
@@ -98,9 +98,10 @@ function Footer() {
               </h1>
             </Link>
 
-            <p className="mt-4 flex gap-1 items-center text-base text-gray-500 sm:mt-0 dark:text-gray-300">
+            <p className="mt-4 flex flex-col lg:flex-row gap-1 items-center text-base text-gray-500 sm:mt-0 dark:text-gray-300">
               &copy; Copyright {new Date().getFullYear()}. All Rights Reserved.
-              <ImHeart className="text-base text-primary"></ImHeart> By{" "}
+              <ImHeart className="hidden lg:inline-block text-base text-primary"></ImHeart>{" "}
+              By{" "}
               <Link
                 to={"https://www.facebook.com/profile.php?id=61554869056271"}
                 target="_blank"
