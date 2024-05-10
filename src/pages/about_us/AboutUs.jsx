@@ -550,20 +550,33 @@ function AboutUs() {
             }}
             modules={[Autoplay]}
             watchSlidesProgress={true}
-            slidesPerView={6}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 50,
+              },
+            }}
             spaceBetween={30}
             className=""
           >
             <SwiperSlide>
               <img
-                className="w-auto h-auto object-cover"
+                className="w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                 src={clients1}
                 alt=""
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                className="w-auto h-auto object-cover"
+                className="w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                 src={clients4}
                 alt=""
               />
@@ -571,7 +584,7 @@ function AboutUs() {
 
             <SwiperSlide>
               <img
-                className="w-auto h-auto object-cover"
+                className="w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                 src={clients6}
                 alt=""
               />
@@ -579,21 +592,21 @@ function AboutUs() {
 
             <SwiperSlide>
               <img
-                className="w-auto h-auto object-cover"
+                className="w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                 src={clients9}
                 alt=""
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                className="w-auto h-auto object-cover"
+                className="w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                 src={clients10}
                 alt=""
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                className="w-auto h-auto object-cover"
+                className="w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                 src={clients11}
                 alt=""
               />
@@ -601,14 +614,14 @@ function AboutUs() {
 
             <SwiperSlide>
               <img
-                className="w-auto h-auto object-cover"
+                className="w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                 src={clients7}
                 alt=""
               />
             </SwiperSlide>
             <SwiperSlide>
               <img
-                className="w-auto h-auto object-cover"
+                className="w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                 src={clients8}
                 alt=""
               />
