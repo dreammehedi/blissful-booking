@@ -12,11 +12,11 @@ function SignIn() {
     console.log(e.target);
   };
   return (
-    <section className="bg-white dark:bg-gray-900">
-      <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+    <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
+      <div className="container flex items-center justify-center h-auto mx-auto">
         <form
           onSubmit={handleSignIn}
-          className=" ring-1 ring-slate-100 rounded-md hover:ring-primary my-transition p-8 w-full max-w-md"
+          className="ring-1 ring-slate-100 rounded-md hover:ring-primary my-transition p-8 w-full max-w-md"
         >
           {/* logo */}
           <Link to="/">
