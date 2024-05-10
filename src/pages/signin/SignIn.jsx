@@ -34,7 +34,7 @@ function SignIn() {
       });
   };
 
-  // handle googl sign in
+  // handle google sign in
   const handleGoogleSignIn = () => {
     loginWithGoogle()
       .then(() => {
@@ -110,14 +110,14 @@ function SignIn() {
               className="block w-full px-10 py-3 text-dark bg-white rounded-lg dark:bg-gray-900 dark:text-gray-300 ring-1 ring-slate-100 focus:ring-primary outline-none "
               placeholder="Enter Your Password..."
             />
-            <button
+            <div
               onClick={() => {
                 setShowPassword(!showPassword);
               }}
               className="text-xl text-dark absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer"
             >
               {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
-            </button>
+            </div>
           </div>
 
           <div className="mt-6">
