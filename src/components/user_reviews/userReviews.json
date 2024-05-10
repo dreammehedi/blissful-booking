@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "user": "John Doe",
+    "rating": 5,
+    "timestamp": "2024-05-09",
+    "content": "Excellent experience! The room was clean and spacious, and the staff were very friendly and accommodating."
+  },
+  {
+    "id": 2,
+    "user": "Jane Smith",
+    "rating": 4,
+    "timestamp": "2024-05-08",
+    "content": "Great service and amenities. The hotel is conveniently located near attractions and restaurants. Overall, a pleasant stay!"
+  },
+  {
+    "id": 3,
+    "user": "Alice Johnson",
+    "rating": 5,
+    "timestamp": "2024-05-07",
+    "content": "I absolutely loved my stay at this hotel. The room was cozy and well-appointed, and the breakfast buffet was delicious. Will definitely be coming back!"
+  }
+]
