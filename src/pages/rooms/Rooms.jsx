@@ -1,3 +1,4 @@
+import { FaFilterCircleDollar } from "react-icons/fa6";
 import RoomPagination from "../../components/pagination/RoomPagination";
 import RoomBanner from "../../components/room_banner/RoomBanner";
 import SectionTitle from "../../components/section_title/SectionTitle";
@@ -21,8 +22,10 @@ function Rooms() {
           <form className="max-w-sm ml-auto">
             <label
               htmlFor="countries"
-              className="block mb-2 text-xl font-medium text-primary dark:text-white"
+              className="flex items-center gap-2
+               mb-2 text-xl font-medium text-primary dark:text-white"
             >
+              <FaFilterCircleDollar className="text-xl"></FaFilterCircleDollar>{" "}
               Filter Price Range
             </label>
             <select
