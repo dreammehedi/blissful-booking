@@ -7,13 +7,13 @@ function Footer() {
     <>
       <footer className="bg-white dark:bg-gray-900">
         <div className="container pt-12 pb-8 mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-center text-center md:items-start lg:text-left ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-center text-center md:text-left md:items-start lg:text-left ">
             <div>
               <h2 className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
                 Pages
               </h2>
 
-              <ul className="flex flex-col items-center lg:items-start mt-5 space-y-2">
+              <ul className="flex flex-col items-center md:items-start mt-5 space-y-2">
                 <MenuContent></MenuContent>
               </ul>
             </div>
@@ -23,7 +23,7 @@ function Footer() {
                 Industries
               </p>
 
-              <div className="flex flex-col items-center lg:items-start mt-5 space-y-2">
+              <div className="flex flex-col items-center md:items-start mt-5 space-y-2">
                 <a
                   href="#"
                   className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
@@ -50,7 +50,7 @@ function Footer() {
                 Services
               </p>
 
-              <div className="flex flex-col items-center lg:items-start mt-5 space-y-2">
+              <div className="flex flex-col items-center md:items-start mt-5 space-y-2">
                 <a
                   href="#"
                   className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
@@ -77,7 +77,7 @@ function Footer() {
                 Contact Us
               </p>
 
-              <div className="flex flex-col items-center lg:items-start mt-5 space-y-2">
+              <div className="flex flex-col items-center md:items-start mt-5 space-y-2">
                 <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:text-blue-500">
                   +880 1716059182
                 </p>
