@@ -16,6 +16,35 @@ function Rooms() {
           description=" Discover the perfect accommodation for your stay from our selection of available rooms. Whether you're seeking a cozy retreat, a spacious suite, or something in between, we have options to suit every traveler's needs. Browse through our collection below and find the ideal room for your next getaway.."
         ></SectionTitle>
 
+        {/* room filter by price */}
+        <div className="container py-8 my:py-12 flex flex-col items-end text-right space-y-3 justify-end">
+          <form className="max-w-sm ml-auto">
+            <label
+              htmlFor="countries"
+              className="block mb-2 text-xl font-medium text-primary dark:text-white"
+            >
+              Filter Price Range
+            </label>
+            <select
+              id="countries"
+              className="bg-transparent ring-1 ring-dark text-dark text-sm rounded-lg outline-none focus:ring-primary block w-full p-2.5 "
+            >
+              <option disabled></option>
+              <option selected>Choose a Range</option>
+              <option disabled></option>
+              <option value="100">$ 100</option>
+              <option value="200">$ 200</option>
+              <option value="300">$ 300</option>
+              <option value="400">$ 400</option>
+              <option value="500">$ 500</option>
+              <option value="600">$ 600</option>
+              <option value="700">$ 700</option>
+              <option value="800">$ 800</option>
+              <option disabled></option>
+            </select>
+          </form>
+        </div>
+
         {/* available rooms */}
         <div className="py-8 md:py-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <RoomCart></RoomCart>
