@@ -4,21 +4,13 @@ function ContactUs() {
   return (
     <section className=" py-8 md:py-12 bg-white dark:bg-gray-900">
       <div className="container">
-        {/* <div>
-          <h1 className="mt-2 text-2xl font-semibold text-primary md:text-3xl dark:text-white">
-            Contact us
-          </h1>
-
-          <p className="mt-3 text-gray-500 dark:text-gray-400">{`Reach out to us for any inquiries, assistance, or feedback. Our dedicated team is here to ensure your experience with us is seamless and enjoyable. Whether you have questions about booking a room, special requests, or general inquiries about our hotel, we're ready to assist you. Contact us through the provided channels below and let us help you make your stay unforgettable.`}</p>
-        </div> */}
-
         <SectionTitle
           title="Contact Us"
           description="Reach out to us for any inquiries, assistance, or feedback. Our dedicated team is here to ensure your experience with us is seamless and enjoyable. Whether you have questions about booking a room, special requests, or general inquiries about our hotel, we're ready to assist you. Contact us through the provided channels below and let us help you make your stay unforgettable."
         ></SectionTitle>
         <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-            <div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl">
               <span className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -42,12 +34,12 @@ function ContactUs() {
               <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                 Our friendly team is here to help.
               </p>
-              <p className="mt-2 text-sm text-primary dark:text-primary">
+              <p className="mt-2 text-sm lg:max-w-[200px] lg:text-wrap lg:break-words text-primary dark:text-primary">
                 dreammehedihassan@gmail.com
               </p>
             </div>
 
-            <div>
+            <div className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl">
               <span className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -80,8 +72,7 @@ function ContactUs() {
                 Start new chat
               </p>
             </div>
-
-            <div>
+            <div className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl">
               <span className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +106,7 @@ function ContactUs() {
               </p>
             </div>
 
-            <div>
+            <div className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl">
               <span className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
