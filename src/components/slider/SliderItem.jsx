@@ -19,6 +19,6 @@ SliderItem.propTypes = {
   bg: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   des: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 export default SliderItem;

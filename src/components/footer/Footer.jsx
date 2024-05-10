@@ -6,7 +6,7 @@ function Footer() {
   return (
     <>
       <footer className="bg-white dark:bg-gray-900">
-        <div className="container pt-12 mx-auto">
+        <div className="container pt-12 pb-8 mx-auto">
           <div className="md:flex md:-mx-3 md:items-center md:justify-between">
             <h1 className="text-xl font-semibold tracking-tight text-gray-800 md:mx-3 xl:text-2xl dark:text-white">
               Subscribe our newsletter to get update.
