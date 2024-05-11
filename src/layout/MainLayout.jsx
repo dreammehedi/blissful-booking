@@ -1,12 +1,26 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Flip, ToastContainer } from "react-toastify";
 import ClickToTop from "../components/click_to_top/ClickToTop";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
-
 // react toastify css
+import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
+
 function MainLayout() {
+  // location
+  const { pathname } = useLocation();
+
+  // change route scroll to top automatically
+  useEffect(() => {
+    const scrollTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+    scrollTop();
+  }, [pathname]);
   return (
     <>
       <ToastContainer
