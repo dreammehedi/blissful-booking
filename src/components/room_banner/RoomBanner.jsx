@@ -1,10 +1,12 @@
-import roomBannerBg from "../../assets/roomBannerBg.jpg";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-function RoomBanner() {
+function RoomBanner({ firstRoomBanner }) {
+  const { _id, name, image_url, description } = firstRoomBanner;
   return (
     <section
       style={{
-        background: `linear-gradient(to right, rgb(2 2 2 / 80%), rgb(2 2 63 / 43%)),  url(${roomBannerBg})`,
+        background: `linear-gradient(to right, rgb(2 2 2 / 80%), rgb(2 2 63 / 43%)),  url(${image_url})`,
       }}
       className="w-full !bg-no-repeat !bg-center !bg-cover"
     >
@@ -15,24 +17,18 @@ function RoomBanner() {
         <h1 className="text-2xl font-semibold font-poppins text-white">
           Discover Your Perfect Retreat
         </h1>
-        <h3 className="text-primary text-3xl font-bold font-roboto">
-          Explore Our Range of Available Rooms
-        </h3>
-        <p className="text-slate-200 md:max-w-3xl">
-          {`Welcome to our available rooms page, where your perfect retreat
-          awaits. Dive into our diverse selection of accommodations, each
-          designed to provide comfort, convenience, and a touch of luxury during
-          your stay. Whether you're dreaming of a cozy hideaway or a spacious
-          suite with stunning views, we have something to suit every traveler's
-          preferences. Start your journey towards relaxation and rejuvenation by
-          exploring our range of available rooms today.`}
-        </p>
-        <button className="mx-auto px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl ">
-          View Rooms
-        </button>
+        <h3 className="text-primary text-3xl font-bold font-roboto">{name}</h3>
+        <p className="text-slate-200 md:max-w-3xl">{description}</p>
+        <Link to={`/room-detailes/${_id}`}>
+          <button className="mx-auto px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl ">
+            View Rooms
+          </button>
+        </Link>
       </div>
     </section>
   );
 }
-
+RoomBanner.propTypes = {
+  firstRoomBanner: PropTypes.object.isRequired,
+};
 export default RoomBanner;
