@@ -8,7 +8,6 @@ import SectionTitle from "../../components/section_title/SectionTitle";
 function RoomDetailes() {
   // get room detailes data
   const roomDetailesData = useLoaderData();
-  console.log(roomDetailesData);
 
   const {
     name,

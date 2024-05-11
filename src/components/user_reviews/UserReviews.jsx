@@ -8,24 +8,35 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import { Autoplay, Navigation } from "swiper/modules";
+import Loader from "../loader/Loader";
 import UserReviewCart from "./UserReviewCart";
 
 function UserReviews() {
   // user revies data get
-  const [userReviews, setUserReviews] = useState([]);
-  useEffect(() => {
-    const getUserReviewsData = async () => {
-      const response = await axios.get("http://localhost:5000/userReviews");
-      const data = await response.data;
-      setUserReviews(data);
-    };
+  const getUserReviews = async () => {
+    const response = await axios.get("http://localhost:5000/userReviews");
+    const data = await response.data;
+    return data;
+  };
+  // react query data get
+  const { isPending, isError, data, error } = useQuery({
+    queryKey: ["userReviews"],
+    queryFn: getUserReviews,
+  });
 
-    getUserReviewsData();
-  }, []);
-
+  if (isPending) {
+    return <Loader></Loader>;
+  }
+  if (isError) {
+    return (
+      <span className="flex justify-center items-center py-8 text-black font-bold text-3xl">
+        Error: {error.message}
+      </span>
+    );
+  }
   return (
     <section className="py-8 md:py-12">
       {/* section title */}
@@ -59,7 +70,7 @@ function UserReviews() {
           }}
           className="py-8"
         >
-          {userReviews.map((review) => {
+          {data.map((review) => {
             return (
               <SwiperSlide key={review._id} className="p-4">
                 <UserReviewCart review={review}></UserReviewCart>
