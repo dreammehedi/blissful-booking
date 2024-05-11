@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -56,17 +57,44 @@ function AuthProvider({ children }) {
 
   // user state set in user
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
+
+      if (currentUser) {
+        setUser(currentUser);
         setUserLoading(false);
+
+        // get a token from server
+        axios
+          .post("http://localhost:5000/signin", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       } else {
         setUser(null);
         setUserLoading(false);
+
+        // user sign out cookie clear
+        axios
+          .post("http://localhost:5000/signout", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     });
     return () => unsubscribe;
-  }, []);
+  }, [user?.email]);
 
   // all function provide to auth context value
   const authInfo = {
