@@ -21,7 +21,7 @@ function SliderItem({ video, title, bg, des, children }) {
           autoPlay
           loop
           muted
-          className="absolute z-10 w-auto min-w-full min-h-full "
+          className="hidden lg:inline-block absolute z-10 w-auto !min-w-full !min-h-full "
         >
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
