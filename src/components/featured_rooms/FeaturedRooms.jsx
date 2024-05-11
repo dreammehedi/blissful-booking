@@ -1,7 +1,20 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import SectionTitle from "../section_title/SectionTitle";
 import FeaturedRoomCart from "./FeaturedRoomCart";
 
 function FeaturedRooms() {
+  const [featuredRooms, setFeaturedRooms] = useState([]);
+  useEffect(() => {
+    const getBooksData = async () => {
+      const response = await axios.get("http://localhost:5000/rooms");
+      const data = await response.data;
+      setFeaturedRooms(data);
+    };
+
+    getBooksData();
+  }, []);
+
   return (
     <section className="py-8 md:py-12">
       {/* section title */}
@@ -12,11 +25,14 @@ function FeaturedRooms() {
 
       {/* featured room section */}
       <div className="py-8 md:py-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        <FeaturedRoomCart></FeaturedRoomCart>
-        <FeaturedRoomCart></FeaturedRoomCart>
-        <FeaturedRoomCart></FeaturedRoomCart>
-        <FeaturedRoomCart></FeaturedRoomCart>
-        <FeaturedRoomCart></FeaturedRoomCart>
+        {featuredRooms.map((featuredRoom) => {
+          return (
+            <FeaturedRoomCart
+              key={featuredRoom._id}
+              featuredRoom={featuredRoom}
+            ></FeaturedRoomCart>
+          );
+        })}
       </div>
     </section>
   );

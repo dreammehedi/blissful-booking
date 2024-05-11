@@ -8,16 +8,21 @@ import { MdBalcony, MdBreakfastDining, MdIron } from "react-icons/md";
 import { PiBowlSteamFill, PiHairDryerFill } from "react-icons/pi";
 import { SlSizeFullscreen } from "react-icons/sl";
 import { TbAirConditioning } from "react-icons/tb";
+import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../components/section_title/SectionTitle";
 
 function RoomDetailes() {
+  // get room detailes data
+  const roomDetailesData = useLoaderData();
+  console.log(roomDetailesData);
+  const { name, description, image_url, price_per_night } = roomDetailesData;
   return (
     <section className="py-8 md:py-12">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {/* room image */}
         <img
           className="w-full h-auto min-h-[400px] object-cover"
-          src="https://pura.uxper.co/hostel/wp-content/uploads/sites/3/2021/06/r21.webp"
+          src={image_url}
           alt=""
         />
 
@@ -25,17 +30,11 @@ function RoomDetailes() {
         <div className="group flex flex-col space-y-4 ring-1 ring-slate-100 p-6 md:p-8 my-transition hover:ring-primary">
           <div className="flex flex-col space-y-3">
             <h4 className="text-primary font-semibold font-roboto">
-              $100 Per Night
+              ${price_per_night} Per Night
             </h4>
-            <h1 className="text-dark font-bold text-3xl">Junior Suite</h1>
+            <h1 className="text-dark font-bold text-3xl">{name}</h1>
 
-            <p className="text-slate-400">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using ‘Content here,
-              content here’, making it look like readable English.
-            </p>
+            <p className="text-slate-400">{description}</p>
           </div>
           <div className="grid grid-cols-4 gap-4 group-hover:*:text-primary">
             <div className="flex items-center gap-1 text-slate-500 text-xl">

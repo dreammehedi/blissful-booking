@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import AboutUs from "../pages/about_us/AboutUs";
@@ -33,8 +34,15 @@ const router = createBrowserRouter([
         element: <Rooms></Rooms>,
       },
       {
-        path: "/room-detailes",
+        path: "/room-detailes/:id",
         element: <RoomDetailes></RoomDetailes>,
+        loader: async ({ params }) => {
+          const response = await axios.get(
+            `http://localhost:5000/room-detailes/${params.id}`
+          );
+          const data = await response.data;
+          return data;
+        },
       },
       {
         path: "/my-bookings",
