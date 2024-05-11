@@ -1,11 +1,17 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
 import GoogleLogin from "../../components/social_login/GoogleLogin";
 
 function SignUp() {
+  // location
+  const { state } = useLocation();
+
+  // navigate after login
+  const navigate = useNavigate();
+
   // auth functionality
   const { createNewUser, updateUserProfile } = useContext(AuthContext);
 
@@ -56,6 +62,8 @@ function SignUp() {
       updateUserProfile(userName, profilePhoto)
         .then(() => {
           toast.success("Account Created!");
+          navigate(state ? state : "/");
+
           form.reset();
         })
         .catch((err) => {

@@ -1,11 +1,17 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
 import GoogleLogin from "../../components/social_login/GoogleLogin";
 
 function SignIn() {
+  // location
+  const { state } = useLocation();
+
+  // navigate after login
+  const navigate = useNavigate();
+
   // auth functionality
   const { loginWithEmailAndPassword } = useContext(AuthContext);
 
@@ -28,6 +34,7 @@ function SignIn() {
     loginWithEmailAndPassword()
       .then(() => {
         toast.success("Sign In Success.");
+        navigate(state ? state : "/");
       })
       .catch(() => {
         toast.error("Sign In Failed.");

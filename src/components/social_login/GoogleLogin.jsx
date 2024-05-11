@@ -1,17 +1,24 @@
 import { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
 
 function GoogleLogin() {
+  // location
+  const { state } = useLocation();
+
+  // navigate after login
+  const navigate = useNavigate();
+
   // auth functionality
-  const { loginWithGoogle } =
-    useContext(AuthContext);
+  const { loginWithGoogle } = useContext(AuthContext);
 
   // handle google sign in
   const handleGoogleSignIn = () => {
     loginWithGoogle()
       .then(() => {
         toast.success("Google Sign In Success.");
+        navigate(state ? state : "/");
       })
       .catch(() => {
         toast.error("Google Sign In Failed.");

@@ -1,0 +1,816 @@
+[
+  {
+    "id": 1,
+    "name": "Seaside Resort",
+    "location": "Beachfront",
+    "rating": 4,
+    "description": "Escape to paradise and enjoy breathtaking ocean views from our beachfront resort.",
+    "amenities": [
+      "Private Beach Access",
+      "Poolside Bar",
+      "Water Sports",
+      "Spa",
+      "Restaurant"
+    ],
+    "price_per_night": 300,
+    "currency": "USD",
+    "image_url": "https://i.ibb.co/tHVC5h7/hotel-building-concept-illustration-114360-12959.jpg",
+    "available_rooms": 15,
+    "check_in_time": "15:00",
+    "check_out_time": "11:00",
+    "room_rules": {
+      "check_in": "After 2:00 PM",
+      "check_out": "11:00 AM",
+      "self_check_in": true,
+      "smoking": false,
+      "pets": false
+    },
+    "facilities": [
+      {
+        "name": "Air conditioner",
+        "description": "Climate control system for adjusting room temperature."
+      },
+      {
+        "name": "Wifi Access",
+        "description": "Wireless internet connection available in the room."
+      },
+      {
+        "name": "Telephone",
+        "description": "Telephone service provided for in-room communication."
+      },
+      {
+        "name": "Refrigerator",
+        "description": "Mini refrigerator for storing food and beverages."
+      },
+      {
+        "name": "Ironing Board",
+        "description": "Ironing board available for guests to iron their clothes."
+      },
+      {
+        "name": "Saving Safe",
+        "description": "Safe deposit box for securing valuable belongings."
+      },
+      {
+        "name": "Towel Warmer",
+        "description": "Device for warming towels, providing added comfort."
+      },
+      {
+        "name": "Flat Screen TV",
+        "description": "Modern flat-screen television for entertainment purposes."
+      },
+      {
+        "name": "Balcony or Terrace",
+        "description": "Outdoor space attached to the room for relaxation and enjoying views."
+      },
+      {
+        "name": "Kettle Tea",
+        "description": "Electric kettle provided for making tea or coffee."
+      },
+      {
+        "name": "Hairdryer",
+        "description": "Hairdryer available in the room for guests' convenience."
+      },
+      {
+        "name": "Breakfast Included",
+        "description": "Complimentary breakfast provided with the room booking."
+      }
+    ],
+    "available": true,
+    "special_offers": [
+      {
+        "name": "Early Bird Discount",
+        "description": "Book your stay in advance and receive a discount on the nightly rate.",
+        "validity_period": {
+          "start_date": "2024-06-01",
+          "end_date": "2024-08-31"
+        },
+        "terms_and_conditions": "Valid for bookings made at least 14 days in advance. Subject to availability."
+      },
+      {
+        "name": "Weekend Getaway Package",
+        "description": "Enjoy a special package including breakfast and late checkout for weekend stays.",
+        "validity_period": {
+          "start_date": "2024-05-01",
+          "end_date": "2024-12-31"
+        },
+        "terms_and_conditions": "Valid for Friday and Saturday night stays only. Minimum 2-night stay required."
+      },
+      {
+        "name": "Family Vacation Deal",
+        "description": "Bring your family and save with discounted rates for children and complimentary meals.",
+        "validity_period": {
+          "start_date": "2024-04-01",
+          "end_date": "2024-09-30"
+        },
+        "terms_and_conditions": "Children must be accompanied by paying adults. Maximum 2 children per room."
+      }
+    ],
+    "property_details": {
+      "size": "35m",
+      "bedrooms": 2,
+      "beds": "3 Beds",
+      "bathrooms": "2 Bath",
+      "guests": 5
+    }
+  },
+  {
+    "id": 2,
+    "name": "Mountain View Lodge",
+    "location": "Mountain",
+    "rating": 4.5,
+    "description": "Experience the tranquility of the mountains and cozy up in our rustic lodge.",
+    "amenities": ["Scenic Views", "Hiking Trails", "Fireplace", "Restaurant"],
+    "price_per_night": 250,
+    "currency": "USD",
+    "image_url": "https://i.ibb.co/nkRG9cL/mountain-landscape-nature-view-vector-illustration-60331-361.jpg",
+    "available_rooms": 10,
+    "check_in_time": "14:00",
+    "check_out_time": "12:00",
+    "room_rules": {
+      "check_in": "After 2:00 PM",
+      "check_out": "12:00 PM",
+      "self_check_in": true,
+      "smoking": false,
+      "pets": true
+    },
+    "facilities": [
+      {
+        "name": "Heating",
+        "description": "Central heating system to keep the room warm during colder months."
+      },
+      {
+        "name": "Wifi Access",
+        "description": "Wireless internet connection available in the room."
+      },
+      {
+        "name": "Fireplace",
+        "description": "Cozy fireplace for warmth and ambiance."
+      },
+      {
+        "name": "Television",
+        "description": "Television provided for entertainment."
+      },
+      {
+        "name": "Kitchenette",
+        "description": "Basic kitchen facilities available for light cooking."
+      },
+      {
+        "name": "Ironing Facilities",
+        "description": "Iron and ironing board provided for guests' convenience."
+      },
+      {
+        "name": "Free Parking",
+        "description": "Complimentary parking available for guests."
+      },
+      {
+        "name": "Breakfast Included",
+        "description": "Complimentary breakfast provided with the room booking."
+      }
+    ],
+    "available": true,
+    "special_offers": [
+      {
+        "name": "Stay 3 Nights, Pay for 2",
+        "description": "Extend your mountain getaway with an extra night on us.",
+        "validity_period": {
+          "start_date": "2024-05-01",
+          "end_date": "2024-12-20"
+        },
+        "terms_and_conditions": "Offer valid for stays of 3 consecutive nights. Subject to availability."
+      },
+      {
+        "name": "Hiking Adventure Package",
+        "description": "Embark on a guided hiking adventure with our exclusive package.",
+        "validity_period": {
+          "start_date": "2024-06-01",
+          "end_date": "2024-09-30"
+        },
+        "terms_and_conditions": "Advance booking required. Minimum 2 guests per booking."
+      }
+    ],
+    "property_details": {
+      "size": "45m",
+      "bedrooms": 1,
+      "beds": "2 Beds",
+      "bathrooms": "1 Bath",
+      "guests": 3
+    }
+  },
+  {
+    "id": 3,
+    "name": "City Lights Hotel",
+    "location": "City Center",
+    "rating": 4,
+    "description": "Immerse yourself in the vibrant energy of the city from our centrally located hotel.",
+    "amenities": ["City Views", "Fitness Center", "Rooftop Bar", "Restaurant"],
+    "price_per_night": 200,
+    "currency": "USD",
+    "image_url": "https://i.ibb.co/BVHZM0b/modern-city-urban-architecture-building-night-cityscape-vector-illustration-75249-9280.jpg",
+    "available_rooms": 20,
+    "check_in_time": "15:00",
+    "check_out_time": "11:00",
+    "room_rules": {
+      "check_in": "After 3:00 PM",
+      "check_out": "11:00 AM",
+      "self_check_in": true,
+      "smoking": false,
+      "pets": false
+    },
+    "facilities": [
+      {
+        "name": "Air Conditioning",
+        "description": "Climate control system for adjusting room temperature."
+      },
+      {
+        "name": "Wifi Access",
+        "description": "Wireless internet connection available in the room."
+      },
+      {
+        "name": "Television",
+        "description": "Flat-screen television provided for entertainment."
+      },
+      {
+        "name": "Mini Bar",
+        "description": "Mini refrigerator stocked with beverages and snacks."
+      },
+      {
+        "name": "Work Desk",
+        "description": "Desk space provided for guests to work or study."
+      },
+      {
+        "name": "Room Service",
+        "description": "24-hour room service available for added convenience."
+      },
+      {
+        "name": "Gym",
+        "description": "Fully equipped fitness center for guests' use."
+      },
+      {
+        "name": "Breakfast Included",
+        "description": "Complimentary breakfast provided with the room booking."
+      }
+    ],
+    "available": true,
+    "special_offers": [
+      {
+        "name": "Weekend Special",
+        "description": "Enjoy discounted rates for weekend stays at our city hotel.",
+        "validity_period": {
+          "start_date": "2024-05-01",
+          "end_date": "2024-12-31"
+        },
+        "terms_and_conditions": "Valid for Friday and Saturday night stays only. Subject to availability."
+      },
+      {
+        "name": "Business Traveler Package",
+        "description": "Exclusive package tailored for business travelers with complimentary amenities.",
+        "validity_period": {
+          "start_date": "2024-04-01",
+          "end_date": "2024-09-30"
+        },
+        "terms_and_conditions": "Proof of business travel required upon check-in."
+      }
+    ],
+    "property_details": {
+      "size": "30m",
+      "bedrooms": 1,
+      "beds": "1 Bed",
+      "bathrooms": "1 Bath",
+      "guests": 2
+    }
+  },
+  {
+    "id": 3,
+    "name": "Mountain Retreat Lodge",
+    "location": "Alpine Mountains",
+    "rating": 4,
+    "description": "Escape to the serene beauty of the Alpine Mountains and experience nature at its finest.",
+    "amenities": [
+      "Hiking Trails",
+      "Skiing",
+      "Mountain View Rooms",
+      "Campfire Nights",
+      "Restaurant & Bar"
+    ],
+    "price_per_night": 250,
+    "currency": "USD",
+    "image_url": "https://i.ibb.co/dWf2xYp/mountain-lodge.jpg",
+    "available_rooms": 20,
+    "check_in_time": "15:00",
+    "check_out_time": "11:00",
+    "room_rules": {
+      "check_in": "After 3:00 PM",
+      "check_out": "Before 11:00 AM",
+      "self_check_in": true,
+      "smoking": false,
+      "pets": true
+    },
+    "facilities": [
+      {
+        "name": "Fireplace",
+        "description": "Cozy up by the fireplace after a day of adventure."
+      },
+      {
+        "name": "Mountain View Terrace",
+        "description": "Enjoy stunning vistas from your private terrace."
+      },
+      {
+        "name": "Ski Equipment Rental",
+        "description": "Rent ski gear conveniently from the lodge."
+      },
+      {
+        "name": "Board Games",
+        "description": "Fun entertainment for the whole family."
+      },
+      {
+        "name": "Outdoor Jacuzzi",
+        "description": "Relax sore muscles in our outdoor hot tub."
+      },
+      {
+        "name": "Pet-Friendly Rooms",
+        "description": "Selected rooms available for guests with pets."
+      },
+      {
+        "name": "Free Parking",
+        "description": "Complimentary parking for guests' convenience."
+      },
+      {
+        "name": "Adventure Concierge",
+        "description": "Expert guidance for outdoor activities and excursions."
+      }
+    ],
+    "available": true,
+    "special_offers": [
+      {
+        "name": "Winter Wonderland Package",
+        "description": "Experience the magic of winter with discounted rates and complimentary hot cocoa.",
+        "validity_period": {
+          "start_date": "2024-12-01",
+          "end_date": "2025-02-28"
+        },
+        "terms_and_conditions": "Minimum 2-night stay required. Subject to snow conditions."
+      },
+      {
+        "name": "Family Adventure Deal",
+        "description": "Create lasting memories with special rates for families and kids' activity packs.",
+        "validity_period": {
+          "start_date": "2024-06-01",
+          "end_date": "2024-08-31"
+        },
+        "terms_and_conditions": "Valid for families with children under 12. Maximum 2 children per room."
+      }
+    ],
+    "property_details": {
+      "size": "40m",
+      "bedrooms": 2,
+      "beds": "Twin/Double Beds",
+      "bathrooms": "1 Bath",
+      "guests": 4
+    }
+  },
+  {
+    "id": 4,
+    "name": "Sunset Beach Resort",
+    "location": "Tropical Paradise",
+    "rating": 5,
+    "description": "Relax and unwind at our luxurious beachfront resort nestled in a tropical paradise.",
+    "amenities": [
+      "Private Beach",
+      "Infinity Pool",
+      "Gourmet Dining",
+      "Spa & Wellness",
+      "Beach Bar"
+    ],
+    "price_per_night": 400,
+    "currency": "USD",
+    "image_url": "https://i.ibb.co/Qnt3RvF/beach-resort.jpg",
+    "available_rooms": 15,
+    "check_in_time": "14:00",
+    "check_out_time": "12:00",
+    "room_rules": {
+      "check_in": "After 2:00 PM",
+      "check_out": "Before 12:00 PM",
+      "self_check_in": true,
+      "smoking": false,
+      "pets": false
+    },
+    "facilities": [
+      {
+        "name": "Beachfront Villa",
+        "description": "Stay in our exclusive beachfront villa with stunning ocean views."
+      },
+      {
+        "name": "Poolside Cabanas",
+        "description": "Relax in luxury with our poolside cabanas."
+      },
+      {
+        "name": "Beach Bonfire",
+        "description": "Enjoy a cozy bonfire on the beach under the starry sky."
+      },
+      {
+        "name": "Sunset Cruises",
+        "description": "Embark on a romantic sunset cruise along the coastline."
+      },
+      {
+        "name": "Beach Yoga Classes",
+        "description": "Start your day with a rejuvenating yoga session on the beach."
+      },
+      {
+        "name": "Kids Club",
+        "description": "Keep the little ones entertained with fun activities."
+      },
+      {
+        "name": "24/7 Room Service",
+        "description": "Round-the-clock service for all your needs."
+      },
+      {
+        "name": "Complimentary Snorkeling Gear",
+        "description": "Explore the underwater world with our free snorkeling gear."
+      }
+    ],
+    "available": true,
+    "special_offers": [
+      {
+        "name": "Honeymoon Package",
+        "description": "Celebrate your love with a romantic getaway, including spa treatments and candlelit dinners.",
+        "validity_period": {
+          "start_date": "2024-09-01",
+          "end_date": "2024-12-31"
+        },
+        "terms_and_conditions": "Valid for couples on honeymoon. Proof of marriage required."
+      },
+      {
+        "name": "Stay Longer, Save More",
+        "description": "Extend your stay and enjoy discounted rates for additional nights.",
+        "validity_period": {
+          "start_date": "2024-06-01",
+          "end_date": "2024-12-31"
+        },
+        "terms_and_conditions": "Minimum 3-night stay required. Subject to availability."
+      }
+    ],
+    "property_details": {
+      "size": "60m",
+      "bedrooms": 3,
+      "beds": "King Size Beds",
+      "bathrooms": "2 Baths",
+      "guests": 6
+    }
+  },
+  {
+    "id": 5,
+    "name": "City Lights Hotel",
+    "location": "Downtown Metropolis",
+    "rating": 4.5,
+    "description": "Experience the vibrant energy of downtown living at our modern urban hotel.",
+    "amenities": [
+      "City View Rooms",
+      "Rooftop Bar",
+      "Fitness Center",
+      "Business Center",
+      "Valet Parking"
+    ],
+    "price_per_night": 200,
+    "currency": "USD",
+    "image_url": "https://i.ibb.co/qj5v54F/city-hotel.jpg",
+    "available_rooms": 30,
+    "check_in_time": "15:00",
+    "check_out_time": "12:00",
+    "room_rules": {
+      "check_in": "After 3:00 PM",
+      "check_out": "Before 12:00 PM",
+      "self_check_in": true,
+      "smoking": false,
+      "pets": false
+    },
+    "facilities": [
+      {
+        "name": "City View Suite",
+        "description": "Enjoy panoramic views of the city skyline from your suite."
+      },
+      {
+        "name": "Conference Rooms",
+        "description": "State-of-the-art meeting rooms for business events."
+      },
+      {
+        "name": "24-Hour Concierge",
+        "description": "Assistance with reservations, transportation, and more."
+      },
+      {
+        "name": "Gourmet Restaurant",
+        "description": "Savor delectable dishes prepared by our award-winning chefs."
+      },
+      {
+        "name": "Complimentary Wi-Fi",
+        "description": "Stay connected with high-speed internet access throughout the hotel."
+      },
+      {
+        "name": "Luxury Spa",
+        "description": "Indulge in pampering treatments and massages at our spa."
+      },
+      {
+        "name": "Petite Fitness Center",
+        "description": "Stay fit with our compact yet well-equipped fitness center."
+      },
+      {
+        "name": "Complimentary Breakfast",
+        "description": "Start your day with a delicious breakfast buffet."
+      }
+    ],
+    "available": true,
+    "special_offers": [
+      {
+        "name": "Weekend Escape Package",
+        "description": "Unwind with a weekend getaway including late checkout and complimentary breakfast.",
+        "validity_period": {
+          "start_date": "2024-05-01",
+          "end_date": "2024-12-31"
+        },
+        "terms_and_conditions": "Valid for Friday and Saturday night stays. Subject to availability."
+      },
+      {
+        "name": "Business Traveler Deal",
+        "description": "Enjoy special rates and exclusive perks for corporate travelers.",
+        "validity_period": {
+          "start_date": "2024-04-01",
+          "end_date": "2024-09-30"
+        },
+        "terms_and_conditions": "Valid for guests traveling on business. Proof of business travel may be required."
+      }
+    ],
+    "property_details": {
+      "size": "25m",
+      "bedrooms": 1,
+      "beds": "Queen Size Bed",
+      "bathrooms": "1 Bath",
+      "guests": 2
+    }
+  },
+  {
+    "id": 6,
+    "name": "Tranquil Lakeside Retreat",
+    "location": "Lakefront Oasis",
+    "rating": 4.8,
+    "description": "Escape to a peaceful lakeside retreat and immerse yourself in nature's tranquility.",
+    "amenities": [
+      "Lake View Cottages",
+      "Fishing Docks",
+      "Nature Trails",
+      "Campfire Pits",
+      "Boat Rentals"
+    ],
+    "price_per_night": 300,
+    "currency": "USD",
+    "image_url": "https://i.ibb.co/zrKN2FT/lakeside-retreat.jpg",
+    "available_rooms": 10,
+    "check_in_time": "14:00",
+    "check_out_time": "11:00",
+    "room_rules": {
+      "check_in": "After 2:00 PM",
+      "check_out": "Before 11:00 AM",
+      "self_check_in": true,
+      "smoking": false,
+      "pets": true
+    },
+    "facilities": [
+      {
+        "name": "Lakefront Cabin",
+        "description": "Stay in a cozy cabin with stunning views of the lake."
+      },
+      {
+        "name": "Private Dock",
+        "description": "Access your own private dock for fishing or boating."
+      },
+      {
+        "name": "Hiking Trails",
+        "description": "Explore scenic hiking trails amidst nature's beauty."
+      },
+      {
+        "name": "Outdoor BBQ Area",
+        "description": "Enjoy outdoor grilling with friends and family."
+      },
+      {
+        "name": "Campfire Circle",
+        "description": "Gather around the campfire for stories and s'mores."
+      },
+      {
+        "name": "Pet-Friendly Accommodation",
+        "description": "Selected cabins available for guests with pets."
+      },
+      {
+        "name": "Free Parking",
+        "description": "Complimentary parking for guests' convenience."
+      },
+      {
+        "name": "Picnic Areas",
+        "description": "Relax and picnic by the lake with our designated areas."
+      }
+    ],
+    "available": true,
+    "special_offers": [
+      {
+        "name": "Nature Lover's Package",
+        "description": "Immerse yourself in nature with guided hikes and wildlife tours.",
+        "validity_period": {
+          "start_date": "2024-06-01",
+          "end_date": "2024-08-31"
+        },
+        "terms_and_conditions": "Subject to availability. Advance booking required."
+      },
+      {
+        "name": "Romantic Getaway Deal",
+        "description": "Surprise your loved one with a romantic escape including champagne and chocolate.",
+        "validity_period": {
+          "start_date": "2024-09-01",
+          "end_date": "2024-12-31"
+        },
+        "terms_and_conditions": "Valid for couples. Minimum 2-night stay required."
+      }
+    ],
+    "property_details": {
+      "size": "50m",
+      "bedrooms": 1,
+      "beds": "Queen Size Bed",
+      "bathrooms": "1 Bath",
+      "guests": 2
+    }
+  },
+  {
+    "id": 7,
+    "name": "Grand Palace Hotel",
+    "location": "Historic City Center",
+    "rating": 4.7,
+    "description": "Experience luxury and elegance in the heart of the historic city center.",
+    "amenities": [
+      "Luxury Suites",
+      "Fine Dining Restaurant",
+      "Spa & Wellness Center",
+      "Concierge Service",
+      "Ballrooms"
+    ],
+    "price_per_night": 500,
+    "currency": "USD",
+    "image_url": "https://i.ibb.co/KLjmbnC/grand-palace-hotel.jpg",
+    "available_rooms": 25,
+    "check_in_time": "15:00",
+    "check_out_time": "12:00",
+    "room_rules": {
+      "check_in": "After 3:00 PM",
+      "check_out": "Before 12:00 PM",
+      "self_check_in": false,
+      "smoking": false,
+      "pets": false
+    },
+    "facilities": [
+      {
+        "name": "Presidential Suite",
+        "description": "Indulge in opulent luxury in our exclusive presidential suite."
+      },
+      {
+        "name": "Fine Dining Restaurant",
+        "description": "Savor exquisite culinary creations prepared by our world-class chefs."
+      },
+      {
+        "name": "Rooftop Terrace",
+        "description": "Enjoy panoramic views of the city skyline from our rooftop terrace."
+      },
+      {
+        "name": "Spa & Wellness Center",
+        "description": "Relax and rejuvenate with a range of spa treatments and facilities."
+      },
+      {
+        "name": "Concierge Service",
+        "description": "Personalized assistance for all your needs, from restaurant reservations to sightseeing tours."
+      },
+      {
+        "name": "Grand Ballrooms",
+        "description": "Host grand events and celebrations in our elegant ballrooms."
+      },
+      {
+        "name": "Valet Parking",
+        "description": "Convenient valet parking service for guests' vehicles."
+      },
+      {
+        "name": "24-Hour Room Service",
+        "description": "Round-the-clock service for in-room dining and requests."
+      }
+    ],
+    "available": true,
+    "special_offers": [
+      {
+        "name": "Suite Romance Package",
+        "description": "Celebrate love and romance with champagne, roses, and a romantic dinner for two.",
+        "validity_period": {
+          "start_date": "2024-07-01",
+          "end_date": "2024-12-31"
+        },
+        "terms_and_conditions": "Valid for couples. Advance booking required."
+      },
+      {
+        "name": "Weekend Getaway Special",
+        "description": "Enjoy a weekend escape with discounted rates and complimentary breakfast.",
+        "validity_period": {
+          "start_date": "2024-05-01",
+          "end_date": "2024-12-31"
+        },
+        "terms_and_conditions": "Valid for Friday and Saturday night stays. Subject to availability."
+      }
+    ],
+    "property_details": {
+      "size": "65m",
+      "bedrooms": 1,
+      "beds": "King Size Bed",
+      "bathrooms": "1 Ensuite Bathroom",
+      "guests": 2
+    }
+  },
+  {
+    "id": 8,
+    "name": "Serenity Spa Resort",
+    "location": "Idyllic Countryside",
+    "rating": 4.9,
+    "description": "Retreat to a sanctuary of relaxation and rejuvenation amidst serene countryside landscapes.",
+    "amenities": [
+      "Luxury Spa",
+      "Yoga Retreats",
+      "Outdoor Pool",
+      "Organic Farm-to-Table Dining",
+      "Hiking Trails"
+    ],
+    "price_per_night": 350,
+    "currency": "USD",
+    "image_url": "https://i.ibb.co/QN08HxT/spa-resort.jpg",
+    "available_rooms": 12,
+    "check_in_time": "14:00",
+    "check_out_time": "11:00",
+    "room_rules": {
+      "check_in": "After 2:00 PM",
+      "check_out": "Before 11:00 AM",
+      "self_check_in": true,
+      "smoking": false,
+      "pets": false
+    },
+    "facilities": [
+      {
+        "name": "Luxury Spa Retreat",
+        "description": "Indulge in a range of spa treatments and wellness programs."
+      },
+      {
+        "name": "Yoga & Meditation Pavilion",
+        "description": "Find inner peace and balance with daily yoga and meditation sessions."
+      },
+      {
+        "name": "Outdoor Pool & Jacuzzi",
+        "description": "Relax and unwind in our outdoor pool and rejuvenating jacuzzi."
+      },
+      {
+        "name": "Organic Farm-to-Table Dining",
+        "description": "Savor fresh, locally sourced cuisine at our organic restaurant."
+      },
+      {
+        "name": "Hiking & Nature Trails",
+        "description": "Explore scenic trails and discover the natural beauty of the countryside."
+      },
+      {
+        "name": "Fitness Center",
+        "description": "Stay active with our fully equipped fitness center."
+      },
+      {
+        "name": "Holistic Wellness Workshops",
+        "description": "Participate in workshops focused on holistic health and wellbeing."
+      },
+      {
+        "name": "Complimentary Wi-Fi",
+        "description": "Stay connected with complimentary high-speed Wi-Fi throughout the resort."
+      }
+    ],
+    "available": true,
+    "special_offers": [
+      {
+        "name": "Spa Retreat Package",
+        "description": "Embark on a journey of relaxation with spa treatments, yoga sessions, and healthy meals.",
+        "validity_period": {
+          "start_date": "2024-06-01",
+          "end_date": "2024-08-31"
+        },
+        "terms_and_conditions": "Subject to availability. Advance booking required."
+      },
+      {
+        "name": "Midweek Escapes",
+        "description": "Enjoy discounted rates for midweek stays and additional wellness activities.",
+        "validity_period": {
+          "start_date": "2024-05-01",
+          "end_date": "2024-12-31"
+        },
+        "terms_and_conditions": "Valid for stays from Sunday to Thursday. Subject to availability."
+      }
+    ],
+    "property_details": {
+      "size": "55m",
+      "bedrooms": 1,
+      "beds": "King Size Bed",
+      "bathrooms": "1 Ensuite Bathroom",
+      "guests": 2
+    }
+  }
+]
