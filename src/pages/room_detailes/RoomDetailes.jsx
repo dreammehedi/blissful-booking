@@ -52,7 +52,7 @@ function RoomDetailes() {
             </div>
             <div className="flex items-center gap-1 text-slate-500 text-xl">
               <IoBed></IoBed>
-              {property_details?.beds}
+              {property_details?.bedrooms} Bed
             </div>
             <div className="flex items-center gap-1 text-slate-500 text-xl">
               <FaBath></FaBath>
