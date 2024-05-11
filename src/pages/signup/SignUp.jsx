@@ -3,9 +3,13 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
+import Loader from "../../components/loader/Loader";
 import GoogleLogin from "../../components/social_login/GoogleLogin";
 
 function SignUp() {
+  // auth user data
+  const { user, userLoading } = useContext(AuthContext);
+
   // location
   const { state } = useLocation();
 
@@ -75,6 +79,16 @@ function SignUp() {
         });
     });
   };
+
+  // user already login navigate to home page
+  if (userLoading) {
+    return <Loader></Loader>;
+  }
+  if (user) {
+    navigate("/");
+    return;
+  }
+
   return (
     <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
       <div className="container flex flex-col items-center justify-center h-auto mx-auto ring-1 ring-slate-100 rounded-md hover:ring-primary my-transition p-4 md:p-8 w-full max-w-md">

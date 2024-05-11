@@ -3,9 +3,14 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
+import Loader from "../../components/loader/Loader";
 import GoogleLogin from "../../components/social_login/GoogleLogin";
 
 function SignIn() {
+  // auth user data
+  const { user, userLoading } = useContext(AuthContext);
+
+
   // location
   const { state } = useLocation();
 
@@ -40,6 +45,15 @@ function SignIn() {
         toast.error("Sign In Failed.");
       });
   };
+
+  // user already login navigate to home page
+  if (userLoading) {
+    return <Loader></Loader>;
+  }
+  if (user) {
+    navigate("/");
+    return;
+  }
 
   return (
     <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
