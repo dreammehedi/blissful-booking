@@ -38,7 +38,7 @@ function MenuContent({ handleMobileMenuHide }) {
 
   return (
     <>
-      {menuContent.map((menuItem) => {
+      {menuContent?.map((menuItem) => {
         const { id, name, path } = menuItem;
         return (
           <li onClick={handleMobileMenuHide} key={id}>

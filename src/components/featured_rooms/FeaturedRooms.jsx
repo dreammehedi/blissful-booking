@@ -26,6 +26,7 @@ function FeaturedRooms() {
       </span>
     );
   }
+
   return (
     <section className="py-8 md:py-12">
       {/* section title */}

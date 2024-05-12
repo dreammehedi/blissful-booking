@@ -353,7 +353,7 @@ function RoomDetailes() {
             ></SectionTitle>
 
             <ul className="text-xl pt-8 grid grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
-              {facilities.map((faciliti, ind) => {
+              {facilities?.map((faciliti, ind) => {
                 return (
                   <li
                     key={ind}

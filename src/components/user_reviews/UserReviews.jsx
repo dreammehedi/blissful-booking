@@ -70,7 +70,7 @@ function UserReviews() {
           }}
           className="py-8"
         >
-          {data.map((review) => {
+          {data?.map((review) => {
             return (
               <SwiperSlide key={review._id} className="p-4">
                 <UserReviewCart review={review}></UserReviewCart>
