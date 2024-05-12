@@ -6,6 +6,7 @@ import Error from "../pages/error/Error";
 import Home from "../pages/home/Home";
 import MyBookings from "../pages/my_bookings/MyBookings";
 import RoomDetailes from "../pages/room_detailes/RoomDetailes";
+import RoomReview from "../pages/room_review/RoomReview";
 import Rooms from "../pages/rooms/Rooms";
 import SignIn from "../pages/signin/SignIn";
 import SignUp from "../pages/signup/SignUp";
@@ -39,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: "/room-detailes/:id",
         element: <RoomDetailes></RoomDetailes>,
+      },
+      {
+        path: "/room-review",
+        element: (
+          <PrivateRoute>
+            <RoomReview></RoomReview>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-bookings",

@@ -9,7 +9,7 @@ import SectionTitle from "../../components/section_title/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loader from "../../components/loader/Loader";
 
@@ -166,6 +166,7 @@ function RoomDetailes() {
               >
                 Book Now
               </button>
+
               <div className="flex justify-between items-center py-4">
                 <p className="font-dmsans text-sm font-bold text-dark">
                   Check In: {check_in_time}
@@ -182,6 +183,11 @@ function RoomDetailes() {
               <button className="px-5 py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
                 No Review
               </button>
+              <Link to={`/room-review`}>
+                <button className="col-span-2 px-5 py-3 bg-primary/80 my-transition hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl">
+                  Please Review
+                </button>
+              </Link>
             </div>
           </div>
         </div>
