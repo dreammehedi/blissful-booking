@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FaBath } from "react-icons/fa";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { IoBed } from "react-icons/io5";
@@ -5,7 +6,14 @@ import { SlSizeFullscreen } from "react-icons/sl";
 import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../components/section_title/SectionTitle";
 
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 function RoomDetailes() {
+  // date picker new data
+  const [startDate, setStartDate] = useState(new Date());
+
   // get room detailes data
   const roomDetailesData = useLoaderData();
 
@@ -24,6 +32,12 @@ function RoomDetailes() {
     room_rules,
     available,
   } = roomDetailesData;
+
+  // handle room booking
+  const handleRoomBooking = (e) => {
+    e.preventDefault();
+    
+  };
   return (
     <section className="py-8 md:py-12">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -92,19 +106,6 @@ function RoomDetailes() {
                   Check Out: {check_out_time}
                 </p>
               </div>
-              <button
-                onClick={() => {
-                  console.log("availble");
-                }}
-                {...(available ? { disabled: false } : { disabled: true })}
-                className={`${
-                  available
-                    ? "group-hover:rounded-3xl hover:shadow "
-                    : "opacity-40"
-                } px-5 py-3 bg-primary/80 my-transition hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl  `}
-              >
-                Book Now
-              </button>
             </div>
 
             {/* reviews */}
@@ -116,6 +117,110 @@ function RoomDetailes() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* book now button all funtionality */}
+      <div className="container  my-8 md:my-12 md:max-w-3xl md:mx-auto group">
+        <section className="p-8 md:p-12 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800 space-y-8 hover:shadow-primary my-transition">
+          <h2 className="text-3xl font-semibold text-primary capitalize dark:text-white">
+            Hotel Room Booking...
+          </h2>
+
+          <form onSubmit={handleRoomBooking}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  className="text-dark font-medium dark:text-gray-200"
+                  htmlFor="roomName"
+                >
+                  Room Name...
+                </label>
+                <input
+                  disabled
+                  defaultValue={name}
+                  id="roomName"
+                  name="roomName"
+                  type="text"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
+                />
+              </div>
+
+              <div>
+                <label
+                  className="text-dark font-medium dark:text-gray-200"
+                  htmlFor="roomPrice"
+                >
+                  Room Price...
+                </label>
+                <input
+                  disabled
+                  defaultValue={price_per_night}
+                  id="roomPrice"
+                  name="roomPrice"
+                  type="number"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
+                />
+              </div>
+              <div className="*:!w-full">
+                <label
+                  className="text-dark font-medium dark:text-gray-200"
+                  htmlFor="roomPrice"
+                >
+                  Room Booking Date...
+                </label>
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  className="block !w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary group-hover:ring-primary my-transition outline-none "
+                />
+              </div>
+
+              <div>
+                <label
+                  className="text-dark font-medium dark:text-gray-200"
+                  htmlFor="roomRating"
+                >
+                  Room Rating...
+                </label>
+                <input
+                  disabled
+                  defaultValue={rating}
+                  id="roomRating"
+                  name="roomRating"
+                  type="number"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
+                />
+              </div>
+              <div className="md:col-span-2">
+                <label
+                  className="text-dark font-medium dark:text-gray-200"
+                  htmlFor="roomDescription"
+                >
+                  Room Description...
+                </label>
+                <textarea
+                  disabled
+                  defaultValue={description}
+                  rows={3}
+                  className="col-span-2 block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary  my-transition outline-none "
+                  name="roomDescription"
+                  id="roomDescription"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                {...(available ? { disabled: false } : { disabled: true })}
+                className={`${
+                  available
+                    ? "group-hover:rounded-3xl hover:shadow "
+                    : "opacity-40"
+                } col-span-2 px-5 py-3 bg-primary/80 my-transition hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl  `}
+              >
+                Book Now
+              </button>
+            </div>
+          </form>
+        </section>
       </div>
 
       {special_offers ? (
