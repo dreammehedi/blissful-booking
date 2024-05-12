@@ -63,11 +63,18 @@ function RoomDetailes() {
     room_rules,
     available,
   } = data;
-
+  // get local storage data
+  function getLocalStorageData(key) {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : [];
+  }
   // handle room booking
   const handleRoomBooking = () => {
     document.getElementById("my_modal_1").showModal();
   };
+
+  // user booked data stored in array
+  let userBookedRoom = getLocalStorageData("myBooking");
 
   // handle confirm booking
   const handleConfirmBooking = (roomId) => {
@@ -82,7 +89,8 @@ function RoomDetailes() {
       );
       const data = await response.data;
       if (data.modifiedCount > 0) {
-        localStorage.setItem("myBooking", JSON.stringify(roomId));
+        userBookedRoom.push(roomId);
+        localStorage.setItem("myBooking", JSON.stringify(userBookedRoom));
         toast.success("Hotel Booked successfully.");
         document.getElementById("my_modal_1").close();
         refetch();
