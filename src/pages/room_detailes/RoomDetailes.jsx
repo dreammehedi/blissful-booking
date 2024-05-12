@@ -36,7 +36,6 @@ function RoomDetailes() {
   // handle room booking
   const handleRoomBooking = (e) => {
     e.preventDefault();
-    
   };
   return (
     <section className="py-8 md:py-12">
@@ -171,7 +170,7 @@ function RoomDetailes() {
                 <DatePicker
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
-                  className="block !w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary group-hover:ring-primary my-transition outline-none "
+                  className="block !w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary my-transition outline-none "
                 />
               </div>
 
@@ -207,17 +206,6 @@ function RoomDetailes() {
                   id="roomDescription"
                 ></textarea>
               </div>
-              <button
-                type="submit"
-                {...(available ? { disabled: false } : { disabled: true })}
-                className={`${
-                  available
-                    ? "group-hover:rounded-3xl hover:shadow "
-                    : "opacity-40"
-                } col-span-2 px-5 py-3 bg-primary/80 my-transition hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl  `}
-              >
-                Book Now
-              </button>
             </div>
           </form>
         </section>
