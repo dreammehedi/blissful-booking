@@ -1,22 +1,51 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import { FaBath } from "react-icons/fa";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { IoBed } from "react-icons/io5";
 import { SlSizeFullscreen } from "react-icons/sl";
-import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../components/section_title/SectionTitle";
 
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loader from "../../components/loader/Loader";
 
 function RoomDetailes() {
+  // get dynamic room id
+  const { id } = useParams();
+
+  // disabled book now button
+  const disabledBooked = useRef(null);
+
   // date picker new data
   const [startDate, setStartDate] = useState(new Date());
-  // modal toggle
 
-  // get room detailes data
-  const roomDetailesData = useLoaderData();
+  const roomDetailesData = async () => {
+    const response = await axios.get(
+      `http://localhost:5000/room-detailes/${id}`
+    );
+    const data = await response.data;
+    return data;
+  };
+  // react query data get
+  const { isPending, isError, data, error, refetch } = useQuery({
+    queryKey: ["featuredRooms"],
+    queryFn: roomDetailesData,
+  });
+
+  if (isPending) {
+    return <Loader></Loader>;
+  }
+  if (isError) {
+    return (
+      <span className="flex justify-center items-center py-8 text-black font-bold text-3xl">
+        Error: {error.message}
+      </span>
+    );
+  }
 
   const {
     _id,
@@ -33,7 +62,7 @@ function RoomDetailes() {
     facilities,
     room_rules,
     available,
-  } = roomDetailesData;
+  } = data;
 
   // handle room booking
   const handleRoomBooking = () => {
@@ -42,9 +71,26 @@ function RoomDetailes() {
 
   // handle confirm booking
   const handleConfirmBooking = (roomId) => {
-    localStorage.setItem("myBooking", JSON.stringify(roomId));
-    toast.success("Hotel Booked successfully.");
-    document.getElementById("my_modal_1").close();
+    // update room availability
+    const updateRoomAvailability = async () => {
+      const response = await axios.patch(
+        `http://localhost:5000/available-rooms/${roomId}`,
+        {
+          bookingDate: startDate,
+          available: false,
+        }
+      );
+      const data = await response.data;
+      if (data.modifiedCount > 0) {
+        localStorage.setItem("myBooking", JSON.stringify(roomId));
+        toast.success("Hotel Booked successfully.");
+        document.getElementById("my_modal_1").close();
+        refetch();
+      } else {
+        toast.error("Something Went Wrong!");
+      }
+    };
+    updateRoomAvailability();
   };
   return (
     <section className="py-8 md:py-12">
@@ -107,6 +153,7 @@ function RoomDetailes() {
                 {available ? "Hotel is available" : "Hotel is not available"}
               </button>
               <button
+                ref={disabledBooked}
                 onClick={() => {
                   handleRoomBooking(_id);
                 }}
