@@ -22,6 +22,7 @@ function RoomDetailes() {
     check_out_time,
     facilities,
     room_rules,
+    available,
   } = roomDetailesData;
   return (
     <section className="py-8 md:py-12">
@@ -81,7 +82,7 @@ function RoomDetailes() {
                 Availability:
               </h1>
               <button className="px-5 py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
-                Hotel Is Available
+                {available ? "Hotel is available" : "Hotel is not available"}
               </button>
               <div className="flex justify-between items-center py-4">
                 <p className="font-dmsans text-sm font-bold text-dark">
@@ -91,7 +92,17 @@ function RoomDetailes() {
                   Check Out: {check_out_time}
                 </p>
               </div>
-              <button className="px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl  group-hover:rounded-3xl ">
+              <button
+                onClick={() => {
+                  console.log("availble");
+                }}
+                {...(available ? { disabled: false } : { disabled: true })}
+                className={`${
+                  available
+                    ? "group-hover:rounded-3xl hover:shadow "
+                    : "opacity-40"
+                } px-5 py-3 bg-primary/80 my-transition hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl  `}
+              >
                 Book Now
               </button>
             </div>
@@ -107,38 +118,55 @@ function RoomDetailes() {
         </div>
       </div>
 
-      {/* special offer if available  */}
-      <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
-        <SectionTitle
-          title="Exclusive Special Offers Available For You!"
-          description="Indulge in our enticing array of exclusive special offers designed to elevate your stay. Whether you're planning a weekend getaway, a family vacation, or a business trip, we have the perfect package for you. Take advantage of these limited-time promotions and make your stay with us even more memorable!"
-        ></SectionTitle>
+      {special_offers ? (
+        //  special offer if available
+        <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
+          <SectionTitle
+            title="Exclusive Special Offers Available For You!"
+            description="Indulge in our enticing array of exclusive special offers designed to elevate your stay. Whether you're planning a weekend getaway, a family vacation, or a business trip, we have the perfect package for you. Take advantage of these limited-time promotions and make your stay with us even more memorable!"
+          ></SectionTitle>
 
-        {/* offers */}
-        <div className="container px-6 py-10 mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {special_offers.map((roomOffer, ind) => {
-              return (
-                <div
-                  key={ind}
-                  className="p-8 md:p-10 lg:py-12 flex flex-col justify-center items-center text-center space-y-2 ring-1 ring-primary rounded-tr-3xl rounded-bl-3xl my-transition hover:shadow-md hover:shadow-primary"
-                >
-                  <h1 className="text-xl font-semibold text-primary capitalize dark:text-white">
-                    {roomOffer?.name}
-                  </h1>
+          {/* offers */}
+          <div className="container px-6 py-10 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {special_offers?.map((roomOffer, ind) => {
+                return (
+                  <div
+                    key={ind}
+                    className="p-8 md:p-10 lg:py-12 flex flex-col justify-center items-center text-center space-y-2 ring-1 ring-primary rounded-tr-3xl rounded-bl-3xl my-transition hover:shadow-md hover:shadow-primary"
+                  >
+                    <h1 className="text-xl font-semibold text-primary capitalize dark:text-white">
+                      {roomOffer?.name}
+                    </h1>
 
-                  <p className="text-gray-500 dark:text-gray-300">
-                    {roomOffer?.description}
-                  </p>
-                  <p className="text-black font-dmsans text-sm dark:text-gray-300">
-                    {roomOffer?.terms_and_conditions}
-                  </p>
-                </div>
-              );
-            })}
+                    <p className="text-gray-500 dark:text-gray-300">
+                      {roomOffer?.description}
+                    </p>
+                    <p className="text-black font-dmsans text-sm dark:text-gray-300">
+                      {roomOffer?.terms_and_conditions}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
+        </section>
+      ) : (
+        <div className="py-8 md:py-12">
+          <SectionTitle
+            title="EExclusive Special Offers Not Available!"
+            description="Unfortunately, the special offers you are searching for are currently unavailable. We apologize for any inconvenience this may cause. However, we invite you to explore our other enticing array of exclusive promotions and packages designed to elevate your stay. Whether it's a weekend getaway, a family vacation, or a business trip, we have options to make your stay memorable. Keep an eye out for future promotions, as we frequently update our offerings to provide you with the best experience possible."
+          ></SectionTitle>
         </div>
-      </section>
+      )}
+
+      <div className="container">
+        <img
+          className="w-full h-auto max-h-[500px] object-cover rounded-tr-full rounded-bl-full transition-all duration-500 ease-linear hover:cursor-pointer hover:rounded-3xl"
+          src={image_url}
+          alt=""
+        />
+      </div>
 
       {/* room facilities and room rules */}
       <section className="container py-8 md:py-12 bg-white dark:bg-gray-900">

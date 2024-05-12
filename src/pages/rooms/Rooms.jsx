@@ -1,40 +1,42 @@
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaFilterCircleDollar } from "react-icons/fa6";
-import Loader from "../../components/loader/Loader";
-import RoomPagination from "../../components/pagination/RoomPagination";
+import { useLoaderData } from "react-router-dom";
 import RoomBanner from "../../components/room_banner/RoomBanner";
 import SectionTitle from "../../components/section_title/SectionTitle";
 import RoomCart from "./RoomCart";
 
+// To include the default styles
+
 function Rooms() {
+  // available all room data
+  const [availableRooms, setAvailableRooms] = useState([]);
+
+  // price range
+  const [priceRange, setPriceRange] = useState("");
+
+  // current price range
+  const [currentPriceRange, setCurrentPriceRange] = useState(0);
+
   // get first room data
-  const [firstRoomBanner, setFirstRoomBanner] = useState({});
+  const firstRoomBanner = useLoaderData();
+  // get available Rooms Data
+  useEffect(() => {
+    const getavailableRoomsData = async () => {
+      const response = await axios.get(
+        `http://localhost:5000/available-rooms/?priceRange=${priceRange}`
+      );
+      const data = await response.data;
+      setAvailableRooms(data);
+    };
+    getavailableRoomsData();
+  }, [priceRange]);
 
-  // all available rooms data get
-  const getavailableRoomsData = async () => {
-    const response = await axios.get("http://localhost:5000/available-rooms");
-    const data = await response.data;
-    setFirstRoomBanner(data[0]);
-    return data;
+  // handle price range
+  const handlePriceRange = (e) => {
+    setPriceRange(e.target.value);
+    setCurrentPriceRange(e.target.value);
   };
-  // react query data get
-  const { isPending, isError, data, error } = useQuery({
-    queryKey: ["availableRooms"],
-    queryFn: getavailableRoomsData,
-  });
-
-  if (isPending) {
-    return <Loader></Loader>;
-  }
-  if (isError) {
-    return (
-      <span className="flex justify-center items-center py-8 text-black font-bold text-3xl">
-        Error: {error.message}
-      </span>
-    );
-  }
   return (
     <>
       {/* room page banner */}
@@ -55,10 +57,30 @@ function Rooms() {
               className="flex items-center gap-2
                mb-2 text-xl font-medium text-primary dark:text-white"
             >
-              <FaFilterCircleDollar className="text-xl"></FaFilterCircleDollar>{" "}
+              <FaFilterCircleDollar className="text-xl"></FaFilterCircleDollar>
               Filter Price Range
             </label>
-            <select
+            <input
+              type="range"
+              name="priceRange"
+              id="priceRange"
+              min={100}
+              max={1000}
+              value={priceRange}
+              onChange={handlePriceRange}
+              className="w-full"
+            />
+            <div className="flex justify-between text-gray-500">
+              <span
+                className={`${
+                  currentPriceRange !== 0 ? "text-primary" : undefined
+                } text-dark`}
+              >
+                ${currentPriceRange}
+              </span>
+              <span className="text-dark">$1000</span>
+            </div>
+            {/* <select
               id="countries"
               className="bg-transparent ring-1 ring-dark text-dark text-sm rounded-lg outline-none focus:ring-primary block w-full p-2.5 "
             >
@@ -74,13 +96,13 @@ function Rooms() {
               <option value="700">$ 700</option>
               <option value="800">$ 800</option>
               <option disabled></option>
-            </select>
+            </select> */}
           </form>
         </div>
 
         {/* available rooms */}
         <div className="py-8 md:py-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {data?.map((availableRoom) => {
+          {availableRooms?.map((availableRoom) => {
             return (
               <RoomCart
                 key={availableRoom._id}
@@ -88,11 +110,6 @@ function Rooms() {
               ></RoomCart>
             );
           })}
-        </div>
-
-        {/* all available rooms pagination */}
-        <div className="container py-8 md:py-12 flex justify-center items-center">
-          <RoomPagination></RoomPagination>
         </div>
       </section>
     </>
