@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
 import { FaBath } from "react-icons/fa";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { IoBed } from "react-icons/io5";
@@ -6,18 +7,19 @@ import { SlSizeFullscreen } from "react-icons/sl";
 import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../components/section_title/SectionTitle";
 
-import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-toastify";
 
 function RoomDetailes() {
   // date picker new data
   const [startDate, setStartDate] = useState(new Date());
+  // modal toggle
 
   // get room detailes data
   const roomDetailesData = useLoaderData();
 
   const {
+    _id,
     name,
     description,
     image_url,
@@ -34,8 +36,15 @@ function RoomDetailes() {
   } = roomDetailesData;
 
   // handle room booking
-  const handleRoomBooking = (e) => {
-    e.preventDefault();
+  const handleRoomBooking = () => {
+    document.getElementById("my_modal_1").showModal();
+  };
+
+  // handle confirm booking
+  const handleConfirmBooking = (roomId) => {
+    localStorage.setItem("myBooking", JSON.stringify(roomId));
+    toast.success("Hotel Booked successfully.");
+    document.getElementById("my_modal_1").close();
   };
   return (
     <section className="py-8 md:py-12">
@@ -97,6 +106,19 @@ function RoomDetailes() {
               <button className="px-5 py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
                 {available ? "Hotel is available" : "Hotel is not available"}
               </button>
+              <button
+                onClick={() => {
+                  handleRoomBooking(_id);
+                }}
+                {...(available ? { disabled: false } : { disabled: true })}
+                className={`${
+                  available
+                    ? "group-hover:rounded-3xl hover:shadow "
+                    : "opacity-40"
+                } col-span-2 px-5 py-3 bg-primary/80 my-transition hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl  `}
+              >
+                Book Now
+              </button>
               <div className="flex justify-between items-center py-4">
                 <p className="font-dmsans text-sm font-bold text-dark">
                   Check In: {check_in_time}
@@ -119,98 +141,110 @@ function RoomDetailes() {
       </div>
 
       {/* book now button all funtionality */}
-      <div className="container  my-8 md:my-12 md:max-w-3xl md:mx-auto group">
-        <section className="p-8 md:p-12 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800 space-y-8 hover:shadow-primary my-transition">
-          <h2 className="text-3xl font-semibold text-primary capitalize dark:text-white">
-            Hotel Room Booking...
-          </h2>
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box container  my-8  md:max-w-3xl min-h-fit md:mx-auto group">
+          <section className="p-8 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800 space-y-4 hover:shadow-primary my-transition">
+            <h2 className="text-3xl font-semibold text-primary capitalize dark:text-white">
+              Hotel Room Booking...
+            </h2>
 
-          <form onSubmit={handleRoomBooking}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label
-                  className="text-dark font-medium dark:text-gray-200"
-                  htmlFor="roomName"
-                >
-                  Room Name...
-                </label>
-                <input
-                  disabled
-                  defaultValue={name}
-                  id="roomName"
-                  name="roomName"
-                  type="text"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
-                />
-              </div>
+            <form method="dialog" className="relative">
+              <button className="absolute -top-[70px] right-0 px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl ">
+                Close
+              </button>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    className="text-dark font-medium dark:text-gray-200"
+                    htmlFor="roomName"
+                  >
+                    Room Name...
+                  </label>
+                  <input
+                    disabled
+                    defaultValue={name}
+                    id="roomName"
+                    name="roomName"
+                    type="text"
+                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
+                  />
+                </div>
 
-              <div>
-                <label
-                  className="text-dark font-medium dark:text-gray-200"
-                  htmlFor="roomPrice"
-                >
-                  Room Price...
-                </label>
-                <input
-                  disabled
-                  defaultValue={price_per_night}
-                  id="roomPrice"
-                  name="roomPrice"
-                  type="number"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
-                />
-              </div>
-              <div className="*:!w-full">
-                <label
-                  className="text-dark font-medium dark:text-gray-200"
-                  htmlFor="roomPrice"
-                >
-                  Room Booking Date...
-                </label>
-                <DatePicker
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date)}
-                  className="block !w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary my-transition outline-none "
-                />
-              </div>
+                <div>
+                  <label
+                    className="text-dark font-medium dark:text-gray-200"
+                    htmlFor="roomPrice"
+                  >
+                    Room Price...
+                  </label>
+                  <input
+                    disabled
+                    defaultValue={price_per_night}
+                    id="roomPrice"
+                    name="roomPrice"
+                    type="number"
+                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
+                  />
+                </div>
+                <div className="*:!w-full">
+                  <label
+                    className="text-dark font-medium dark:text-gray-200"
+                    htmlFor="roomPrice"
+                  >
+                    Room Booking Date...
+                  </label>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    className="block !w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 group-hover:ring-primary rounded-md   focus:border-blue-400  focus:ring-primary my-transition outline-none "
+                  />
+                </div>
 
-              <div>
-                <label
-                  className="text-dark font-medium dark:text-gray-200"
-                  htmlFor="roomRating"
-                >
-                  Room Rating...
-                </label>
-                <input
-                  disabled
-                  defaultValue={rating}
-                  id="roomRating"
-                  name="roomRating"
-                  type="number"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
-                />
+                <div>
+                  <label
+                    className="text-dark font-medium dark:text-gray-200"
+                    htmlFor="roomRating"
+                  >
+                    Room Rating...
+                  </label>
+                  <input
+                    disabled
+                    defaultValue={rating}
+                    id="roomRating"
+                    name="roomRating"
+                    type="number"
+                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <label
+                    className="text-dark font-medium dark:text-gray-200"
+                    htmlFor="roomDescription"
+                  >
+                    Room Description...
+                  </label>
+                  <textarea
+                    disabled
+                    defaultValue={description}
+                    rows={3}
+                    className="col-span-2 block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary  my-transition outline-none "
+                    name="roomDescription"
+                    id="roomDescription"
+                  ></textarea>
+                </div>
               </div>
-              <div className="md:col-span-2">
-                <label
-                  className="text-dark font-medium dark:text-gray-200"
-                  htmlFor="roomDescription"
-                >
-                  Room Description...
-                </label>
-                <textarea
-                  disabled
-                  defaultValue={description}
-                  rows={3}
-                  className="col-span-2 block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary  my-transition outline-none "
-                  name="roomDescription"
-                  id="roomDescription"
-                ></textarea>
-              </div>
-            </div>
-          </form>
-        </section>
-      </div>
-
+            </form>
+            <button
+              onClick={() => {
+                handleConfirmBooking(_id);
+              }}
+              className="px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl "
+            >
+              Confirm Booking
+            </button>
+          </section>
+        </div>
+      </dialog>
       {special_offers ? (
         //  special offer if available
         <section className="py-8 md:py-12 bg-white dark:bg-gray-900">

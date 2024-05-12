@@ -10,7 +10,6 @@ function SignIn() {
   // auth user data
   const { user, userLoading } = useContext(AuthContext);
 
-
   // location
   const { state } = useLocation();
 
