@@ -26,7 +26,8 @@ function MyBookings() {
   const getBooksData = async () => {
     const response = await axios.post(
       "http://localhost:5000/user-booked-rooms",
-      userBookedRoom
+      userBookedRoom,
+      { withCredentials: true }
     );
     const data = await response.data;
     return data;
@@ -67,7 +68,8 @@ function MyBookings() {
     const updateBookedDate = async () => {
       const response = await axios.patch(
         `http://localhost:5000/update-booked-date/${roomBookedId}`,
-        { bookingDate: startDate }
+        { bookingDate: startDate },
+        { withCredentials: true }
       );
       const data = await response.data;
       if (data.modifiedCount > 0) {
@@ -86,7 +88,8 @@ function MyBookings() {
     const cancelBookedRoom = async () => {
       const response = await axios.patch(
         `http://localhost:5000/cancel-booked-room/${roomBookedId}`,
-        { available: true }
+        { available: true },
+        { withCredentials: true }
       );
       const data = await response.data;
       if (data.modifiedCount > 0) {
