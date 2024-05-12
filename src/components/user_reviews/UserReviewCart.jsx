@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { MdStar } from "react-icons/md";
 function UserReviewCart({ review }) {
-  const { user, text, timestamp, rating, user_image } = review;
+  const { user, text, timeStamp, rating, user_image } = review;
   return (
     <>
       <div className="ring-1 ring-slate-100 flex flex-col lg:flex-row justify-center lg:justify-start text-center lg:text-left items-center gap-4 md:gap-6 p-6 md:p-8 rounded-md my-transition hover:ring-primary group">
@@ -19,7 +19,7 @@ function UserReviewCart({ review }) {
             <MdStar className="text-yellow-400 text-[18px]"></MdStar>
           </span>
           <b className="text-dark font-semibold">
-            {new Date(timestamp).toLocaleDateString()}
+            {new Date(timeStamp).toLocaleDateString()}
           </b>
         </div>
         <div className=" ">
