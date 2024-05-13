@@ -364,39 +364,41 @@ function RoomDetailes() {
           </div>
         )}
 
-        <div className="container">
-          <img
-            className="w-full h-auto max-h-[500px] object-cover rounded-tr-[150px] rounded-bl-[150px] lg:rounded-tr-full lg:rounded-bl-full transition-all duration-500 ease-linear hover:cursor-pointer hover:rounded-3xl"
-            src={image_url}
-            alt=""
-          />
-        </div>
+        {user && (
+          <>
+            <div className="container">
+              <img
+                className="w-full h-auto max-h-[500px] object-cover rounded-tr-[150px] rounded-bl-[150px] lg:rounded-tr-full lg:rounded-bl-full transition-all duration-500 ease-linear hover:cursor-pointer hover:rounded-3xl"
+                src={image_url}
+                alt=""
+              />
+            </div>
 
-        {/* room facilities and room rules */}
-        <section className="container py-8 md:py-12 bg-white dark:bg-gray-900">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-            {/* room facilities */}
-            <div className="p-8 ring-1 ring-slate-100 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl group">
-              <SectionTitle
-                title="Room Facilities"
-                description="Experience comfort and convenience with our range of exceptional room facilities."
-              ></SectionTitle>
+            {/* room facilities and room rules */}
+            <section className="container py-8 md:py-12 bg-white dark:bg-gray-900">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                {/* room facilities */}
+                <div className="p-8 ring-1 ring-slate-100 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl group">
+                  <SectionTitle
+                    title="Room Facilities"
+                    description="Experience comfort and convenience with our range of exceptional room facilities."
+                  ></SectionTitle>
 
-              <ul className="text-xl pt-8 grid grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
-                {facilities?.map((faciliti, ind) => {
-                  return (
-                    <li
-                      key={ind}
-                      className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition"
-                    >
-                      <h3 className="text-dark">{faciliti.name}</h3>
-                      <p className="text-sm group-hover:text-primary/90">
-                        {faciliti.description}
-                      </p>
-                    </li>
-                  );
-                })}
-                {/* <li>
+                  <ul className="text-xl pt-8 grid grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
+                    {facilities?.map((faciliti, ind) => {
+                      return (
+                        <li
+                          key={ind}
+                          className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition"
+                        >
+                          <h3 className="text-dark">{faciliti.name}</h3>
+                          <p className="text-sm group-hover:text-primary/90">
+                            {faciliti.description}
+                          </p>
+                        </li>
+                      );
+                    })}
+                    {/* <li>
                 <TbAirConditioning className="text-primary text-2xl"></TbAirConditioning>
                 Air conditioner
               </li>
@@ -440,51 +442,53 @@ function RoomDetailes() {
                 <MdBreakfastDining className="text-primary text-2xl"></MdBreakfastDining>
                 Breakfast Included
               </li> */}
-              </ul>
-            </div>
+                  </ul>
+                </div>
 
-            {/* room rules */}
-            <div className="p-8 ring-1 ring-slate-100 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl group h-fit">
-              <SectionTitle
-                title="Room Rules"
-                description="To ensure a pleasant stay for all our guests, we kindly ask you to adhere to the following room rules."
-              ></SectionTitle>
+                {/* room rules */}
+                <div className="p-8 ring-1 ring-slate-100 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl group h-fit">
+                  <SectionTitle
+                    title="Room Rules"
+                    description="To ensure a pleasant stay for all our guests, we kindly ask you to adhere to the following room rules."
+                  ></SectionTitle>
 
-              <ul className="text-xl pt-8 grid grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
-                <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                  <h3 className="text-dark">Check In:</h3>
-                  <p className="text-sm group-hover:text-primary/90">
-                    {room_rules?.check_in}
-                  </p>
-                </li>
-                <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                  <h3 className="text-dark">Check Out:</h3>
-                  <p className="text-sm group-hover:text-primary/90">
-                    {room_rules?.check_out}
-                  </p>
-                </li>
-                <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                  <h3 className="text-dark">Self Check In:</h3>
-                  <p className="text-sm group-hover:text-primary/90">
-                    {room_rules?.self_check_in ? "Yes" : "No"}
-                  </p>
-                </li>
-                <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                  <h3 className="text-dark">Smoking:</h3>
-                  <p className="text-sm group-hover:text-primary/90">
-                    {room_rules?.smoking ? "Yes" : "No"}
-                  </p>
-                </li>
-                <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                  <h3 className="text-dark">Pets:</h3>
-                  <p className="text-sm group-hover:text-primary/90">
-                    {room_rules?.pets ? "Yes" : "No"}
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+                  <ul className="text-xl pt-8 grid grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
+                    <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
+                      <h3 className="text-dark">Check In:</h3>
+                      <p className="text-sm group-hover:text-primary/90">
+                        {room_rules?.check_in}
+                      </p>
+                    </li>
+                    <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
+                      <h3 className="text-dark">Check Out:</h3>
+                      <p className="text-sm group-hover:text-primary/90">
+                        {room_rules?.check_out}
+                      </p>
+                    </li>
+                    <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
+                      <h3 className="text-dark">Self Check In:</h3>
+                      <p className="text-sm group-hover:text-primary/90">
+                        {room_rules?.self_check_in ? "Yes" : "No"}
+                      </p>
+                    </li>
+                    <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
+                      <h3 className="text-dark">Smoking:</h3>
+                      <p className="text-sm group-hover:text-primary/90">
+                        {room_rules?.smoking ? "Yes" : "No"}
+                      </p>
+                    </li>
+                    <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
+                      <h3 className="text-dark">Pets:</h3>
+                      <p className="text-sm group-hover:text-primary/90">
+                        {room_rules?.pets ? "Yes" : "No"}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </>
+        )}
       </section>
     </>
   );
