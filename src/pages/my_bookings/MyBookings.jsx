@@ -73,6 +73,34 @@ function MyBookings() {
     });
   };
 
+  // handle book cancellation
+  const handleBookedCancel = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Your Room is Cancelled!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "rgb(81 67 217 / 80%)",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Cancel It!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const cancelBookedRoom = async () => {
+          const response = await axios.delete(
+            `http://localhost:5000/my-booking/${id}`
+          );
+          const data = await response.data;
+          if (data.deletedCount === 1) {
+            refetch();
+            toast.success("Room Cancelled Successfully.");
+          } else {
+            toast.error("Room Not Cancelled.");
+          }
+        };
+        cancelBookedRoom();
+      }
+    });
+  };
   return (
     <>
       <Helmet>
@@ -216,7 +244,7 @@ function MyBookings() {
                               <td className="px-4 py-4 text-sm whitespace-nowrap">
                                 <button
                                   onClick={() => {
-                                    // handleBookedCancel(_id);
+                                    handleBookedCancel(_id);
                                   }}
                                   className="rounded-full px-3 py-1 bg-red-500 text-dark hover:text-white hover:shadow hover:shadow-red-500 my-transition"
                                 >
