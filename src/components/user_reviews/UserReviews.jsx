@@ -17,7 +17,9 @@ import UserReviewCart from "./UserReviewCart";
 function UserReviews() {
   // user revies data get
   const getUserReviews = async () => {
-    const response = await axios.get("http://localhost:5000/userReviews");
+    const response = await axios.get(
+      "https://blissful-bookings.vercel.app/userReviews"
+    );
     const data = await response.data;
     return data;
   };

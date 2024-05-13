@@ -6,7 +6,9 @@ import FeaturedRoomCart from "./FeaturedRoomCart";
 
 function FeaturedRooms() {
   const getBooksData = async () => {
-    const response = await axios.get("http://localhost:5000/rooms");
+    const response = await axios.get(
+      "https://blissful-bookings.vercel.app/rooms"
+    );
     const data = await response.data;
     return data;
   };

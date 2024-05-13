@@ -34,7 +34,7 @@ function RoomReview() {
     };
     const reviewDataSend = async () => {
       const response = await axios.post(
-        `http://localhost:5000/room-review`,
+        `https://blissful-bookings.vercel.app/room-review`,
         reviewAllData
       );
       const data = await response.data;
