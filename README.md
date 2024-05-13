@@ -2,6 +2,9 @@
 
 Welcome to our hotel booking website! This document provides an overview of the main features offered by our platform.
 
+- Surge Live Link [https://blissful-bookings.surge.sh/]
+- Firebase Live Link [https://blissful-bookings.web.app/]
+
 ## Features:
 
 1. User Registration and Authentication:
@@ -44,12 +47,12 @@ Welcome to our hotel booking website! This document provides an overview of the 
 
 For any inquiries, support, or feedback, please feel free to reach out to us. We are here to assist you.
 
-Email: dreammehedihassan@gmail.com
+Email: dreammehedihassan@gmail.com,
 Phone: +880 1716059182
 
 ### Address:
 
-Mirzapur, Tangail
+Mirzapur, Tangail,
 Dhaka, Bangladesh
 
 ### You can also connect with us on social media:
