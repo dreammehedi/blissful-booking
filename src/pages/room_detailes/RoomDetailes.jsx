@@ -38,7 +38,7 @@ function RoomDetailes() {
     return data;
   };
   // react query data get
-  const { isPending, isError, data, error, refetch } = useQuery({
+  const { isPending, isError, data, error } = useQuery({
     queryKey: ["featuredRooms"],
     queryFn: roomDetailesData,
   });
@@ -81,27 +81,36 @@ function RoomDetailes() {
   };
 
   // handle confirm booking
-  const handleConfirmBooking = (roomId) => {
-    // update room availability
-    const updateRoomAvailability = async () => {
-      const response = await axios.patch(
-        `http://localhost:5000/room-booked/${roomId}`,
-        {
-          userEmail: user?.email,
-          bookingDate: startDate,
-          available: false,
-        }
+  const handleConfirmBooking = (roomData) => {
+    const myBookingData = {
+      userEmail: user?.email,
+      bookingDate: startDate,
+      amenities: roomData.amenities,
+      available: !available,
+      name: roomData.name,
+      description: roomData.description,
+      image_url: roomData.image_url,
+      price_per_night: roomData.price_per_night,
+      location: roomData.location,
+      rating: roomData.rating,
+      property_details: roomData.property_details,
+      special_offers: roomData.special_offers,
+    };
+    const myBooking = async () => {
+      const response = await axios.post(
+        "http://localhost:5000/my-booking",
+        myBookingData
       );
       const data = await response.data;
-      if (data.modifiedCount > 0) {
-        toast.success("Hotel Booked successfully.");
+      console.log(data);
+      if (data.insertedId) {
         document.getElementById("my_modal_1").close();
-        refetch();
+        toast.success("Hotel Booked successfully.");
       } else {
         toast.error("Something Went Wrong!");
       }
     };
-    updateRoomAvailability();
+    myBooking();
   };
   return (
     <>
@@ -304,7 +313,7 @@ function RoomDetailes() {
               </form>
               <button
                 onClick={() => {
-                  handleConfirmBooking(_id);
+                  handleConfirmBooking(data);
                 }}
                 className="px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold mr-auto rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl "
               >

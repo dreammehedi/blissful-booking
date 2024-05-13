@@ -70,11 +70,11 @@ function AuthProvider({ children }) {
           .post("https://blissful-bookings.vercel.app/signin", loggedUser, {
             withCredentials: true,
           })
-          .then((res) => {
-            console.log(res.data);
+          .then(() => {
+            // console.log(res.data);
           })
-          .catch((err) => {
-            console.log(err);
+          .catch(() => {
+            // console.log(err);
           });
       } else {
         setUser(null);
