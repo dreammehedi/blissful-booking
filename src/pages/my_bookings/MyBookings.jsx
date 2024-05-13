@@ -5,37 +5,25 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import Swal from "sweetalert2";
 import { AuthContext } from "../../auth/AuthProvider";
 import Loader from "../../components/loader/Loader";
 import SectionTitle from "../../components/section_title/SectionTitle";
 
 function MyBookings() {
-  const [roomBookedId, setRoomBookedId] = useState(null);
-
   // user data
   const { user } = useContext(AuthContext);
-
-  // get user booked data
-  function getLocalStorageData(key) {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : [];
-  }
-  const userBookedRoom = getLocalStorageData("myBooking");
 
   // get user booked data in database filter
   const getBooksData = async () => {
     const response = await axios.post(
-      "https://blissful-bookings.vercel.app/user-booked-rooms",
-      userBookedRoom,
+      `http://localhost:5000/my-booking-room/?email=${user?.email}`,
       { withCredentials: true }
     );
     const data = await response.data;
     return data;
   };
   // react query data get
-  const { isPending, isError, data, error, refetch } = useQuery({
+  const { isPending, isError, data, error } = useQuery({
     queryKey: ["featuredRooms"],
     queryFn: getBooksData,
   });
@@ -56,7 +44,7 @@ function MyBookings() {
   // room id get
   // handle update date after confirm
   const handleUpdateDate = async (roomId) => {
-    setRoomBookedId(roomId);
+    console.log(roomId);
     document.getElementById("my_modal_2").showModal();
   };
 
@@ -66,60 +54,60 @@ function MyBookings() {
   };
 
   // handle confirm date
-  const handleConfirmDate = () => {
-    const updateBookedDate = async () => {
-      const response = await axios.patch(
-        `https://blissful-bookings.vercel.app/update-booked-date/${roomBookedId}`,
-        { bookingDate: startDate },
-        { withCredentials: true }
-      );
-      const data = await response.data;
-      if (data.modifiedCount > 0) {
-        refetch();
-        handleCloseModal();
-        toast.success("Room Booked Date Updated Successfully.");
-      } else {
-        toast.error("Room Booked Date Not Updated.");
-      }
-    };
-    updateBookedDate();
-  };
+  // const handleConfirmDate = () => {
+  //   const updateBookedDate = async () => {
+  //     const response = await axios.patch(
+  //       `https://blissful-bookings.vercel.app/update-booked-date/${roomBookedId}`,
+  //       { bookingDate: startDate },
+  //       { withCredentials: true }
+  //     );
+  //     const data = await response.data;
+  //     if (data.modifiedCount > 0) {
+  //       refetch();
+  //       handleCloseModal();
+  //       toast.success("Room Booked Date Updated Successfully.");
+  //     } else {
+  //       toast.error("Room Booked Date Not Updated.");
+  //     }
+  //   };
+  //   updateBookedDate();
+  // };
 
   // handle booked cancel
-  const handleBookedCancel = (roomBookedId) => {
-    const cancelBookedRoom = async () => {
-      const response = await axios.patch(
-        `https://blissful-bookings.vercel.app/cancel-booked-room/${roomBookedId}`,
-        { available: true },
-        { withCredentials: true }
-      );
-      const data = await response.data;
-      if (data.modifiedCount > 0) {
-        const remainingBookedIds = userBookedRoom.filter((userBookedRoom) => {
-          return userBookedRoom !== roomBookedId;
-        });
-        localStorage.setItem("myBooking", JSON.stringify(remainingBookedIds));
+  // const handleBookedCancel = (roomBookedId) => {
+  //   const cancelBookedRoom = async () => {
+  //     const response = await axios.patch(
+  //       `https://blissful-bookings.vercel.app/cancel-booked-room/${roomBookedId}`,
+  //       { available: true },
+  //       { withCredentials: true }
+  //     );
+  //     const data = await response.data;
+  //     if (data.modifiedCount > 0) {
+  //       const remainingBookedIds = userBookedRoom.filter((userBookedRoom) => {
+  //         return userBookedRoom !== roomBookedId;
+  //       });
+  //       localStorage.setItem("myBooking", JSON.stringify(remainingBookedIds));
 
-        Swal.fire("Saved!", "", "success");
-        window.location.reload();
-      } else {
-        toast.error("Booked Room Cancelled Permission Denied!");
-      }
-    };
-    Swal.fire({
-      title: "Are you sure?",
-      text: "Your room booking has been Cancelled!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "rgb(81 67 217 / 80%)",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Cancel It!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        cancelBookedRoom();
-      }
-    });
-  };
+  //       Swal.fire("Saved!", "", "success");
+  //       window.location.reload();
+  //     } else {
+  //       toast.error("Booked Room Cancelled Permission Denied!");
+  //     }
+  //   };
+  //   Swal.fire({
+  //     title: "Are you sure?",
+  //     text: "Your room booking has been Cancelled!",
+  //     icon: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: "rgb(81 67 217 / 80%)",
+  //     cancelButtonColor: "#d33",
+  //     confirmButtonText: "Yes, Cancel It!",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       cancelBookedRoom();
+  //     }
+  //   });
+  // };
   return (
     <>
       <Helmet>
@@ -263,7 +251,7 @@ function MyBookings() {
                               <td className="px-4 py-4 text-sm whitespace-nowrap">
                                 <button
                                   onClick={() => {
-                                    handleBookedCancel(_id);
+                                    // handleBookedCancel(_id);
                                   }}
                                   className="rounded-full px-3 py-1 bg-red-500 text-dark hover:text-white hover:shadow hover:shadow-red-500 my-transition"
                                 >
@@ -315,7 +303,7 @@ function MyBookings() {
                   </form>
                   <div className="w-full flex justify-center text-center items-center gap-8">
                     <button
-                      onClick={handleConfirmDate}
+                      // onClick={handleConfirmDate}
                       className="px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl "
                     >
                       Confirm
