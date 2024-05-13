@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import { FaBath } from "react-icons/fa";
 import { FaPeopleRoof } from "react-icons/fa6";
@@ -10,11 +10,17 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../auth/AuthProvider";
 import Loader from "../../components/loader/Loader";
 
 function RoomDetailes() {
+  // user data
+  const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   // get dynamic room id
   const { id } = useParams();
 
@@ -71,6 +77,10 @@ function RoomDetailes() {
   }
   // handle room booking
   const handleRoomBooking = () => {
+    if (!user) {
+      toast.error("Please Sure You Have Sign In!");
+      return navigate("/signin");
+    }
     document.getElementById("my_modal_1").showModal();
   };
 
@@ -82,8 +92,9 @@ function RoomDetailes() {
     // update room availability
     const updateRoomAvailability = async () => {
       const response = await axios.patch(
-        `https://blissful-bookings.vercel.app/available-rooms/${roomId}`,
+        `http://localhost:5000/room-booked/${roomId}`,
         {
+          userEmail: user?.email,
           bookingDate: startDate,
           available: false,
         }
