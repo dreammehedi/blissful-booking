@@ -7,15 +7,13 @@ import GalleryCart from "./GalleryCart";
 
 function Gallery() {
   const getgalleryData = async () => {
-    const response = await axios.get(
-      "https://blissful-bookings.vercel.app/gallery"
-    );
+    const response = await axios.get("http://localhost:5000/gallery");
     const data = await response.data;
     return data;
   };
   // react query data get
   const { isPending, isError, data, error } = useQuery({
-    queryKey: ["featuredRooms"],
+    queryKey: ["gallery"],
     queryFn: getgalleryData,
   });
 
@@ -29,7 +27,6 @@ function Gallery() {
       </span>
     );
   }
-  console.log(data);
   return (
     <>
       <Helmet>

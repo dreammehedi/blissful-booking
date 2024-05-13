@@ -14,19 +14,20 @@ function MyBookings() {
   // user data
   const { user } = useContext(AuthContext);
 
-  // get user booked data in database filter
-  const getBooksData = async () => {
-    const response = await axios.post(
+  const getgalleryData = async () => {
+    const response = await axios.get(
       `http://localhost:5000/my-booking-room/?email=${user?.email}`,
-      { withCredentials: true }
+      {
+        withCredentials: true,
+      }
     );
     const data = await response.data;
     return data;
   };
   // react query data get
   const { isPending, isError, data, error, refetch } = useQuery({
-    queryKey: ["featuredRooms"],
-    queryFn: getBooksData,
+    queryKey: ["galleryBook"],
+    queryFn: getgalleryData,
   });
 
   if (isPending) {
@@ -40,7 +41,6 @@ function MyBookings() {
     );
   }
 
-  // room id get
   // handle update date after confirm
   const handleUpdateDate = async (roomId) => {
     Swal.fire({
@@ -74,41 +74,6 @@ function MyBookings() {
     });
   };
 
-  // handle booked cancel
-  // const handleBookedCancel = (roomBookedId) => {
-  //   const cancelBookedRoom = async () => {
-  //     const response = await axios.patch(
-  //       `https://blissful-bookings.vercel.app/cancel-booked-room/${roomBookedId}`,
-  //       { available: true },
-  //       { withCredentials: true }
-  //     );
-  //     const data = await response.data;
-  //     if (data.modifiedCount > 0) {
-  //       const remainingBookedIds = userBookedRoom.filter((userBookedRoom) => {
-  //         return userBookedRoom !== roomBookedId;
-  //       });
-  //       localStorage.setItem("myBooking", JSON.stringify(remainingBookedIds));
-
-  //       Swal.fire("Saved!", "", "success");
-  //       window.location.reload();
-  //     } else {
-  //       toast.error("Booked Room Cancelled Permission Denied!");
-  //     }
-  //   };
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "Your room booking has been Cancelled!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "rgb(81 67 217 / 80%)",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, Cancel It!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       cancelBookedRoom();
-  //     }
-  //   });
-  // };
   return (
     <>
       <Helmet>

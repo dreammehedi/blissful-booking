@@ -67,14 +67,14 @@ function AuthProvider({ children }) {
 
         // get a token from server
         axios
-          .post("https://blissful-bookings.vercel.app/signin", loggedUser, {
+          .post("http://localhost:5000/signin", loggedUser, {
             withCredentials: true,
           })
-          .then(() => {
-            // console.log(res.data);
+          .then((res) => {
+            console.log(res.data);
           })
-          .catch(() => {
-            // console.log(err);
+          .catch((err) => {
+            console.log(err);
           });
       } else {
         setUser(null);
@@ -82,7 +82,7 @@ function AuthProvider({ children }) {
 
         // user sign out cookie clear
         axios
-          .post("https://blissful-bookings.vercel.app/signout", loggedUser, {
+          .post("http://localhost:5000/signout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {

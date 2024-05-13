@@ -35,9 +35,7 @@ const router = createBrowserRouter([
         path: "/rooms",
         element: <Rooms></Rooms>,
         loader: () => {
-          return fetch(
-            "https://blissful-bookings.vercel.app/first-room-banner"
-          );
+          return fetch("http://localhost:5000/first-room-banner");
         },
       },
       {

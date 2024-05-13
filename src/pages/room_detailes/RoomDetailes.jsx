@@ -32,7 +32,7 @@ function RoomDetailes() {
 
   const roomDetailesData = async () => {
     const response = await axios.get(
-      `https://blissful-bookings.vercel.app/room-detailes/${id}`
+      `http://localhost:5000/room-detailes/${id}`
     );
     const data = await response.data;
     return data;
