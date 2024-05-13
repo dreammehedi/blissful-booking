@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { FaFilterCircleDollar } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
 import RoomBanner from "../../components/room_banner/RoomBanner";
@@ -39,6 +40,9 @@ function Rooms() {
   };
   return (
     <>
+      <Helmet>
+        <title>Blissful Booking | Rooms</title>
+      </Helmet>
       {/* room page banner */}
       <RoomBanner firstRoomBanner={firstRoomBanner}></RoomBanner>
 
