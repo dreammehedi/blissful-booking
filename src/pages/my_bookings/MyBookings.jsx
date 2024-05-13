@@ -58,8 +58,7 @@ function MyBookings() {
         const updateDateInBooking = async () => {
           const response = await axios.patch(
             `http://localhost:5000/update-booked-date/${roomId}`,
-            { bookingDate: result?.value },
-            { withCredentials: true }
+            { bookingDate: result?.value }
           );
           const data = await response.data;
           if (data.modifiedCount > 0) {
