@@ -7,7 +7,6 @@ function SpecialOfferPromotion() {
   const [showOffer, setShowOffer] = useState(false);
   useEffect(() => {
     const handleShowOfferDisplayed = localStorage.getItem("showOfferDisplayed");
-    console.log(handleShowOfferDisplayed);
     if (!handleShowOfferDisplayed) {
       setShowOffer(true);
     }

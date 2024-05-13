@@ -22,11 +22,16 @@ const menuContent = [
   },
   {
     id: 4,
+    name: "Gallery",
+    path: "/gallery",
+  },
+  {
+    id: 5,
     name: "About Us",
     path: "/about-us",
   },
   {
-    id: 5,
+    id: 6,
     name: "Contact Us",
     path: "/contact-us",
   },

@@ -3,6 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import AboutUs from "../pages/about_us/AboutUs";
 import ContactUs from "../pages/contact_us/ContactUs";
 import Error from "../pages/error/Error";
+import Gallery from "../pages/gallery/Gallery";
 import Home from "../pages/home/Home";
 import MyBookings from "../pages/my_bookings/MyBookings";
 import RoomDetailes from "../pages/room_detailes/RoomDetailes";
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             <MyBookings></MyBookings>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/gallery",
+        element: <Gallery></Gallery>,
       },
       {
         path: "/contact-us",
