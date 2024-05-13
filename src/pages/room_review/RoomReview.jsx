@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { Helmet } from "react-helmet";
@@ -33,20 +32,22 @@ function RoomReview() {
       text: comment,
       timeStamp,
     };
-    const reviewDataSend = async () => {
-      const response = await axios.post(
-        `http://localhost:5000/room-review`,
-        reviewAllData
-      );
-      const data = await response.data;
-      if (data.insertedId) {
-        toast.success("Your review has been submitted!");
-        form.reset();
-      } else {
-        toast.error("Your review has not been submitted!");
-      }
-    };
-    reviewDataSend();
+    console.log(reviewAllData);
+    // const reviewDataSend = async () => {
+    //   const response = await axios.put(
+    //     `http://localhost:5000/room-review`,
+    //     reviewAllData
+    //   );
+    //   const data = await response.data;
+    //   console.log(data);
+    //   // if (data.insertedId) {
+    //   //   toast.success("Your review has been submitted!");
+    //   //   form.reset();
+    //   // } else {
+    //   //   toast.error("Your review has not been submitted!");
+    //   // }
+    // };
+    // reviewDataSend();
   };
   return (
     <>
