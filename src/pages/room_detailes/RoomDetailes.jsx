@@ -39,7 +39,7 @@ function RoomDetailes() {
   };
   // react query data get
   const { isPending, isError, data, error } = useQuery({
-    queryKey: ["featuredRooms"],
+    queryKey: ["roomDetailes"],
     queryFn: roomDetailesData,
   });
 
