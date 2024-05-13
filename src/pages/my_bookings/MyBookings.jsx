@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useContext, useState } from "react";
-import DatePicker from "react-datepicker";
+import { useContext } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../auth/AuthProvider";
 import Loader from "../../components/loader/Loader";
 import SectionTitle from "../../components/section_title/SectionTitle";
@@ -23,12 +24,10 @@ function MyBookings() {
     return data;
   };
   // react query data get
-  const { isPending, isError, data, error } = useQuery({
+  const { isPending, isError, data, error, refetch } = useQuery({
     queryKey: ["featuredRooms"],
     queryFn: getBooksData,
   });
-
-  const [startDate, setStartDate] = useState(new Date());
 
   if (isPending) {
     return <Loader></Loader>;
@@ -44,34 +43,36 @@ function MyBookings() {
   // room id get
   // handle update date after confirm
   const handleUpdateDate = async (roomId) => {
-    console.log(roomId);
-    document.getElementById("my_modal_2").showModal();
+    Swal.fire({
+      title: "Select Updated Date",
+      input: "date",
+      showCancelButton: true,
+      confirmButtonColor: "rgb(81 67 217 / 80%)",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Update Confirm",
+    }).then((result) => {
+      if (result.isConfirmed && !result.value) {
+        return toast.error("Please Select Update Date!");
+      }
+      if (result.isConfirmed && result.value) {
+        const updateDateInBooking = async () => {
+          const response = await axios.patch(
+            `http://localhost:5000/update-booked-date/${roomId}`,
+            { bookingDate: result?.value },
+            { withCredentials: true }
+          );
+          const data = await response.data;
+          if (data.modifiedCount > 0) {
+            refetch();
+            toast.success("Room Booked Date Updated Successfully.");
+          } else {
+            toast.error("Room Booked Date Not Updated.");
+          }
+        };
+        updateDateInBooking();
+      }
+    });
   };
-
-  // handle close modal
-  const handleCloseModal = () => {
-    document.getElementById("my_modal_2").close();
-  };
-
-  // handle confirm date
-  // const handleConfirmDate = () => {
-  //   const updateBookedDate = async () => {
-  //     const response = await axios.patch(
-  //       `https://blissful-bookings.vercel.app/update-booked-date/${roomBookedId}`,
-  //       { bookingDate: startDate },
-  //       { withCredentials: true }
-  //     );
-  //     const data = await response.data;
-  //     if (data.modifiedCount > 0) {
-  //       refetch();
-  //       handleCloseModal();
-  //       toast.success("Room Booked Date Updated Successfully.");
-  //     } else {
-  //       toast.error("Room Booked Date Not Updated.");
-  //     }
-  //   };
-  //   updateBookedDate();
-  // };
 
   // handle booked cancel
   // const handleBookedCancel = (roomBookedId) => {
@@ -284,40 +285,6 @@ function MyBookings() {
                 </div>
               </div>
             </div>
-
-            {/* updated date picker modal */}
-
-            <dialog id="my_modal_2" className="modal">
-              <div className="modal-box container  my-8  md:max-w-3xl flex flex-col justify-center items-center text-center min-h-fit md:mx-auto group">
-                <section className="p-8 mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800 space-y-4 hover:shadow-primary my-transition">
-                  <h2 className="text-3xl font-semibold text-primary capitalize dark:text-white">
-                    Update Hotel Booking Date...
-                  </h2>
-
-                  <form method="dialog" className="relative">
-                    <DatePicker
-                      selected={startDate}
-                      onChange={(date) => setStartDate(date)}
-                      className="block !w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 group-hover:ring-primary rounded-md   focus:border-blue-400  focus:ring-primary my-transition outline-none "
-                    />
-                  </form>
-                  <div className="w-full flex justify-center text-center items-center gap-8">
-                    <button
-                      // onClick={handleConfirmDate}
-                      className="px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl "
-                    >
-                      Confirm
-                    </button>
-                    <button
-                      onClick={handleCloseModal}
-                      className="px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl "
-                    >
-                      Close
-                    </button>
-                  </div>
-                </section>
-              </div>
-            </dialog>
           </div>
         ) : (
           <>
