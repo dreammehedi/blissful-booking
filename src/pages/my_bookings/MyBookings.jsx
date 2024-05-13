@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../auth/AuthProvider";
 import Loader from "../../components/loader/Loader";
 import SectionTitle from "../../components/section_title/SectionTitle";
@@ -98,13 +99,25 @@ function MyBookings() {
         });
         localStorage.setItem("myBooking", JSON.stringify(remainingBookedIds));
 
-        toast.success("Booked Room Cancelled Successfully.");
+        Swal.fire("Saved!", "", "success");
         window.location.reload();
       } else {
         toast.error("Booked Room Cancelled Permission Denied!");
       }
     };
-    cancelBookedRoom();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Your room booking has been Cancelled!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "rgb(81 67 217 / 80%)",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Cancel It!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        cancelBookedRoom();
+      }
+    });
   };
   return (
     <section className="py-8 md:py-12">
@@ -184,7 +197,7 @@ function MyBookings() {
                           scope="col"
                           className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                         >
-                          Update Hotel
+                          Update Date
                         </th>
                         <th
                           scope="col"
