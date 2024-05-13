@@ -120,7 +120,7 @@ function RoomDetailes() {
             <h1 className="text-dark font-bold text-3xl">{name}</h1>
             <p className="text-slate-400">{description}</p>
           </div>
-          <div className="grid grid-cols-4 gap-4 group-hover:*:text-primary">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 group-hover:*:text-primary">
             <div className="flex items-center gap-1 text-slate-500 text-xl">
               <SlSizeFullscreen></SlSizeFullscreen>
               {property_details?.size}
@@ -157,7 +157,7 @@ function RoomDetailes() {
               <h1 className="text-dark text-2xl font-semibold">
                 Availability:
               </h1>
-              <button className="px-5 py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
+              <button className="px-3 py-1 lg:px-5 lg:py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
                 {available ? "Hotel is available" : "Hotel is not available"}
               </button>
               <button
@@ -175,7 +175,7 @@ function RoomDetailes() {
                 Book Now
               </button>
 
-              <div className="flex justify-between items-center py-4">
+              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-4">
                 <p className="font-dmsans text-sm font-bold text-dark">
                   Check In: {check_in_time}
                 </p>
@@ -188,7 +188,7 @@ function RoomDetailes() {
             {/* reviews */}
             <div className="flex flex-col space-y-4">
               <h1 className="text-dark text-2xl font-semibold">Reviews:</h1>
-              <button className="px-5 py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
+              <button className="px-3 py-1 lg:px-5 lg:py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
                 No Review
               </button>
               <Link to={`/room-review`}>
@@ -350,7 +350,7 @@ function RoomDetailes() {
 
       <div className="container">
         <img
-          className="w-full h-auto max-h-[500px] object-cover rounded-tr-full rounded-bl-full transition-all duration-500 ease-linear hover:cursor-pointer hover:rounded-3xl"
+          className="w-full h-auto max-h-[500px] object-cover rounded-tr-[150px] rounded-bl-[150px] lg:rounded-tr-full lg:rounded-bl-full transition-all duration-500 ease-linear hover:cursor-pointer hover:rounded-3xl"
           src={image_url}
           alt=""
         />
@@ -358,7 +358,7 @@ function RoomDetailes() {
 
       {/* room facilities and room rules */}
       <section className="container py-8 md:py-12 bg-white dark:bg-gray-900">
-        <div className="grid grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {/* room facilities */}
           <div className="p-8 ring-1 ring-slate-100 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl group">
             <SectionTitle

@@ -90,7 +90,7 @@ function SignUp() {
   }
 
   return (
-    <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
+    <section className="container py-8 md:py-12 bg-white dark:bg-gray-900">
       <div className="container flex flex-col items-center justify-center h-auto mx-auto ring-1 ring-slate-100 rounded-md hover:ring-primary my-transition p-4 md:p-8 w-full max-w-md">
         <form onSubmit={handleSignIn} className="w-full ">
           {/* logo */}
