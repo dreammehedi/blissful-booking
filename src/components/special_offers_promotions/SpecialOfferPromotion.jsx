@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react";
 import { CgCloseO } from "react-icons/cg";
+import showOfferBg from "../../assets/showOfferBg.jpg";
 
 function SpecialOfferPromotion() {
   // modal control
   const [showOffer, setShowOffer] = useState(false);
   useEffect(() => {
-    setShowOffer(true);
+    const handleShowOfferDisplayed = localStorage.getItem("showOfferDisplayed");
+    console.log(handleShowOfferDisplayed);
+    if (!handleShowOfferDisplayed) {
+      setShowOffer(true);
+    }
   }, []);
 
   //   handle closer offer
   const handleCloseOffer = () => {
     setShowOffer(false);
+    localStorage.setItem("showOfferDisplayed", true);
   };
   return (
     <>
@@ -19,7 +25,12 @@ function SpecialOfferPromotion() {
           id="specialOfferPromotion"
           className=" fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[99999] bg-dark/90 flex justify-center items-center w-full h-screen"
         >
-          <div className="max-w-2xl mx-auto flex justify-center items-center flex-col p-8 rounded-tr-[120px] space-y-3 text-center rounded-bl-[120px] hover:bg-primary/95 my-transition bg-primary/90 text-white group relative">
+          <div
+            style={{
+              background: `linear-gradient(to right, rgb(17 17 17 / 40%), rgb(86 71 4 / 30%)), url(${showOfferBg})`,
+            }}
+            className="!bg-no-repeat !bg-bottom !bg-cover max-w-2xl mx-auto flex justify-center items-center flex-col p-8 md:p-12 lg:p-20 rounded-tr-[120px] space-y-3 text-center rounded-bl-[120px] hover:bg-primary/95 my-transition bg-primary/90 text-white group relative"
+          >
             <h1 className="text-white font-bold font-dmsans text-3xl">
               Romantic Retreat Special
             </h1>
