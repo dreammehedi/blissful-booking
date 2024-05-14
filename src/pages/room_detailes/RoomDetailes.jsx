@@ -117,11 +117,11 @@ function RoomDetailes() {
             document.getElementById("my_modal_1").close();
             toast.success("Hotel Booked successfully.");
             navigate("/my-bookings");
-          } else {
-            toast.error("Something Went Wrong!");
           }
         };
         updateAvalable();
+      } else {
+        toast.error("Something Went Wrong!");
       }
     };
     myBooking();

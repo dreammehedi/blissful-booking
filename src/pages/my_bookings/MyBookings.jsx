@@ -74,7 +74,7 @@ function MyBookings() {
   };
 
   // handle book cancellation
-  const handleBookedCancel = (id) => {
+  const handleBookedCancel = (id, mainRoomId) => {
     Swal.fire({
       title: "Are you sure?",
       text: "Your Room is Cancelled!",
@@ -91,13 +91,27 @@ function MyBookings() {
           );
           const data = await response.data;
           if (data.deletedCount === 1) {
-            refetch();
-            toast.success("Room Cancelled Successfully.");
-          } else {
-            toast.error("Room Not Cancelled.");
+            const updateAvalable = async () => {
+              const response = await axios.patch(
+                `http://localhost:5000/update-booking-available/${mainRoomId}`,
+                {
+                  available: true,
+                }
+              );
+              const res = await response.data;
+              if (res.modifiedCount === 1) {
+                refetch();
+                toast.success("Room Cancelled Successfully.");
+              } else {
+                toast.error("Room Not Cancelled.");
+              }
+            };
+            updateAvalable();
           }
         };
         cancelBookedRoom();
+      } else {
+        toast.error("Room Not Cancelled.");
       }
     });
   };
@@ -196,6 +210,7 @@ function MyBookings() {
                       <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                         {data?.map((roomBook) => {
                           const {
+                            roomMainId,
                             _id,
                             name,
                             image_url,
@@ -203,6 +218,7 @@ function MyBookings() {
                             rating,
                             bookingDate,
                           } = roomBook;
+                          console.log(roomBook);
                           return (
                             <tr key={roomBook._id}>
                               <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -244,7 +260,7 @@ function MyBookings() {
                               <td className="px-4 py-4 text-sm whitespace-nowrap">
                                 <button
                                   onClick={() => {
-                                    handleBookedCancel(_id);
+                                    handleBookedCancel(_id, roomMainId);
                                   }}
                                   className="rounded-full px-3 py-1 bg-red-500 text-dark hover:text-white hover:shadow hover:shadow-red-500 my-transition"
                                 >
