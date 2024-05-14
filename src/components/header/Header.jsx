@@ -53,7 +53,7 @@ function Header() {
 
   return (
     <header
-      className={`w-full h-auto bg-white ${
+      className={`w-full h-auto bg-white dark:bg-dark dark:text-white ${
         stickyHeader ? "sticky top-0 left-0 z-[999] drop-shadow-lg" : undefined
       }`}
     >
@@ -67,7 +67,7 @@ function Header() {
 
         {/* mobile menu */}
         <ul
-          className={`hidden z-10 flex-col gap-4 w-3/5 md:w-1/2 h-screen bg-white fixed top-0 ${
+          className={`hidden z-10 flex-col gap-4 w-3/5 md:w-1/2 h-screen bg-white dark:bg-dark fixed top-0 ${
             showMobileMenu ? "right-0 !flex lg:!hidden" : "-right-full"
           }  shadow-lg p-8`}
         >
@@ -94,10 +94,10 @@ function Header() {
               <img
                 src={user?.photoURL}
                 alt=""
-                className="w-12 h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
+                className="w-12 h-12 border rounded-full dark:border-primary"
               />
               <ul
-                className="hidden group-hover:inline-block my-transition absolute top-12 rounded-tr-3xl rounded-md min-w-[350px] right-0 bg-white shadow shadow-primary p-4 space-y-2 
+                className="hidden group-hover:inline-block my-transition absolute top-12 rounded-tr-3xl rounded-md min-w-[350px] right-0 bg-white dark:bg-dark shadow shadow-primary p-4 space-y-2 
           "
               >
                 <li className="flex items-center gap-2 pb-3">
@@ -110,7 +110,9 @@ function Header() {
                     <p className="text-sm font-semibold text-primary ">
                       {user?.displayName}
                     </p>
-                    <p className="text-sm  text-dark">{user?.email}</p>
+                    <p className="text-sm  text-dark dark:text-white">
+                      {user?.email}
+                    </p>
                   </div>
                 </li>
                 <li>
@@ -130,7 +132,7 @@ function Header() {
             onClick={() => {
               setShowMobileMenu(!showMobileMenu);
             }}
-            className="lg:hidden z-30 text-dark my-transition hover:text-primary"
+            className="lg:hidden z-30 text-dark dark:text-primary my-transition hover:text-primary"
           >
             {showMobileMenu ? (
               <LiaWindowClose className="text-3xl "></LiaWindowClose>

@@ -52,7 +52,7 @@ function MenuContent({ handleMobileMenuHide }) {
               className={({ isActive }) => {
                 return isActive
                   ? "text-primary font-semibold"
-                  : "text-dark my-transition font-semibold hover:text-primary";
+                  : "text-dark dark:text-white my-transition font-semibold hover:text-primary";
               }}
             >
               {name}
