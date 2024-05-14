@@ -18,7 +18,6 @@ import Loader from "../../components/loader/Loader";
 function RoomDetailes() {
   // get room review count data
   const roomReviewCount = useLoaderData();
-  console.log(roomReviewCount);
 
   // user data
   const { user } = useContext(AuthContext);
@@ -474,7 +473,11 @@ function RoomDetailes() {
                     key={ind}
                     className="p-8 flex flex-col space-y-3 justify-center items-center ring-1 text-center ring-slate-100 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl group"
                   >
-                    <img src={review?.user_image} alt="" />
+                    <img
+                      className=" my-transition group-hover:shadow-md group-hover:shadow-primary w-20 h-20 object-cover rounded-full"
+                      src={review?.user_image}
+                      alt=""
+                    />
                     <h1 className="text-xl font-semibold text-primary capitalize dark:text-white">
                       {review?.user}
                     </h1>

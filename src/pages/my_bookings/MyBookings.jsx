@@ -22,7 +22,7 @@ function MyBookings() {
 
   const getgalleryData = async () => {
     const response = await axios.get(
-      `http://localhost:5000/my-booking-room/?email=${user?.email}`,
+      `https://blissful-bookings.vercel.app/my-booking-room/?email=${user?.email}`,
       {
         withCredentials: true,
       }
