@@ -218,7 +218,6 @@ function MyBookings() {
                             rating,
                             bookingDate,
                           } = roomBook;
-                          console.log(roomBook);
                           return (
                             <tr key={roomBook._id}>
                               <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">

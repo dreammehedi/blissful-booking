@@ -74,16 +74,9 @@ function AuthProvider({ children }) {
         setUserLoading(false);
 
         // user sign out cookie clear
-        axios
-          .post("https://blissful-bookings.vercel.app/signout", loggedUser, {
-            withCredentials: true,
-          })
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        axios.post("https://blissful-bookings.vercel.app/signout", loggedUser, {
+          withCredentials: true,
+        });
       }
     });
     return () => unsubscribe;
