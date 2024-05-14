@@ -1,11 +1,19 @@
+import axios from "axios";
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { Helmet } from "react-helmet";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
 import SectionTitle from "../../components/section_title/SectionTitle";
 
 function RoomReview() {
+  // dynamic id
+  const { id } = useParams();
+
+  // navigate
+  const navigate = useNavigate();
+
   // user data
   const { user } = useContext(AuthContext);
 
@@ -26,28 +34,30 @@ function RoomReview() {
       return;
     }
     const reviewAllData = {
+      mainRoomId: id,
       user: userName,
+      user_email: user?.email,
       user_image: user?.photoURL,
       rating,
       text: comment,
       timeStamp,
     };
-    console.log(reviewAllData);
-    // const reviewDataSend = async () => {
-    //   const response = await axios.put(
-    //     `http://localhost:5000/room-review`,
-    //     reviewAllData
-    //   );
-    //   const data = await response.data;
-    //   console.log(data);
-    //   // if (data.insertedId) {
-    //   //   toast.success("Your review has been submitted!");
-    //   //   form.reset();
-    //   // } else {
-    //   //   toast.error("Your review has not been submitted!");
-    //   // }
-    // };
-    // reviewDataSend();
+
+    const reviewDataSend = async () => {
+      const response = await axios.post(
+        `http://localhost:5000/room-review`,
+        reviewAllData
+      );
+      const data = await response.data;
+      if (data.insertedId) {
+        toast.success("Your review has been submitted!");
+        form.reset();
+        navigate("/");
+      } else {
+        toast.error("Your review has not been submitted!");
+      }
+    };
+    reviewDataSend();
   };
   return (
     <>

@@ -16,15 +16,15 @@ import UserReviewCart from "./UserReviewCart";
 
 function UserReviews() {
   // user revies data get
-  const getUserReviews = async () => {
-    const response = await axios.get("http://localhost:5000/userReviews");
+  const getRoomReviews = async () => {
+    const response = await axios.get("http://localhost:5000/room-review");
     const data = await response.data;
     return data;
   };
   // react query data get
   const { isPending, isError, data, error } = useQuery({
-    queryKey: ["userReviews"],
-    queryFn: getUserReviews,
+    queryKey: ["roomReview"],
+    queryFn: getRoomReviews,
   });
 
   if (isPending) {

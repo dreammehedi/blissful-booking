@@ -278,7 +278,7 @@ function MyBookings() {
                                 </button>
                               </td>
                               <td className="px-4 py-4 text-sm whitespace-nowrap">
-                                <Link to={`/room-review/${_id}`}>
+                                <Link to={`/room-review/${roomMainId}`}>
                                   <button className="rounded-full px-3 py-1 bg-green-500 text-dark hover:text-white hover:shadow hover:shadow-green-500 my-transition">
                                     Review
                                   </button>

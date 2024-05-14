@@ -1,7 +1,17 @@
 import PropTypes from "prop-types";
 import { MdStar } from "react-icons/md";
+
+// rating star component
+const RatingStars = ({ rating }) => {
+  const stars = [];
+  for (let i = 0; i < rating; i++) {
+    stars.push(<MdStar key={i} className="text-yellow-400 text-[18px]" />);
+  }
+  return <>{stars}</>;
+};
+
 function UserReviewCart({ review }) {
-  const { user, text, timeStamp, rating, user_image } = review;
+  const { user, text, timeStamp, rating, user_image, roomName } = review;
   return (
     <>
       <div className="ring-1 ring-slate-100 flex flex-col lg:flex-row justify-center lg:justify-start text-center lg:text-left items-center gap-4 md:gap-6 p-6 md:p-8 rounded-md my-transition hover:ring-primary group">
@@ -11,18 +21,18 @@ function UserReviewCart({ review }) {
             src={user_image}
             alt=""
           />
-          <h3 className="font-semibold text-primary font-dmsans text-xl">
+          <h3 className="font-semibold text-primary font-dmsans text-base">
             {user}
           </h3>
           <span className="flex items-center gap-1 font-roboto font-bold text-[18px]">
-            {rating}
-            <MdStar className="text-yellow-400 text-[18px]"></MdStar>
+            <RatingStars rating={rating}></RatingStars>
           </span>
           <b className="text-dark font-semibold">
             {new Date(timeStamp).toLocaleDateString()}
           </b>
         </div>
-        <div className=" ">
+        <div className="text-center ">
+          <h4 className="text-primary text-[18px] font-semibold">{roomName}</h4>
           <p className="text-slate-400 font-poppins my-transition group-hover:text-dark">
             {text}
           </p>
@@ -33,5 +43,8 @@ function UserReviewCart({ review }) {
 }
 UserReviewCart.propTypes = {
   review: PropTypes.object.isRequired,
+};
+RatingStars.propTypes = {
+  rating: PropTypes.number.isRequired,
 };
 export default UserReviewCart;
