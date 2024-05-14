@@ -25,7 +25,7 @@ function UserReviewCart({ review }) {
             {user}
           </h3>
           <span className="flex items-center gap-1 font-roboto font-bold text-[18px]">
-            <RatingStars rating={rating}></RatingStars>
+            <RatingStars rating={parseInt(rating)}></RatingStars>
           </span>
           <b className="text-dark font-semibold">
             {new Date(timeStamp).toLocaleDateString()}

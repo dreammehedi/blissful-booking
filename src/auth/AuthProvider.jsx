@@ -66,16 +66,9 @@ function AuthProvider({ children }) {
         setUserLoading(false);
 
         // get a token from server
-        axios
-          .post("https://blissful-bookings.vercel.app/signin", loggedUser, {
-            withCredentials: true,
-          })
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        axios.post("https://blissful-bookings.vercel.app/signin", loggedUser, {
+          withCredentials: true,
+        });
       } else {
         setUser(null);
         setUserLoading(false);

@@ -27,6 +27,7 @@ function SignIn() {
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
+    const email = form.email.value;
     const password = form.password.value;
 
     // check password length
@@ -34,9 +35,8 @@ function SignIn() {
       toast.error("Password must be at least 6 characters long.");
       return;
     }
-
     // call email password login method
-    loginWithEmailAndPassword()
+    loginWithEmailAndPassword(email, password, password)
       .then(() => {
         toast.success("Sign In Success.");
         navigate(state ? state : "/");
@@ -95,6 +95,7 @@ function SignIn() {
               <input
                 required
                 type="email"
+                name="email"
                 className="block w-full px-10 py-3 text-dark bg-white rounded-lg dark:bg-gray-900 dark:text-gray-300 ring-1 ring-slate-100 focus:ring-primary outline-none "
                 placeholder="Enter Your Email..."
               />
