@@ -364,18 +364,28 @@ function MyBookings() {
                         alt=""
                       />
                       <div className="text-primary font-bold">
-                        Name: <span className="text-dark">{name}</span>
+                        Name:{" "}
+                        <span className="text-dark dark:text-white">
+                          {name}
+                        </span>
                       </div>
                       <div className="text-primary font-bold">
                         Price Per Night:{" "}
-                        <span className="text-dark">{price_per_night}</span>
+                        <span className="text-dark dark:text-white">
+                          {price_per_night}
+                        </span>
                       </div>
                       <div className="text-primary font-bold">
                         Booking Date:{" "}
-                        <span className="text-dark">{bookingDate}</span>
+                        <span className="text-dark dark:text-white">
+                          {bookingDate}
+                        </span>
                       </div>
                       <div className="text-primary font-bold">
-                        Rating: <span className="text-dark">{rating}</span>
+                        Rating:{" "}
+                        <span className="text-dark dark:text-white">
+                          {rating}
+                        </span>
                       </div>
                       <div className="flex flex-wrap gap-3">
                         <button

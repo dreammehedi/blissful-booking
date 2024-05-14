@@ -151,7 +151,7 @@ function ContactUs() {
                     <input
                       type="text"
                       placeholder="Mehedi "
-                      className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none "
+                      className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none dark:bg-dark dark:text-white"
                     />
                   </div>
 
@@ -162,7 +162,7 @@ function ContactUs() {
                     <input
                       type="text"
                       placeholder="Hassan"
-                      className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none "
+                      className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none dark:bg-dark dark:text-white"
                     />
                   </div>
                 </div>
@@ -174,7 +174,7 @@ function ContactUs() {
                   <input
                     type="email"
                     placeholder="dreammehedihassan@gmail.com"
-                    className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none "
+                    className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none dark:bg-dark dark:text-white"
                   />
                 </div>
 
@@ -184,7 +184,7 @@ function ContactUs() {
                   </label>
                   <textarea
                     rows={8}
-                    className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none "
+                    className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none dark:bg-dark dark:text-white"
                     placeholder="Thanks for Contacting."
                   ></textarea>
                 </div>
