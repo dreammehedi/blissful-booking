@@ -32,7 +32,7 @@ function RoomDetailes() {
 
   const roomDetailesData = async () => {
     const response = await axios.get(
-      `http://localhost:5000/room-detailes/${id}`
+      `https://blissful-bookings.vercel.app/room-detailes/${id}`
     );
     const data = await response.data;
     return data;
@@ -99,7 +99,7 @@ function RoomDetailes() {
     };
     const myBooking = async () => {
       const response = await axios.post(
-        "http://localhost:5000/my-booking",
+        "https://blissful-bookings.vercel.app/my-booking",
         myBookingData
       );
       const data = await response.data;
@@ -107,7 +107,7 @@ function RoomDetailes() {
       if (data.insertedId) {
         const updateAvalable = async () => {
           const response = await axios.patch(
-            `http://localhost:5000/update-booking-available/${roomData._id}`,
+            `https://blissful-bookings.vercel.app/update-booking-available/${roomData._id}`,
             {
               available: false,
             }

@@ -67,7 +67,7 @@ function AuthProvider({ children }) {
 
         // get a token from server
         axios
-          .post("http://localhost:5000/signin", loggedUser, {
+          .post("https://blissful-bookings.vercel.app/signin", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
@@ -82,7 +82,7 @@ function AuthProvider({ children }) {
 
         // user sign out cookie clear
         axios
-          .post("http://localhost:5000/signout", loggedUser, {
+          .post("https://blissful-bookings.vercel.app/signout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {

@@ -7,7 +7,9 @@ import GalleryCart from "./GalleryCart";
 
 function Gallery() {
   const getgalleryData = async () => {
-    const response = await axios.get("http://localhost:5000/gallery");
+    const response = await axios.get(
+      "https://blissful-bookings.vercel.app/gallery"
+    );
     const data = await response.data;
     return data;
   };

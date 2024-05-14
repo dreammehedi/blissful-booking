@@ -16,7 +16,7 @@ function MyBookings() {
 
   const getgalleryData = async () => {
     const response = await axios.get(
-      `http://localhost:5000/my-booking-room/?email=${user?.email}`,
+      `https://blissful-bookings.vercel.app/my-booking-room/?email=${user?.email}`,
       {
         withCredentials: true,
       }
@@ -57,7 +57,7 @@ function MyBookings() {
       if (result.isConfirmed && result.value) {
         const updateDateInBooking = async () => {
           const response = await axios.patch(
-            `http://localhost:5000/update-booked-date/${roomId}`,
+            `https://blissful-bookings.vercel.app/update-booked-date/${roomId}`,
             { bookingDate: result?.value }
           );
           const data = await response.data;
@@ -87,13 +87,13 @@ function MyBookings() {
       if (result.isConfirmed) {
         const cancelBookedRoom = async () => {
           const response = await axios.delete(
-            `http://localhost:5000/my-booking/${id}`
+            `https://blissful-bookings.vercel.app/my-booking/${id}`
           );
           const data = await response.data;
           if (data.deletedCount === 1) {
             const updateAvalable = async () => {
               const response = await axios.patch(
-                `http://localhost:5000/update-booking-available/${mainRoomId}`,
+                `https://blissful-bookings.vercel.app/update-booking-available/${mainRoomId}`,
                 {
                   available: true,
                 }
