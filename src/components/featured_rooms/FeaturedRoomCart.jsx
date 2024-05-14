@@ -21,7 +21,7 @@ function FeaturedRoomCart({ featuredRoom }) {
         {name}
       </h2>
       <p className="text-slate-400 text-sm">{description}</p>
-      <span className="font-semibold text-dark font-dmsans">
+      <span className="font-semibold text-dark dark:text-white font-dmsans">
         ${price_per_night} per night
       </span>
       <Link to={`/room-detailes/${_id}`}>

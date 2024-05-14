@@ -27,13 +27,13 @@ function UserReviewCart({ review }) {
           <span className="flex items-center gap-1 font-roboto font-bold text-[18px]">
             <RatingStars rating={parseInt(rating)}></RatingStars>
           </span>
-          <b className="text-dark font-semibold">
+          <b className="text-dark dark:text-white font-semibold">
             {new Date(timeStamp).toLocaleDateString()}
           </b>
         </div>
         <div className="text-center ">
           <h4 className="text-primary text-[18px] font-semibold">{roomName}</h4>
-          <p className="text-slate-400 font-poppins my-transition group-hover:text-dark">
+          <p className="text-slate-400 font-poppins my-transition group-hover:text-dark dark:group-hover:text-white">
             {text}
           </p>
         </div>

@@ -13,7 +13,7 @@ function Footer() {
                 Pages
               </h2>
 
-              <ul className="flex flex-col items-center md:items-start mt-5 space-y-2">
+              <ul className="flex flex-col items-center md:items-start mt-5 text-gray-800 dark:text-white space-y-2">
                 <MenuContent></MenuContent>
               </ul>
             </div>
@@ -26,19 +26,19 @@ function Footer() {
               <div className="flex flex-col items-center md:items-start mt-5 space-y-2">
                 <a
                   href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-primary hover:underline hover:text-primary"
                 >
                   Retail & E-Commerce
                 </a>
                 <a
                   href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-primary hover:underline hover:text-primary"
                 >
                   Information Technology
                 </a>
                 <a
                   href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-primary hover:underline hover:text-primary"
                 >
                   Finance & Insurance
                 </a>
@@ -53,19 +53,19 @@ function Footer() {
               <div className="flex flex-col items-center md:items-start mt-5 space-y-2">
                 <a
                   href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-primary hover:underline hover:text-primary"
                 >
                   Translation
                 </a>
                 <a
                   href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-primary hover:underline hover:text-primary"
                 >
                   Proofreading & Editing
                 </a>
                 <a
                   href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-primary hover:underline hover:text-primary"
                 >
                   Content Creation
                 </a>
@@ -78,10 +78,10 @@ function Footer() {
               </p>
 
               <div className="flex flex-col items-center md:items-start mt-5 space-y-2">
-                <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:text-blue-500">
+                <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-primary hover:text-primary">
                   +880 1716059182
                 </p>
-                <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400  hover:text-blue-500 break-words text-wrap lg:max-w-[230px]">
+                <p className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-primary  hover:text-primary break-words text-wrap lg:max-w-[230px]">
                   dreammehedihassan@gmail.com
                 </p>
               </div>
