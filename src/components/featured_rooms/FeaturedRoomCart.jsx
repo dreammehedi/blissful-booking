@@ -2,15 +2,22 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function FeaturedRoomCart({ featuredRoom }) {
-  const { _id, name, description, image_url, price_per_night } = featuredRoom;
+  const { _id, name, description, image_url, price_per_night, avilable } =
+    featuredRoom;
 
   return (
     <div className="ring-1 ring-slate-100 p-4 md:p-6 flex flex-col space-y-3 my-transition rounded-tr-[35px] rounded-bl-[35px] hover:ring-primary hover:!rounded-[35px] group">
-      <img
-        className="w-full h-auto md:h-[250px] object-cover my-transition rounded-tr-[35px] rounded-bl-[35px] group-hover:!rounded-[35px]"
-        src={image_url}
-        alt=""
-      />
+      <div className="relative">
+        <img
+          className="w-full h-auto md:h-[250px] object-cover my-transition rounded-tr-[35px] rounded-bl-[35px] group-hover:!rounded-[35px]"
+          src={image_url}
+          alt=""
+        />
+        <span className="absolute top-0 left-0 text-white px-6 rounded-br-[35px] group-hover:!rounded-tl-[35px] py-1 bg-primary/50 my-transition">
+          {avilable ? "Available" : "Unavailable"}
+        </span>
+      </div>
+
       <h2 className="pt-4 font-bold text-2xl text-primary font-roboto">
         {name}
       </h2>
