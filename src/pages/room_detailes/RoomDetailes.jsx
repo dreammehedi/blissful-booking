@@ -398,7 +398,7 @@ function RoomDetailes() {
                     description="Experience comfort and convenience with our range of exceptional room facilities."
                   ></SectionTitle>
 
-                  <ul className="text-xl pt-8 grid grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
+                  <ul className="text-xl pt-8 grid grid-cols-1 md:grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
                     {facilities?.map((faciliti, ind) => {
                       return (
                         <li
@@ -422,7 +422,7 @@ function RoomDetailes() {
                     description="To ensure a pleasant stay for all our guests, we kindly ask you to adhere to the following room rules."
                   ></SectionTitle>
 
-                  <ul className="text-xl pt-8 grid grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
+                  <ul className="text-xl pt-8 grid grid-cols-1 md:grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
                     <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
                       <h3 className="text-dark">Check In:</h3>
                       <p className="text-sm group-hover:text-primary/90">
