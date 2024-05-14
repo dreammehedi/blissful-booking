@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import moment from "moment";
 import { useContext } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet";
@@ -16,7 +17,7 @@ function MyBookings() {
 
   const getgalleryData = async () => {
     const response = await axios.get(
-      `https://blissful-bookings.vercel.app/my-booking-room/?email=${user?.email}`,
+      `http://localhost:5000/my-booking-room/?email=${user?.email}`,
       {
         withCredentials: true,
       }
@@ -74,46 +75,53 @@ function MyBookings() {
   };
 
   // handle book cancellation
-  const handleBookedCancel = (id, mainRoomId) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "Your Room is Cancelled!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "rgb(81 67 217 / 80%)",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Cancel It!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const cancelBookedRoom = async () => {
-          const response = await axios.delete(
-            `https://blissful-bookings.vercel.app/my-booking/${id}`
-          );
-          const data = await response.data;
-          if (data.deletedCount === 1) {
-            const updateAvalable = async () => {
-              const response = await axios.patch(
-                `https://blissful-bookings.vercel.app/update-booking-available/${mainRoomId}`,
-                {
-                  available: true,
+  const handleBookedCancel = (id, mainRoomId, bookingDate) => {
+    // check booking date and current date
+    const userBookedDate = moment(bookingDate);
+    const currentDate = moment();
+    const differentDate = userBookedDate.diff(currentDate, "days");
+
+    if (differentDate > 1) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Your Room is Cancelled!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "rgb(81 67 217 / 80%)",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Cancel It!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const cancelBookedRoom = async () => {
+            const response = await axios.delete(
+              `https://blissful-bookings.vercel.app/my-booking/${id}`
+            );
+            const data = await response.data;
+            if (data.deletedCount === 1) {
+              const updateAvalable = async () => {
+                const response = await axios.patch(
+                  `https://blissful-bookings.vercel.app/update-booking-available/${mainRoomId}`,
+                  {
+                    available: true,
+                  }
+                );
+                const res = await response.data;
+                if (res.modifiedCount === 1) {
+                  refetch();
+                  toast.success("Room Cancelled Successfully.");
+                } else {
+                  toast.error("Room Not Cancelled.");
                 }
-              );
-              const res = await response.data;
-              if (res.modifiedCount === 1) {
-                refetch();
-                toast.success("Room Cancelled Successfully.");
-              } else {
-                toast.error("Room Not Cancelled.");
-              }
-            };
-            updateAvalable();
-          }
-        };
-        cancelBookedRoom();
-      } else {
-        toast.error("Room Not Cancelled.");
-      }
-    });
+              };
+              updateAvalable();
+            }
+          };
+          cancelBookedRoom();
+        }
+      });
+    } else {
+      toast.error("Access Denied!");
+    }
   };
   return (
     <>
@@ -259,7 +267,11 @@ function MyBookings() {
                               <td className="px-4 py-4 text-sm whitespace-nowrap">
                                 <button
                                   onClick={() => {
-                                    handleBookedCancel(_id, roomMainId);
+                                    handleBookedCancel(
+                                      _id,
+                                      roomMainId,
+                                      bookingDate
+                                    );
                                   }}
                                   className="rounded-full px-3 py-1 bg-red-500 text-dark hover:text-white hover:shadow hover:shadow-red-500 my-transition"
                                 >
