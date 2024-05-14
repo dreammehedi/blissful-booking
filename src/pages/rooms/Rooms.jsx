@@ -58,10 +58,32 @@ function Rooms() {
             ></SectionTitle>
 
             {/* room filter by price */}
-            <div className="container py-8 my:py-12 flex flex-col items-center lg:items-end text-right space-y-3 justify-center lg:justify-end">
+            <div className="container py-8 my:py-12 flex  items-center  ">
+              <div className="flex flex-col">
+                <label
+                  htmlFor="filterAvailable"
+                  className="flex items-center gap-2
+               mb-2 text-xl font-medium text-primary dark:text-white"
+                >
+                  <FaFilterCircleDollar className="text-xl"></FaFilterCircleDollar>
+                  Filter Available/UnAvailable
+                </label>
+                <select
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                  }}
+                  className="ring-1 ring-primary bg-primary outline-none text-white px-5 py-2 rounded-tl-3xl"
+                  name="filterAvailable"
+                  id="filterAvailable"
+                >
+                  <option disabled></option>
+                  <option value={true}>Available</option>
+                  <option value={false}>UnAvailable</option>
+                </select>
+              </div>
               <form className="max-w-sm mx-auto lg:!ml-auto lg:!mr-0">
                 <label
-                  htmlFor="countries"
+                  htmlFor="priceRange"
                   className="flex items-center gap-2
                mb-2 text-xl font-medium text-primary dark:text-white"
                 >
@@ -72,7 +94,7 @@ function Rooms() {
                   type="range"
                   name="priceRange"
                   id="priceRange"
-                  min={100}
+                  min={200}
                   max={1000}
                   value={priceRange}
                   onChange={handlePriceRange}
