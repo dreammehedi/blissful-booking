@@ -459,6 +459,34 @@ function RoomDetailes() {
             </section>
           </>
         )}
+
+        {roomReviewCount?.length > 0 && (
+          <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
+            <SectionTitle
+              title="Room Reviews"
+              description="Read what our guests have to say about this room."
+            ></SectionTitle>
+
+            <div className="container py-8 md:py-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+              {roomReviewCount?.map((review, ind) => {
+                return (
+                  <div
+                    key={ind}
+                    className="p-8 flex flex-col space-y-3 justify-center items-center ring-1 text-center ring-slate-100 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl group"
+                  >
+                    <img src={review?.user_image} alt="" />
+                    <h1 className="text-xl font-semibold text-primary capitalize dark:text-white">
+                      {review?.user}
+                    </h1>
+
+                    <p className="text-dark">{review?.user_email}</p>
+                    <p className="text-slate-600 text-sm">{review?.text}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
       </section>
     </>
   );

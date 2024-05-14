@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { MdStar } from "react-icons/md";
 
 // rating star component
-const RatingStars = ({ rating }) => {
+export const RatingStars = ({ rating }) => {
   const stars = [];
   for (let i = 0; i < rating; i++) {
     stars.push(<MdStar key={i} className="text-yellow-400 text-[18px]" />);
