@@ -83,6 +83,7 @@ function RoomDetailes() {
   // handle confirm booking
   const handleConfirmBooking = (roomData) => {
     const myBookingData = {
+      roomMainId: roomData._id,
       userEmail: user?.email,
       bookingDate: startDate,
       amenities: roomData.amenities,
@@ -102,12 +103,25 @@ function RoomDetailes() {
         myBookingData
       );
       const data = await response.data;
-      console.log(data);
+
       if (data.insertedId) {
-        document.getElementById("my_modal_1").close();
-        toast.success("Hotel Booked successfully.");
-      } else {
-        toast.error("Something Went Wrong!");
+        const updateAvalable = async () => {
+          const response = await axios.patch(
+            `http://localhost:5000/update-booking-available/${roomData._id}`,
+            {
+              available: false,
+            }
+          );
+          const res = await response.data;
+          if (res.modifiedCount === 1) {
+            document.getElementById("my_modal_1").close();
+            toast.success("Hotel Booked successfully.");
+            navigate("/my-bookings");
+          } else {
+            toast.error("Something Went Wrong!");
+          }
+        };
+        updateAvalable();
       }
     };
     myBooking();
@@ -394,50 +408,6 @@ function RoomDetailes() {
                         </li>
                       );
                     })}
-                    {/* <li>
-                <TbAirConditioning className="text-primary text-2xl"></TbAirConditioning>
-                Air conditioner
-              </li>
-              <li>
-                <FaWifi className="text-primary text-2xl"></FaWifi> Wifi Access
-              </li>
-              <li>
-                <FaPhone className="text-primary text-2xl"></FaPhone>Telephone{" "}
-              </li>
-              <li>
-                <LuRefrigerator className="text-primary text-2xl"></LuRefrigerator>
-                Refrigerator
-              </li>
-              <li>
-                <MdIron className="text-primary text-2xl"></MdIron>Ironing Board
-              </li>
-              <li>
-                <BsSafe className="text-primary text-2xl"></BsSafe>Saving Safe
-              </li>
-              <li>
-                <GiTowel className="text-primary text-2xl"></GiTowel>Towel
-                Warmer
-              </li>
-              <li>
-                <IoTvSharp className="text-primary text-2xl"></IoTvSharp>Flat
-                Screen TV
-              </li>
-              <li>
-                <MdBalcony className="text-primary text-2xl"></MdBalcony>Balcony
-                or Terrace
-              </li>
-              <li>
-                <PiBowlSteamFill className="text-primary text-2xl"></PiBowlSteamFill>
-                BKettle Tea
-              </li>
-              <li>
-                <PiHairDryerFill className="text-primary text-2xl"></PiHairDryerFill>
-                Hairdryer
-              </li>
-              <li>
-                <MdBreakfastDining className="text-primary text-2xl"></MdBreakfastDining>
-                Breakfast Included
-              </li> */}
                   </ul>
                 </div>
 
