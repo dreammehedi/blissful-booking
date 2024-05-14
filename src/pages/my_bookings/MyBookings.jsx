@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import moment from "moment";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet";
+import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
@@ -14,6 +16,9 @@ import SectionTitle from "../../components/section_title/SectionTitle";
 function MyBookings() {
   // user data
   const { user } = useContext(AuthContext);
+
+  // handle layout
+  const [layout, setLayout] = useState(true);
 
   const getgalleryData = async () => {
     const response = await axios.get(
@@ -139,171 +144,267 @@ function MyBookings() {
         {data?.length > 0 ? (
           // {/* hotel booking list */}
           <div className="container py-8 md:py-12">
-            <div className="flex items-center gap-x-3">
-              <h2 className="text-lg font-medium text-gray-800 dark:text-white">
-                My Hotel Booking
-              </h2>
+            <div className="flex justify-between items-center gap-x-3">
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <h2 className="text-lg font-medium text-gray-800 dark:text-white">
+                  My Hotel Booking
+                </h2>
 
-              <span className="px-3 py-1 text-base text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
-                {data?.length} Room
-              </span>
-            </div>
-
-            <div className="flex flex-col mt-6">
-              <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                  <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                    <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                      <thead className="bg-gray-50 dark:bg-gray-800">
-                        <tr>
-                          <th
-                            scope="col"
-                            className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                          >
-                            <div className="flex items-center gap-x-3">
-                              <span>Hotel Information</span>
-                            </div>
-                          </th>
-
-                          <th
-                            scope="col"
-                            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                          >
-                            <button className="flex items-center gap-x-2">
-                              <span>$ Price</span>
-                            </button>
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                          >
-                            <button className="flex items-center gap-x-2">
-                              <span>* Rating</span>
-                            </button>
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                          >
-                            Email address
-                          </th>
-
-                          <th
-                            scope="col"
-                            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                          >
-                            Booking Date
-                          </th>
-
-                          <th
-                            scope="col"
-                            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                          >
-                            Cancel Hotel
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                          >
-                            Update Date
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                          >
-                            Review Hotel
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                        {data?.map((roomBook) => {
-                          const {
-                            roomMainId,
-                            _id,
-                            name,
-                            image_url,
-                            price_per_night,
-                            rating,
-                            bookingDate,
-                          } = roomBook;
-                          return (
-                            <tr key={roomBook._id}>
-                              <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                <div className="inline-flex items-center gap-x-3">
-                                  <div className="flex items-center gap-x-2">
-                                    <img
-                                      className="object-cover w-10 h-10 rounded-full"
-                                      src={image_url}
-                                      alt=""
-                                    />
-                                    <div>
-                                      <h2 className="font-medium text-gray-800 dark:text-white ">
-                                        {name}
-                                      </h2>
-                                      <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                                        {user?.displayName}
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </td>
-
-                              <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                {price_per_night}
-                              </td>
-                              <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                {rating}
-                              </td>
-                              <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                {user?.email}
-                              </td>
-                              <td className="px-4 py-4 text-sm whitespace-nowrap">
-                                <div className="flex items-center gap-x-2">
-                                  <p className="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60">
-                                    {new Date(bookingDate).toLocaleDateString()}
-                                  </p>
-                                </div>
-                              </td>
-                              <td className="px-4 py-4 text-sm whitespace-nowrap">
-                                <button
-                                  onClick={() => {
-                                    handleBookedCancel(
-                                      _id,
-                                      roomMainId,
-                                      bookingDate
-                                    );
-                                  }}
-                                  className="rounded-full px-3 py-1 bg-red-500 text-dark hover:text-white hover:shadow hover:shadow-red-500 my-transition"
-                                >
-                                  Cancel Booking
-                                </button>
-                              </td>
-                              <td className="px-4 py-4 text-sm whitespace-nowrap">
-                                <button
-                                  onClick={() => {
-                                    handleUpdateDate(_id);
-                                  }}
-                                  className="rounded-full px-3 py-1 bg-yellow-500 text-dark hover:text-white hover:shadow hover:shadow-yellow-500 my-transition"
-                                >
-                                  Update Date
-                                </button>
-                              </td>
-                              <td className="px-4 py-4 text-sm whitespace-nowrap">
-                                <Link to={`/room-review/${roomMainId}`}>
-                                  <button className="rounded-full px-3 py-1 bg-green-500 text-dark hover:text-white hover:shadow hover:shadow-green-500 my-transition">
-                                    Review
-                                  </button>
-                                </Link>
-                              </td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </div>
+                <span className="px-3 py-1 text-base text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
+                  {data?.length} Room
+                </span>
+              </div>
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <h2 className="text-lg font-medium text-gray-800 dark:text-white">
+                  Change Layout
+                </h2>
+                <div className="flex  items-center gap-2 md:gap-4">
+                  <button
+                    onClick={() => {
+                      setLayout(false);
+                    }}
+                    className={`${
+                      !layout ? "text-primary" : null
+                    } my-transition hover:text-primary`}
+                  >
+                    <BsFillGrid3X3GapFill className="text-xl"></BsFillGrid3X3GapFill>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setLayout(true);
+                    }}
+                    className={`${
+                      layout ? "text-primary" : null
+                    } my-transition hover:text-primary`}
+                  >
+                    <FaBars className="text-xl"></FaBars>
+                  </button>
                 </div>
               </div>
             </div>
+
+            {layout ? (
+              <div className="flex flex-col mt-6">
+                <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                    <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead className="bg-gray-50 dark:bg-gray-800">
+                          <tr>
+                            <th
+                              scope="col"
+                              className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                            >
+                              <div className="flex items-center gap-x-3">
+                                <span>Hotel Information</span>
+                              </div>
+                            </th>
+
+                            <th
+                              scope="col"
+                              className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                            >
+                              <button className="flex items-center gap-x-2">
+                                <span>$ Price</span>
+                              </button>
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                            >
+                              <button className="flex items-center gap-x-2">
+                                <span>* Rating</span>
+                              </button>
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                            >
+                              Email address
+                            </th>
+
+                            <th
+                              scope="col"
+                              className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                            >
+                              Booking Date
+                            </th>
+
+                            <th
+                              scope="col"
+                              className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                            >
+                              Cancel Hotel
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                            >
+                              Update Date
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                            >
+                              Review Hotel
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                          {data?.map((roomBook) => {
+                            const {
+                              roomMainId,
+                              _id,
+                              name,
+                              image_url,
+                              price_per_night,
+                              rating,
+                              bookingDate,
+                            } = roomBook;
+                            return (
+                              <tr key={roomBook._id}>
+                                <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                  <div className="inline-flex items-center gap-x-3">
+                                    <div className="flex items-center gap-x-2">
+                                      <img
+                                        className="object-cover w-10 h-10 rounded-full"
+                                        src={image_url}
+                                        alt=""
+                                      />
+                                      <div>
+                                        <h2 className="font-medium text-gray-800 dark:text-white ">
+                                          {name}
+                                        </h2>
+                                        <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
+                                          {user?.displayName}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+
+                                <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                  {price_per_night}
+                                </td>
+                                <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                  {rating}
+                                </td>
+                                <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                  {user?.email}
+                                </td>
+                                <td className="px-4 py-4 text-sm whitespace-nowrap">
+                                  <div className="flex items-center gap-x-2">
+                                    <p className="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60">
+                                      {new Date(
+                                        bookingDate
+                                      ).toLocaleDateString()}
+                                    </p>
+                                  </div>
+                                </td>
+                                <td className="px-4 py-4 text-sm whitespace-nowrap">
+                                  <button
+                                    onClick={() => {
+                                      handleBookedCancel(
+                                        _id,
+                                        roomMainId,
+                                        bookingDate
+                                      );
+                                    }}
+                                    className="rounded-full px-3 py-1 bg-red-500 text-dark hover:text-white hover:shadow hover:shadow-red-500 my-transition"
+                                  >
+                                    Cancel Booking
+                                  </button>
+                                </td>
+                                <td className="px-4 py-4 text-sm whitespace-nowrap">
+                                  <button
+                                    onClick={() => {
+                                      handleUpdateDate(_id);
+                                    }}
+                                    className="rounded-full px-3 py-1 bg-yellow-500 text-dark hover:text-white hover:shadow hover:shadow-yellow-500 my-transition"
+                                  >
+                                    Update Date
+                                  </button>
+                                </td>
+                                <td className="px-4 py-4 text-sm whitespace-nowrap">
+                                  <Link to={`/room-review/${roomMainId}`}>
+                                    <button className="rounded-full px-3 py-1 bg-green-500 text-dark hover:text-white hover:shadow hover:shadow-green-500 my-transition">
+                                      Review
+                                    </button>
+                                  </Link>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="py-8 md:py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                {data?.map((roomBook) => {
+                  const {
+                    roomMainId,
+                    _id,
+                    name,
+                    image_url,
+                    price_per_night,
+                    rating,
+                    bookingDate,
+                  } = roomBook;
+                  return (
+                    <div
+                      key={_id}
+                      className="space-y-2 p-4 ring-1 ring-slate-100 rounded-lg"
+                    >
+                      <img
+                        className="w-full h-auto object-cover rounded-lg"
+                        src={image_url}
+                        alt=""
+                      />
+                      <div className="text-primary font-bold">
+                        Name: <span className="text-dark">{name}</span>
+                      </div>
+                      <div className="text-primary font-bold">
+                        Price Per Night:{" "}
+                        <span className="text-dark">{price_per_night}</span>
+                      </div>
+                      <div className="text-primary font-bold">
+                        Booking Date:{" "}
+                        <span className="text-dark">{bookingDate}</span>
+                      </div>
+                      <div className="text-primary font-bold">
+                        Rating: <span className="text-dark">{rating}</span>
+                      </div>
+                      <div className="flex flex-wrap gap-3">
+                        <button
+                          onClick={() => {
+                            handleBookedCancel(_id, roomMainId, bookingDate);
+                          }}
+                          className="rounded-full px-3 py-1 bg-red-500 text-dark hover:text-white hover:shadow hover:shadow-red-500 my-transition"
+                        >
+                          Cancel Booking
+                        </button>
+                        <button
+                          onClick={() => {
+                            handleUpdateDate(_id);
+                          }}
+                          className="rounded-full px-3 py-1 bg-yellow-500 text-dark hover:text-white hover:shadow hover:shadow-yellow-500 my-transition"
+                        >
+                          Update Date
+                        </button>
+                        <Link to={`/room-review/${roomMainId}`}>
+                          <button className="rounded-full px-3 py-1 bg-green-500 text-dark hover:text-white hover:shadow hover:shadow-green-500 my-transition">
+                            Review
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
         ) : (
           <>
