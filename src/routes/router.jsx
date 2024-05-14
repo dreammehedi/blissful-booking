@@ -43,6 +43,11 @@ const router = createBrowserRouter([
       {
         path: "/room-detailes/:id",
         element: <RoomDetailes></RoomDetailes>,
+        loader: ({ params }) => {
+          return fetch(
+            `https://blissful-bookings.vercel.app/room-review-count/${params.id}`
+          );
+        },
       },
       {
         path: "/room-review/:id",

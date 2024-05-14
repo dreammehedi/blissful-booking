@@ -10,12 +10,16 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
 import Loader from "../../components/loader/Loader";
 
 function RoomDetailes() {
+  // get room review count data
+  const roomReviewCount = useLoaderData();
+  console.log(roomReviewCount);
+
   // user data
   const { user } = useContext(AuthContext);
 
@@ -220,7 +224,7 @@ function RoomDetailes() {
               <div className="flex flex-col space-y-4">
                 <h1 className="text-dark text-2xl font-semibold">Reviews:</h1>
                 <button className="px-3 py-1 lg:px-5 lg:py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
-                  No Review
+                  {roomReviewCount?.length}
                 </button>
               </div>
             </div>
