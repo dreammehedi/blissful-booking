@@ -4,6 +4,7 @@ import { LuMenuSquare } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../auth/AuthProvider";
+import ThemeController from "../theme/ThemeController";
 import MenuContent from "./MenuContent";
 
 function Header() {
@@ -59,14 +60,14 @@ function Header() {
       <nav className="container flex justify-between items-center py-6">
         {/* logo */}
         <Link to="/">
-          <h1 className="text-3xl font-bold text-primary font-dmsans">
+          <h1 className="text-2xl md:text-3xl font-bold text-primary font-dmsans">
             Blissful Bookings
           </h1>
         </Link>
 
         {/* mobile menu */}
         <ul
-          className={`hidden z-10 flex-col gap-4 w-3/5 md:w-1/3 h-screen bg-white fixed top-0 ${
+          className={`hidden z-10 flex-col gap-4 w-3/5 md:w-1/2 h-screen bg-white fixed top-0 ${
             showMobileMenu ? "right-0 !flex lg:!hidden" : "-right-full"
           }  shadow-lg p-8`}
         >
@@ -137,6 +138,9 @@ function Header() {
               <LuMenuSquare className="text-3xl "></LuMenuSquare>
             )}
           </div>
+
+          {/* theme controler */}
+          <ThemeController></ThemeController>
         </div>
       </nav>
     </header>
