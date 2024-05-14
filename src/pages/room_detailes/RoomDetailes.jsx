@@ -20,6 +20,7 @@ function RoomDetailes() {
   const roomReviewCount = useLoaderData();
 
   // user data
+  
   const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();

@@ -29,7 +29,7 @@ function Rooms() {
   useEffect(() => {
     const getavailableRoomsData = async () => {
       const response = await axios.get(
-        `http://localhost:5000/available-rooms/?availableUnavailable=${availableUnavailable}&priceRange=${priceRange}`
+        `https://blissful-bookings.vercel.app/available-rooms/?availableUnavailable=${availableUnavailable}&priceRange=${priceRange}`
       );
       const data = await response.data;
       setAvailableRooms(data);
