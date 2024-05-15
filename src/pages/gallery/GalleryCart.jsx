@@ -12,7 +12,11 @@ function GalleryCart({ galleryItem }) {
   };
   return (
     <>
-      <div onMouseEnter={handleClick} onMouseLeave={handleClick}>
+      <div
+        data-aos="zoom-in"
+        onMouseEnter={handleClick}
+        onMouseLeave={handleClick}
+      >
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
           <img
             className=" align-middle rounded-tr-3xl rounded-bl-3xl p-1 w-full h-[300px] rounded-md"
