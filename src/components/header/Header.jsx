@@ -53,15 +53,11 @@ function Header() {
 
   return (
     <header
-      className={`w-full h-auto bg-white dark:bg-dark dark:text-white overflow-hidden ${
+      className={`w-full h-auto bg-white dark:bg-dark dark:text-white  ${
         stickyHeader ? "sticky top-0 left-0 z-[999] drop-shadow-lg" : undefined
       }`}
     >
-      <nav
-        data-aos="zoom-out"
-        data-aos-duration="700"
-        className="container flex justify-between items-center py-6"
-      >
+      <nav className="container flex justify-between items-center py-6">
         {/* logo */}
         <Link to="/">
           <h1 className="text-2xl md:text-3xl font-bold text-primary font-dmsans">
