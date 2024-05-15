@@ -8,7 +8,11 @@ function Footer() {
       <footer className="bg-white dark:bg-gray-900">
         <div className="container pt-12 pb-8 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-center text-center md:text-left md:items-start lg:text-left ">
-            <div>
+            <div
+              data-aos="fade-right"
+              data-aos-duration="900"
+              data-aos-delay="300"
+            >
               <h2 className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
                 Pages
               </h2>
@@ -18,7 +22,11 @@ function Footer() {
               </ul>
             </div>
 
-            <div>
+            <div
+              data-aos="fade-right"
+              data-aos-duration="900"
+              data-aos-delay="400"
+            >
               <p className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
                 Industries
               </p>
@@ -45,7 +53,11 @@ function Footer() {
               </div>
             </div>
 
-            <div>
+            <div
+              data-aos="fade-right"
+              data-aos-duration="900"
+              data-aos-delay="500"
+            >
               <p className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
                 Services
               </p>
@@ -72,7 +84,11 @@ function Footer() {
               </div>
             </div>
 
-            <div>
+            <div
+              data-aos="fade-right"
+              data-aos-duration="900"
+              data-aos-delay="600"
+            >
               <p className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
                 Contact Us
               </p>
@@ -90,15 +106,25 @@ function Footer() {
 
           <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
 
-          <div className="flex flex-col lg:flex-row gap-3 items-center justify-between ">
+          <div className="relative overflow-hidden flex flex-col lg:flex-row gap-3 items-center justify-between ">
             {/* logo */}
-            <Link to="/">
+            <Link
+              to="/"
+              data-aos-anchor="#footerBottomAnchor"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+            >
               <h1 className="text-3xl font-bold text-primary font-dmsans">
                 Blissful Bookings
               </h1>
             </Link>
 
-            <p className="mt-4 flex flex-col lg:flex-row gap-1 items-center text-base text-gray-500 sm:mt-0 dark:text-gray-300">
+            <p
+              data-aos-anchor="#footerBottomAnchor"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+              className="mt-4 flex flex-col lg:flex-row gap-1 items-center text-base text-gray-500 sm:mt-0 dark:text-gray-300"
+            >
               &copy; Copyright {new Date().getFullYear()}. All Rights Reserved.
               <ImHeart className="hidden lg:inline-block text-base text-primary"></ImHeart>{" "}
               By{" "}
@@ -111,6 +137,12 @@ function Footer() {
               </Link>
               .
             </p>
+
+            {/* data anchor */}
+            <div
+              id="footerBottomAnchor"
+              className="hidden size-4 bg-primary absolute right-0 -top-[150px]"
+            ></div>
           </div>
         </div>
       </footer>
