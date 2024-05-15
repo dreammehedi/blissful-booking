@@ -29,23 +29,49 @@ function AboutUs() {
             description="Discover the faces behind the exceptional service at Blissfull Booking. Get to know our dedicated team members who are here to ensure your stay is nothing short of extraordinary."
           ></SectionTitle>
 
-          <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
-            <div className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl">
+          <div
+            data-aos="fade-up"
+            className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4"
+          >
+            <div
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="500"
+              className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl"
+            >
               <img
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="600"
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-primary dark:ring-white"
                 src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
                 alt=""
               />
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="350"
+                data-aos-duration="650"
+                className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white"
+              >
                 arthur melo
               </h1>
 
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="700"
+                className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300"
+              >
                 Marketing Manager
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-duration="750"
+                className="flex mt-3 -mx-2"
+              >
                 <a
                   href="#"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -93,22 +119,45 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
+              className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl"
+            >
               <img
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="600"
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-primary dark:ring-white"
                 src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
                 alt=""
               />
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="350"
+                data-aos-duration="650"
+                className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white"
+              >
                 Amelia. Anderson
               </h1>
 
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="700"
+                className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300"
+              >
                 Security Manager
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-duration="750"
+                className="flex mt-3 -mx-2"
+              >
                 <a
                   href="#"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -156,22 +205,45 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="500"
+              className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl"
+            >
               <img
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="600"
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-primary dark:ring-white"
                 src="https://images.unsplash.com/photo-1488508872907-592763824245?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                 alt=""
               />
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="350"
+                data-aos-duration="650"
+                className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white"
+              >
                 Olivia Wathan
               </h1>
 
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="700"
+                className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300"
+              >
                 Events Manager
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-duration="750"
+                className="flex mt-3 -mx-2"
+              >
                 <a
                   href="#"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -219,22 +291,45 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="250"
+              data-aos-duration="500"
+              className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl"
+            >
               <img
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="600"
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-primary dark:ring-white"
                 src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
                 alt=""
               />
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="350"
+                data-aos-duration="650"
+                className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white"
+              >
                 John Doe
               </h1>
 
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="700"
+                className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300"
+              >
                 HR Lead
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-duration="750"
+                className="flex mt-3 -mx-2"
+              >
                 <a
                   href="#"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -282,22 +377,45 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="500"
+              className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl"
+            >
               <img
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="600"
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-primary dark:ring-white"
                 src="https://images.unsplash.com/photo-1499470932971-a90681ce8530?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                 alt=""
               />
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="350"
+                data-aos-duration="650"
+                className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white"
+              >
                 Mia
               </h1>
 
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="700"
+                className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300"
+              >
                 Reservation Manager
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-duration="750"
+                className="flex mt-3 -mx-2"
+              >
                 <a
                   href="#"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -345,22 +463,45 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="350"
+              data-aos-duration="500"
+              className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl"
+            >
               <img
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="600"
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-primary dark:ring-white"
                 src="https://images.unsplash.com/photo-1608174386344-80898cec6beb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
                 alt=""
               />
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="350"
+                data-aos-duration="650"
+                className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white"
+              >
                 Junior REIS
               </h1>
 
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="700"
+                className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300"
+              >
                 HR Manager
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-duration="750"
+                className="flex mt-3 -mx-2"
+              >
                 <a
                   href="#"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -408,22 +549,45 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="400"
+              data-aos-duration="500"
+              className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl"
+            >
               <img
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="600"
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-primary dark:ring-white"
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
                 alt=""
               />
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="350"
+                data-aos-duration="650"
+                className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white"
+              >
                 Joseph Gonzalez
               </h1>
 
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="700"
+                className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300"
+              >
                 CFO
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-duration="750"
+                className="flex mt-3 -mx-2"
+              >
                 <a
                   href="#"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -471,22 +635,45 @@ function AboutUs() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="450"
+              data-aos-duration="500"
+              className="flex flex-col items-center p-8 my-transition cursor-pointer group hover:bg-primary rounded-tr-3xl rounded-bl-3xl"
+            >
               <img
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="600"
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-primary dark:ring-white"
                 src="https://images.unsplash.com/photo-1521488741203-dcc320950ce5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
                 alt=""
               />
 
-              <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="350"
+                data-aos-duration="650"
+                className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white"
+              >
                 Emma Doe
               </h1>
 
-              <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="700"
+                className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300"
+              >
                 Content Writer
               </p>
 
-              <div className="flex mt-3 -mx-2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="450"
+                data-aos-duration="750"
+                className="flex mt-3 -mx-2"
+              >
                 <a
                   href="#"
                   className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
@@ -573,6 +760,7 @@ function AboutUs() {
             >
               <SwiperSlide>
                 <img
+                  data-aos="fade-down"
                   className="rounded-tr-3xl rounded-bl-3xl  w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                   src={clients1}
                   alt=""
@@ -580,6 +768,7 @@ function AboutUs() {
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                  data-aos="fade-down"
                   className="rounded-tr-3xl rounded-bl-3xl  w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                   src={clients4}
                   alt=""
@@ -588,6 +777,7 @@ function AboutUs() {
 
               <SwiperSlide>
                 <img
+                  data-aos="fade-down"
                   className="rounded-tr-3xl rounded-bl-3xl  w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                   src={clients6}
                   alt=""
@@ -596,6 +786,7 @@ function AboutUs() {
 
               <SwiperSlide>
                 <img
+                  data-aos="fade-down"
                   className="rounded-tr-3xl rounded-bl-3xl  w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                   src={clients9}
                   alt=""
@@ -603,6 +794,7 @@ function AboutUs() {
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                  data-aos="fade-down"
                   className="rounded-tr-3xl rounded-bl-3xl  w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                   src={clients10}
                   alt=""
@@ -610,6 +802,7 @@ function AboutUs() {
               </SwiperSlide>
               <SwiperSlide>
                 <img
+                  data-aos="fade-down"
                   className="rounded-tr-3xl rounded-bl-3xl  w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                   src={clients11}
                   alt=""
@@ -618,6 +811,7 @@ function AboutUs() {
 
               <SwiperSlide>
                 <img
+                  data-aos="fade-down"
                   className="rounded-tr-3xl rounded-bl-3xl  w-auto h-auto object-cover max-w-[200px] max-h-[200px] mx-auto"
                   src={clients7}
                   alt=""
