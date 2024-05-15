@@ -1,25 +1,60 @@
+import emailjs from "@emailjs/browser";
+import { useContext, useRef } from "react";
 import { Helmet } from "react-helmet";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../auth/AuthProvider";
 import SectionTitle from "../../components/section_title/SectionTitle";
 
 function ContactUs() {
+  // user data
+  const { user } = useContext(AuthContext);
+
+  // use form
+  const form = useRef();
+  // email js private data
+  const serviceId = import.meta.env.VITE_SERVICE_ID;
+  const templateId = import.meta.env.VITE_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+
   // handle contact form
   const handleContactForm = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const firstName = form.firstName.value;
-    const lastName = form.lastName.value;
-    const email = form.email.value;
-    const message = form.message.value;
+
+    const formData = e.target;
+    const firstName = formData.firstName.value;
+    const lastName = formData.lastName.value;
+    const email = formData.email.value;
+    const message = formData.message.value;
     if (!firstName || !lastName || !email || !message) {
       toast.error("All Fields must be Required!");
       return;
     }
-    console.log(firstName, lastName, email, message);
-    // const formSubmit = async () => {
-    //   console.log("submitted");
-    // };
-    // formSubmit();
+
+    emailjs
+      .sendForm(serviceId, templateId, form.current, {
+        publicKey: publicKey,
+      })
+      .then(
+        () => {
+          Swal.fire({
+            title: "Your message has been sent!",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.current.reset();
+        },
+        () => {
+          Swal.fire({
+            title: "Your message has not been sent!",
+            icon: "error",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.current.reset();
+        }
+      );
   };
   return (
     <>
@@ -161,7 +196,7 @@ function ContactUs() {
             </div>
 
             <div className="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
-              <form onSubmit={handleContactForm}>
+              <form ref={form} onSubmit={handleContactForm}>
                 <div className="-mx-2 md:items-center md:flex">
                   <div className="flex-1 px-2">
                     <label
@@ -202,6 +237,7 @@ function ContactUs() {
                     Email address
                   </label>
                   <input
+                    defaultValue={user?.email}
                     type="email"
                     name="email"
                     placeholder="dreammehedihassan@gmail.com"
