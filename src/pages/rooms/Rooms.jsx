@@ -111,7 +111,7 @@ function Rooms() {
               <span
                 className={`${
                   currentPriceRange !== 0 ? "text-primary" : undefined
-                } text-dark `}
+                } text-dark dark:text-primary `}
               >
                 ${currentPriceRange}
               </span>

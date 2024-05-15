@@ -20,7 +20,7 @@ function RoomDetailes() {
   const roomReviewCount = useLoaderData();
 
   // user data
-  
+
   const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -136,7 +136,7 @@ function RoomDetailes() {
       <Helmet>
         <title>Blissful Booking | Room Detailes</title>
       </Helmet>
-      <section className="py-8 md:py-12">
+      <section className="pt-8 md:pt-12">
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* room image */}
           <img
@@ -152,7 +152,9 @@ function RoomDetailes() {
                 ${price_per_night} Per Night
               </h4>
 
-              <h1 className="text-dark font-bold text-3xl">{name}</h1>
+              <h1 className="text-dark dark:text-white font-bold text-3xl">
+                {name}
+              </h1>
               <p className="text-slate-400">{description}</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 group-hover:*:text-primary">
@@ -175,13 +177,17 @@ function RoomDetailes() {
               </div>
             </div>
             <div className="flex items-center gap-6">
-              <h2 className="text-dark text-xl font-bold">Location: </h2>
+              <h2 className="text-dark dark:text-white text-xl font-bold">
+                Location:{" "}
+              </h2>
               <button className="mr-auto px-6 py-2 ring-1 ring-primary shadow shadow-primary rounded-full font-medium my-transition hover:bg-primary/80">
                 {location}
               </button>
             </div>
             <div className="flex items-center gap-6">
-              <h2 className="text-dark text-xl font-bold">Rating: </h2>
+              <h2 className="text-dark dark:text-white text-xl font-bold">
+                Rating:{" "}
+              </h2>
               <button className="mr-auto px-6 py-2 ring-1 ring-primary shadow shadow-primary rounded-full font-medium my-transition hover:bg-primary/80">
                 {rating}
               </button>
@@ -189,7 +195,7 @@ function RoomDetailes() {
             <div className="grid grid-cols-2 gap-4 pt-8">
               {/* availability */}
               <div className="flex flex-col space-y-4">
-                <h1 className="text-dark text-2xl font-semibold">
+                <h1 className="text-dark dark:text-white text-2xl font-semibold">
                   Availability:
                 </h1>
                 <button className="px-3 py-1 lg:px-5 lg:py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
@@ -211,10 +217,10 @@ function RoomDetailes() {
                 </button>
 
                 <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-4">
-                  <p className="font-dmsans text-sm font-bold text-dark">
+                  <p className="font-dmsans text-sm font-bold text-dark dark:text-white">
                     Check In: {check_in_time}
                   </p>
-                  <p className="font-dmsans text-sm font-bold text-dark">
+                  <p className="font-dmsans text-sm font-bold text-dark dark:text-white">
                     Check Out: {check_out_time}
                   </p>
                 </div>
@@ -222,7 +228,9 @@ function RoomDetailes() {
 
               {/* reviews */}
               <div className="flex flex-col space-y-4">
-                <h1 className="text-dark text-2xl font-semibold">Reviews:</h1>
+                <h1 className="text-dark dark:text-white text-2xl font-semibold">
+                  Reviews:
+                </h1>
                 <button className="px-3 py-1 lg:px-5 lg:py-3 bg-white my-transition hover:shadow hover:shadow-primary ring-1 ring-primary rounded-full hover:bg-primary text-primary hover:text-white font-bold mr-auto ">
                   {roomReviewCount?.length}
                 </button>
@@ -257,7 +265,7 @@ function RoomDetailes() {
                       id="roomName"
                       name="roomName"
                       type="text"
-                      className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
+                      className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white dark:bg-dark dark:text-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
                     />
                   </div>
 
@@ -274,7 +282,7 @@ function RoomDetailes() {
                       id="roomPrice"
                       name="roomPrice"
                       type="number"
-                      className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
+                      className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1  dark:bg-dark dark:text-white  ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
                     />
                   </div>
                   <div className="*:!w-full">
@@ -287,7 +295,7 @@ function RoomDetailes() {
                     <DatePicker
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
-                      className="block !w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 group-hover:ring-primary rounded-md   focus:border-blue-400  focus:ring-primary my-transition outline-none "
+                      className="block !w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1  dark:bg-dark dark:text-white  ring-slate-100 group-hover:ring-primary rounded-md   focus:border-blue-400  focus:ring-primary my-transition outline-none "
                     />
                   </div>
 
@@ -304,7 +312,7 @@ function RoomDetailes() {
                       id="roomRating"
                       name="roomRating"
                       type="number"
-                      className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
+                      className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1  dark:bg-dark dark:text-white  ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary outline-none "
                     />
                   </div>
                   <div className="md:col-span-2">
@@ -318,7 +326,7 @@ function RoomDetailes() {
                       disabled
                       defaultValue={description}
                       rows={3}
-                      className="col-span-2 block w-full px-4 py-2 mt-2 text-gray-700 bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary  my-transition outline-none "
+                      className="col-span-2 block w-full px-4 py-2 mt-2 text-gray-700  dark:bg-dark dark:text-white  bg-white ring-1 ring-slate-100 rounded-md   focus:border-blue-400 focus:ring-primary  my-transition outline-none "
                       name="roomDescription"
                       id="roomDescription"
                     ></textarea>
@@ -336,51 +344,53 @@ function RoomDetailes() {
             </section>
           </div>
         </dialog>
-        {special_offers ? (
-          //  special offer if available
-          <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
+
+        <div className="py-8 md:py-12">
+          {special_offers && special_offers.length > 0 ? (
             <SectionTitle
               title="Exclusive Special Offers Available For You!"
               description="Indulge in our enticing array of exclusive special offers designed to elevate your stay. Whether you're planning a weekend getaway, a family vacation, or a business trip, we have the perfect package for you. Take advantage of these limited-time promotions and make your stay with us even more memorable!"
             ></SectionTitle>
-
-            {/* offers */}
-            <div className="container px-6 py-10 mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {special_offers?.map((roomOffer, ind) => {
-                  return (
-                    <div
-                      key={ind}
-                      className="p-8 md:p-10 lg:py-12 flex flex-col justify-center items-center text-center space-y-2 ring-1 ring-primary rounded-tr-3xl rounded-bl-3xl my-transition hover:shadow-md hover:shadow-primary"
-                    >
-                      <h1 className="text-xl font-semibold text-primary capitalize dark:text-white">
-                        {roomOffer?.name}
-                      </h1>
-
-                      <p className="text-gray-500 dark:text-gray-300">
-                        {roomOffer?.description}
-                      </p>
-                      <p className="text-black font-dmsans text-sm dark:text-gray-300">
-                        {roomOffer?.terms_and_conditions}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-        ) : (
-          <div className="py-8 md:py-12">
+          ) : (
             <SectionTitle
-              title="EExclusive Special Offers Not Available!"
+              title="Exclusive Special Offers Not Available!"
               description="Unfortunately, the special offers you are searching for are currently unavailable. We apologize for any inconvenience this may cause. However, we invite you to explore our other enticing array of exclusive promotions and packages designed to elevate your stay. Whether it's a weekend getaway, a family vacation, or a business trip, we have options to make your stay memorable. Keep an eye out for future promotions, as we frequently update our offerings to provide you with the best experience possible."
             ></SectionTitle>
-          </div>
-        )}
+          )}
+        </div>
+        {special_offers &&
+          special_offers.length > 0 && ( //  special offer if available
+            <section className=" bg-white dark:bg-gray-900">
+              {/* offers */}
+              <div className="container px-6 py-10 mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                  {special_offers?.map((roomOffer, ind) => {
+                    return (
+                      <div
+                        key={ind}
+                        className="p-8 md:p-10 lg:py-12 flex flex-col justify-center items-center text-center space-y-2 ring-1 ring-primary rounded-tr-3xl rounded-bl-3xl my-transition hover:shadow-md hover:shadow-primary"
+                      >
+                        <h1 className="text-xl font-semibold text-primary capitalize dark:text-white">
+                          {roomOffer?.name}
+                        </h1>
+
+                        <p className="text-gray-500 dark:text-gray-300">
+                          {roomOffer?.description}
+                        </p>
+                        <p className="text-black font-dmsans text-sm dark:text-gray-300">
+                          {roomOffer?.terms_and_conditions}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          )}
 
         {user && (
           <>
-            <div className="container">
+            <div className="container py-8 md:py-12">
               <img
                 className="w-full h-auto max-h-[500px] object-cover rounded-tr-[150px] rounded-bl-[150px] lg:rounded-tr-full lg:rounded-bl-full transition-all duration-500 ease-linear hover:cursor-pointer hover:rounded-3xl"
                 src={image_url}
@@ -405,7 +415,9 @@ function RoomDetailes() {
                           key={ind}
                           className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition"
                         >
-                          <h3 className="text-dark">{faciliti.name}</h3>
+                          <h3 className="text-dark dark:text-white">
+                            {faciliti.name}
+                          </h3>
                           <p className="text-sm group-hover:text-primary/90">
                             {faciliti.description}
                           </p>
@@ -424,31 +436,33 @@ function RoomDetailes() {
 
                   <ul className="text-xl pt-8 grid grid-cols-1 md:grid-cols-2 gap-3 *:text-slate-400 *:flex *:items-center *:gap-1">
                     <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                      <h3 className="text-dark">Check In:</h3>
+                      <h3 className="text-dark dark:text-white">Check In:</h3>
                       <p className="text-sm group-hover:text-primary/90">
                         {room_rules?.check_in}
                       </p>
                     </li>
                     <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                      <h3 className="text-dark">Check Out:</h3>
+                      <h3 className="text-dark dark:text-white">Check Out:</h3>
                       <p className="text-sm group-hover:text-primary/90">
                         {room_rules?.check_out}
                       </p>
                     </li>
                     <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                      <h3 className="text-dark">Self Check In:</h3>
+                      <h3 className="text-dark dark:text-white">
+                        Self Check In:
+                      </h3>
                       <p className="text-sm group-hover:text-primary/90">
                         {room_rules?.self_check_in ? "Yes" : "No"}
                       </p>
                     </li>
                     <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                      <h3 className="text-dark">Smoking:</h3>
+                      <h3 className="text-dark dark:text-white">Smoking:</h3>
                       <p className="text-sm group-hover:text-primary/90">
                         {room_rules?.smoking ? "Yes" : "No"}
                       </p>
                     </li>
                     <li className="flex flex-col  text-center place-content-center gap-4 ring-1 ring-slate-100 p-8 rounded-tl-3xl rounded-br-3xl group-hover:ring-primary my-transition">
-                      <h3 className="text-dark">Pets:</h3>
+                      <h3 className="text-dark dark:text-white">Pets:</h3>
                       <p className="text-sm group-hover:text-primary/90">
                         {room_rules?.pets ? "Yes" : "No"}
                       </p>
@@ -461,7 +475,7 @@ function RoomDetailes() {
         )}
 
         {roomReviewCount?.length > 0 && (
-          <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
+          <section className="pt-8 md:pt-12 bg-white dark:bg-gray-900">
             <SectionTitle
               title="Room Reviews"
               description="Read what our guests have to say about this room."
@@ -483,8 +497,12 @@ function RoomDetailes() {
                       {review?.user}
                     </h1>
 
-                    <p className="text-dark">{review?.user_email}</p>
-                    <p className="text-slate-600 text-sm">{review?.text}</p>
+                    <p className="text-dark dark:text-white">
+                      {review?.user_email}
+                    </p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">
+                      {review?.text}
+                    </p>
                   </div>
                 );
               })}
