@@ -4,9 +4,13 @@ import ClickToTop from "../components/click_to_top/ClickToTop";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 // react toastify css
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 
+// animation init
+Aos.init();
 function MainLayout() {
   // location
   const { pathname } = useLocation();

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { MdStar } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 // rating star component
 export const RatingStars = ({ rating }) => {
@@ -11,7 +12,9 @@ export const RatingStars = ({ rating }) => {
 };
 
 function UserReviewCart({ review }) {
-  const { user, text, timeStamp, rating, user_image, roomName } = review;
+  const { user, text, timeStamp, rating, user_image, roomName, mainRoomId } =
+    review;
+
   return (
     <>
       <div className="ring-1 ring-slate-100 flex flex-col lg:flex-row justify-center lg:justify-start text-center lg:text-left items-center gap-4 md:gap-6 p-6 md:p-8 rounded-md my-transition hover:ring-primary group">
@@ -34,7 +37,13 @@ function UserReviewCart({ review }) {
         <div className="text-center ">
           <h4 className="text-primary text-[18px] font-semibold">{roomName}</h4>
           <p className="text-slate-400 font-poppins my-transition group-hover:text-dark dark:group-hover:text-white">
-            {text}
+            {text.slice(0, 200)}{" "}
+            <Link
+              className="my-transition hover:text-dark text-primary hover:dark:text-slate-500 font-bold text-sm"
+              to={`/room-detailes/${mainRoomId}`}
+            >
+              {`  Read More >>`}
+            </Link>
           </p>
         </div>
       </div>

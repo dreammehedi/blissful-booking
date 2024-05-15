@@ -24,8 +24,8 @@ function RoomCart({ availableRoom }) {
           {name}
         </h2>
         <p className="text-slate-400 text-sm">{description}</p>
-        <span className="font-semibold text-dark font-dmsans">
-          <b className="text-primary font-bold font-roboto">Price: </b>$
+        <span className="font-semibold text-dark dark:text-white font-dmsans">
+          <b className="text-primary  font-bold font-roboto">Price: </b>$
           {price_per_night}
         </span>
         {/* <span className="font-semibold text-dark font-dmsans">

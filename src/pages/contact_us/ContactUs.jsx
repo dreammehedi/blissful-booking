@@ -69,8 +69,15 @@ function ContactUs() {
           ></SectionTitle>
           <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-              <div className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl">
-                <span className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800">
+              <div
+                data-aos="fade-right"
+                className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl"
+              >
+                <span
+                  data-aos="fade-right"
+                  data-aos-delay="500"
+                  className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -87,19 +94,38 @@ function ContactUs() {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">
+                <h2
+                  data-aos="fade-right"
+                  data-aos-delay="550"
+                  className="mt-4 text-base font-medium text-gray-800 dark:text-white"
+                >
                   Email
                 </h2>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="600"
+                  className="mt-2 text-sm text-gray-500 dark:text-gray-400"
+                >
                   Our friendly team is here to help.
                 </p>
-                <p className="mt-2 text-sm lg:max-w-[200px] lg:text-wrap lg:break-words text-primary dark:text-primary">
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="650"
+                  className="mt-2 text-sm lg:max-w-[200px] lg:text-wrap lg:break-words text-primary dark:text-primary"
+                >
                   dreammehedihassan@gmail.com
                 </p>
               </div>
 
-              <div className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl">
-                <span className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800">
+              <div
+                data-aos="fade-right"
+                className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl"
+              >
+                <span
+                  data-aos="fade-right"
+                  data-aos-delay="500"
+                  className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -121,18 +147,37 @@ function ContactUs() {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">
+                <h2
+                  data-aos="fade-right"
+                  data-aos-delay="550"
+                  className="mt-4 text-base font-medium text-gray-800 dark:text-white"
+                >
                   Live chat
                 </h2>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="600"
+                  className="mt-2 text-sm text-gray-500 dark:text-gray-400"
+                >
                   Our friendly team is here to help.
                 </p>
-                <p className="mt-2 text-sm text-primary dark:text-primary">
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="650"
+                  className="mt-2 text-sm text-primary dark:text-primary"
+                >
                   Start new chat
                 </p>
               </div>
-              <div className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl">
-                <span className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800">
+              <div
+                data-aos="fade-right"
+                className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl"
+              >
+                <span
+                  data-aos="fade-right"
+                  data-aos-delay="500"
+                  className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -154,19 +199,38 @@ function ContactUs() {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">
+                <h2
+                  data-aos="fade-right"
+                  data-aos-delay="550"
+                  className="mt-4 text-base font-medium text-gray-800 dark:text-white"
+                >
                   Office
                 </h2>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="600"
+                  className="mt-2 text-sm text-gray-500 dark:text-gray-400"
+                >
                   Come say hello at our office HQ.
                 </p>
-                <p className="mt-2 text-sm text-primary dark:text-primary">
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="650"
+                  className="mt-2 text-sm text-primary dark:text-primary"
+                >
                   Mirzapur, Tangail, Dhaka, Bangladesh.
                 </p>
               </div>
 
-              <div className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl">
-                <span className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800">
+              <div
+                data-aos="fade-right"
+                className="flex flex-col justify-center items-center text-center md:justify-normal md:items-start md:text-left lg:p-0 lg:ring-0 ring-1 ring-slate-100 p-8 my-transition hover:ring-primary rounded-tr-3xl rounded-bl-3xl hover:rounded-3xl"
+              >
+                <span
+                  data-aos="fade-right"
+                  data-aos-delay="500"
+                  className="inline-block p-3 text-primary rounded-full bg-blue-100/80 dark:bg-gray-800"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -183,22 +247,43 @@ function ContactUs() {
                   </svg>
                 </span>
 
-                <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">
+                <h2
+                  data-aos="fade-right"
+                  data-aos-delay="550"
+                  className="mt-4 text-base font-medium text-gray-800 dark:text-white"
+                >
                   Phone
                 </h2>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="600"
+                  className="mt-2 text-sm text-gray-500 dark:text-gray-400"
+                >
                   Mon-Fri from 8am to 5pm.
                 </p>
-                <p className="mt-2 text-sm text-primary dark:text-primary">
+                <p
+                  data-aos="fade-right"
+                  data-aos-delay="650"
+                  className="mt-2 text-sm text-primary dark:text-primary"
+                >
                   +880 1716059182
                 </p>
               </div>
             </div>
 
-            <div className="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
+            <div
+              data-aos="fade-right"
+              data-aos-delay="200"
+              className="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8"
+            >
               <form ref={form} onSubmit={handleContactForm}>
                 <div className="-mx-2 md:items-center md:flex">
-                  <div className="flex-1 px-2">
+                  <div
+                    data-aos="fade-right"
+                    data-aos-delay="500"
+                    data-aos-duratin="900"
+                    className="flex-1 px-2"
+                  >
                     <label
                       htmlFor="firstName"
                       className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
@@ -213,7 +298,12 @@ function ContactUs() {
                     />
                   </div>
 
-                  <div className="flex-1 px-2 mt-4 md:mt-0">
+                  <div
+                    data-aos="fade-right"
+                    data-aos-delay="400"
+                    data-aos-duratin="500"
+                    className="flex-1 px-2 mt-4 md:mt-0"
+                  >
                     <label
                       htmlFor="lastName"
                       className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
@@ -229,7 +319,12 @@ function ContactUs() {
                   </div>
                 </div>
 
-                <div className="mt-4">
+                <div
+                  data-aos="fade-right"
+                  data-aos-delay="500"
+                  data-aos-duratin="900"
+                  className="mt-4"
+                >
                   <label
                     htmlFor="email"
                     className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
@@ -245,7 +340,12 @@ function ContactUs() {
                   />
                 </div>
 
-                <div className="w-full mt-4">
+                <div
+                  data-aos="fade-right"
+                  data-aos-delay="500"
+                  data-aos-duratin="900"
+                  className="w-full mt-4"
+                >
                   <label
                     htmlFor="message"
                     className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
@@ -260,7 +360,12 @@ function ContactUs() {
                   ></textarea>
                 </div>
 
-                <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-lg hover:bg-primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                <button
+                  data-aos="fade-right"
+                  data-aos-delay="500"
+                  data-aos-duratin="900"
+                  className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-lg hover:bg-primary focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                >
                   Send message
                 </button>
               </form>
