@@ -28,7 +28,7 @@ function GoogleLogin() {
   return (
     <button
       onClick={handleGoogleSignIn}
-      className="w-full rounded-tl-3xl rounded-br-3xl  hover:!rounded-3xl my-transition flex items-center justify-center px-6 py-3 mt-4 text-dark font-medium ring-1 ring-slate-100 hover:ring-primary hover:bg-primary/10"
+      className="w-full rounded-tl-3xl rounded-br-3xl  hover:!rounded-3xl my-transition flex items-center justify-center px-6 py-3 mt-4 text-dark dark:text-white font-medium ring-1 ring-slate-100 hover:ring-primary hover:bg-primary/10"
     >
       <svg className="w-6 h-6 mx-2" viewBox="0 0 40 40">
         <path

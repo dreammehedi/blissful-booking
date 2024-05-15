@@ -65,12 +65,12 @@ function Rooms() {
           description=" Discover the perfect accommodation for your stay from our selection of available rooms. Whether you're seeking a cozy retreat, a spacious suite, or something in between, we have options to suit every traveler's needs. Browse through our collection below and find the ideal room for your next getaway.."
         ></SectionTitle>
         {/* room filter by price */}
-        <div className="container py-8 my:py-12 flex  items-center  ">
+        <div className="container py-8 my:py-12 flex flex-col md:flex-row gap-4 items-center  ">
           <div className="flex flex-col">
             <label
               htmlFor="filterAvailable"
               className="flex items-center gap-2
-               mb-2 text-xl font-medium text-primary dark:text-white"
+               mb-2 text-base md:text-xl font-medium text-primary dark:text-white"
             >
               <FaFilterCircleDollar className="text-xl"></FaFilterCircleDollar>
               Filter Available/UnAvailable
@@ -79,7 +79,7 @@ function Rooms() {
               onChange={(e) => {
                 filterAvailableUnAvailable(e);
               }}
-              className="ring-1 ring-primary bg-primary outline-none text-white px-5 py-2 rounded-tl-3xl"
+              className="ring-1 ring-primary bg-primary outline-none text-white px-3 md:px-5 py-2  rounded-tl-3xl"
               name="filterAvailable"
               id="filterAvailable"
             >
@@ -92,7 +92,7 @@ function Rooms() {
             <label
               htmlFor="priceRange"
               className="flex items-center gap-2
-               mb-2 text-xl font-medium text-primary dark:text-white"
+               mb-2 text-base md:text-xl font-medium text-primary dark:text-white"
             >
               <FaFilterCircleDollar className="text-xl"></FaFilterCircleDollar>
               Filter Price Range
@@ -111,11 +111,11 @@ function Rooms() {
               <span
                 className={`${
                   currentPriceRange !== 0 ? "text-primary" : undefined
-                } text-dark`}
+                } text-dark `}
               >
                 ${currentPriceRange}
               </span>
-              <span className="text-dark">$1000</span>
+              <span className="text-dark dark:text-white">$1000</span>
             </div>
           </form>
         </div>

@@ -65,14 +65,13 @@ function RoomReview() {
         <title>Blissful Booking | Room Review</title>
       </Helmet>
       <section className="py-8 md:py-12">
+        {/* section title */}
+        <SectionTitle
+          title="Room Reviews"
+          description="The user's review provides insights into what to expect from the hotel, helping others make informed decisions."
+        ></SectionTitle>
         <div className="container">
-          {/* section title */}
-          <SectionTitle
-            title="Room Reviews"
-            description="The user's review provides insights into what to expect from the hotel, helping others make informed decisions."
-          ></SectionTitle>
-
-          <div className="container py-8 md:py-12">
+          <div className=" py-8 md:py-12">
             <form
               onSubmit={handleReview}
               className="group w-full md:max-w-2xl md:mx-auto ring-1 ring-slate-100 p-4 md:p-8 rounded-lg hover:ring-primary my-transition grid grid-cols-2 gap-4"

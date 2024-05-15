@@ -68,7 +68,7 @@ function MenuContent({ handleMobileMenuHide }) {
             className={({ isActive }) => {
               return isActive
                 ? "text-primary font-semibold"
-                : "text-dark my-transition font-semibold hover:text-primary";
+                : "text-gray-600 dark:text-gray-300 my-transition font-semibold hover:text-primary";
             }}
           >
             Sign Up

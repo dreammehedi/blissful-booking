@@ -378,7 +378,7 @@ function MyBookings() {
                       <div className="text-primary font-bold">
                         Booking Date:{" "}
                         <span className="text-dark dark:text-white">
-                          {bookingDate}
+                          {new Date(bookingDate).toLocaleDateString()}
                         </span>
                       </div>
                       <div className="text-primary font-bold">

@@ -1,7 +1,26 @@
 import { Helmet } from "react-helmet";
+import { toast } from "react-toastify";
 import SectionTitle from "../../components/section_title/SectionTitle";
 
 function ContactUs() {
+  // handle contact form
+  const handleContactForm = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    if (!firstName || !lastName || !email || !message) {
+      toast.error("All Fields must be Required!");
+      return;
+    }
+    console.log(firstName, lastName, email, message);
+    // const formSubmit = async () => {
+    //   console.log("submitted");
+    // };
+    // formSubmit();
+  };
   return (
     <>
       <Helmet>
@@ -142,25 +161,33 @@ function ContactUs() {
             </div>
 
             <div className="p-4 py-6 rounded-lg bg-gray-50 dark:bg-gray-800 md:p-8">
-              <form>
+              <form onSubmit={handleContactForm}>
                 <div className="-mx-2 md:items-center md:flex">
                   <div className="flex-1 px-2">
-                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                    <label
+                      htmlFor="firstName"
+                      className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+                    >
                       First Name
                     </label>
                     <input
                       type="text"
                       placeholder="Mehedi "
+                      name="firstName"
                       className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none dark:bg-dark dark:text-white"
                     />
                   </div>
 
                   <div className="flex-1 px-2 mt-4 md:mt-0">
-                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                    <label
+                      htmlFor="lastName"
+                      className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+                    >
                       Last Name
                     </label>
                     <input
                       type="text"
+                      name="lastName"
                       placeholder="Hassan"
                       className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none dark:bg-dark dark:text-white"
                     />
@@ -168,22 +195,30 @@ function ContactUs() {
                 </div>
 
                 <div className="mt-4">
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+                  >
                     Email address
                   </label>
                   <input
                     type="email"
+                    name="email"
                     placeholder="dreammehedihassan@gmail.com"
                     className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none dark:bg-dark dark:text-white"
                   />
                 </div>
 
                 <div className="w-full mt-4">
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                  <label
+                    htmlFor="message"
+                    className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+                  >
                     Message
                   </label>
                   <textarea
                     rows={8}
+                    name="message"
                     className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white ring-1 ring-slate-100 hover:ring-primary rounded-lg focus:ring-primary outline-none dark:bg-dark dark:text-white"
                     placeholder="Thanks for Contacting."
                   ></textarea>

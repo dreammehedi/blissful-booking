@@ -213,7 +213,7 @@ function SignUp() {
                 onClick={() => {
                   setShowPassword(!showPassword);
                 }}
-                className="text-xl text-dark absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer"
+                className="text-xl text-dark dark:text-white absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer"
               >
                 {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
               </div>
@@ -246,7 +246,7 @@ function SignUp() {
                 onClick={() => {
                   setShowConfirmPassword(!showConfirmPassword);
                 }}
-                className="text-xl text-dark absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer"
+                className="text-xl text-dark dark:text-white absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer"
               >
                 {showConfirmPassword ? (
                   <FaEyeSlash></FaEyeSlash>
@@ -275,7 +275,7 @@ function SignUp() {
             <div className="mt-6 text-center ">
               <Link
                 to="/signin"
-                className="text-sm text-primary hover:underline "
+                className="text-sm text-primary dark:text-white underline dark:hover:text-primary hover:text-dark hover:no-underline"
               >
                 Already have an account? Please Sign In
               </Link>
