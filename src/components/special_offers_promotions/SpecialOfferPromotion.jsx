@@ -6,7 +6,8 @@ function SpecialOfferPromotion() {
   // modal control
   const [showOffer, setShowOffer] = useState(false);
   useEffect(() => {
-    const handleShowOfferDisplayed = localStorage.getItem("showOfferDisplayed");
+    const handleShowOfferDisplayed =
+      sessionStorage.getItem("showOfferDisplayed");
     if (!handleShowOfferDisplayed) {
       setShowOffer(true);
     }
@@ -15,7 +16,7 @@ function SpecialOfferPromotion() {
   //   handle closer offer
   const handleCloseOffer = () => {
     setShowOffer(false);
-    localStorage.setItem("showOfferDisplayed", true);
+    sessionStorage.setItem("showOfferDisplayed", true);
   };
   return (
     <>
