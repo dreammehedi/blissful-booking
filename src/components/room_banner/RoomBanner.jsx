@@ -8,9 +8,11 @@ function RoomBanner({ firstRoomBanner }) {
       style={{
         background: `linear-gradient(to right, rgb(2 2 2 / 80%), rgb(2 2 63 / 43%)),  url(${image_url})`,
       }}
-      className="w-full !bg-no-repeat !bg-center !bg-cover"
+      className="w-full !bg-no-repeat !bg-center !bg-cover overflow-hidden"
     >
       <div
+        data-aos="zoom-out"
+        data-aos-duration="500"
         style={{ height: `calc(100vh - 84px)` }}
         className="container md:!min-h-[500px] flex flex-col space-y-3 justify-center items-center text-center"
       >

@@ -5,7 +5,11 @@ function RoomCart({ availableRoom }) {
   const { _id, name, image_url, available, description, price_per_night } =
     availableRoom;
   return (
-    <Link to={`/room-detailes/${_id}`}>
+    <Link
+      data-aos="flip-up"
+      data-aos-duration="1000"
+      to={`/room-detailes/${_id}`}
+    >
       <div className="ring-1 ring-slate-100 p-4 md:p-6 flex flex-col space-y-3 my-transition rounded-tr-[35px] rounded-bl-[35px] hover:ring-primary hover:!rounded-[35px] group">
         <div className="relative">
           <img

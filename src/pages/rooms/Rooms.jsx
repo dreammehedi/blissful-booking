@@ -66,7 +66,7 @@ function Rooms() {
         ></SectionTitle>
         {/* room filter by price */}
         <div className="container py-8 my:py-12 flex flex-col md:flex-row gap-4 items-center  ">
-          <div className="flex flex-col">
+          <div data-aos="fade-down" className="flex flex-col">
             <label
               htmlFor="filterAvailable"
               className="flex items-center gap-2
@@ -88,7 +88,10 @@ function Rooms() {
               <option value={false}>UnAvailable</option>
             </select>
           </div>
-          <form className="max-w-sm mx-auto lg:!ml-auto lg:!mr-0">
+          <form
+            data-aos="fade-down"
+            className="max-w-sm mx-auto lg:!ml-auto lg:!mr-0"
+          >
             <label
               htmlFor="priceRange"
               className="flex items-center gap-2
