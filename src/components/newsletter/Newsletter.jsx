@@ -11,7 +11,10 @@ function Newsletter() {
             newsletter and elevate your travel experience with access to
             unbeatable offers tailored just for you."
       ></SectionTitle>
-      <div className="container flex flex-col space-y-3 justify-center items-center text-center md:max-w-2xl md:mx-auto">
+      <div
+        data-aos="fade-up"
+        className="container flex flex-col space-y-3 justify-center items-center text-center md:max-w-2xl md:mx-auto"
+      >
         <form className="group relative py-6 md:py-8 w-full md:max-w-md md:mx-auto">
           <input
             className="w-full ring-1 ring-dark focus:ring-primary my-transition px-6 py-3 font-medium font-poppins outline-none rounded-tr-3xl rounded-bl-3xl group-hover:rounded-3xl"

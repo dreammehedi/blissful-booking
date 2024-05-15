@@ -38,7 +38,7 @@ function FeaturedRooms() {
       ></SectionTitle>
 
       {/* featured room section */}
-      <div className="py-8 md:py-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div className="py-8 md:py-12 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-hidden">
         {data?.map((featuredRoom) => {
           return (
             <FeaturedRoomCart

@@ -8,7 +8,10 @@ function SliderItem({ video, title, bg, des, children }) {
       className="overflow-hidden w-full h-full !bg-no-repeat !bg-cover !bg-right-top flex flex-col items-center justify-center"
     >
       <div className="relative w-full h-full !bg-no-repeat !bg-cover !bg-right-top flex flex-col items-center justify-center">
-        <div className="space-y-3 md:space-y-6 w-full h-full flex justify-center items-center flex-col text-center  relative z-30 p-5 text-2xl text-white bg-dark/20 ">
+        <div
+          data-aos="zoom-in"
+          className="space-y-3 md:space-y-6 w-full h-full flex justify-center items-center flex-col text-center  relative z-30 p-5 text-2xl text-white bg-dark/20 "
+        >
           <h1 className="text-white dark:text-slate-300 text-2xl md:text-3xl  font-bold capitalize font-poppins">
             {title}
           </h1>

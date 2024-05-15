@@ -17,7 +17,11 @@ function UserReviewCart({ review }) {
 
   return (
     <>
-      <div className="ring-1 ring-slate-100 flex flex-col lg:flex-row justify-center lg:justify-start text-center lg:text-left items-center gap-4 md:gap-6 p-6 md:p-8 rounded-md my-transition hover:ring-primary group">
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        className="ring-1 ring-slate-100 flex flex-col lg:flex-row justify-center lg:justify-start text-center lg:text-left items-center gap-4 md:gap-6 p-6 md:p-8 rounded-md my-transition hover:ring-primary group"
+      >
         <div className="flex flex-col justify-center items-center text-center lg:justify-normal lg:items-start lg:text-left space-y-3">
           <img
             className="ring-1 ring-primary w-16 h-16 object-cover rounded-full my-transition group-hover:!rounded-br-3xl "
