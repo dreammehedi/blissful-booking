@@ -70,11 +70,21 @@ function SignIn() {
             </h1>
           </Link> */}
 
-            <h1 className="mt-6 text-center text-2xl font-semibold text-dark capitalize sm:text-3xl dark:text-white">
+            <h1
+              data-aso-delay="300"
+              data-aos-duration="800"
+              data-aos="fade-up"
+              className="mt-6 text-center text-2xl font-semibold text-dark capitalize sm:text-3xl dark:text-white"
+            >
               Sign In
             </h1>
 
-            <div className="relative flex items-center mt-4">
+            <div
+              data-aso-delay="350"
+              data-aos-duration="800"
+              data-aos="fade-up"
+              className="relative flex items-center mt-4"
+            >
               <span className="absolute">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +111,12 @@ function SignIn() {
               />
             </div>
 
-            <div className="relative flex items-center mt-4">
+            <div
+              data-aso-delay="400"
+              data-aos-duration="800"
+              data-aos="fade-up"
+              className="relative flex items-center mt-4"
+            >
               <span className="absolute">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +151,12 @@ function SignIn() {
               </div>
             </div>
 
-            <div className="mt-6">
+            <div
+              data-aso-delay="450"
+              data-aos-duration="800"
+              data-aos="fade-up"
+              className="mt-6"
+            >
               <button
                 type="submit"
                 className="w-full px-5 py-3 bg-primary/80 my-transition hover:shadow hover:shadow-primary hover:bg-primary text-white font-bold  rounded-tr-3xl rounded-bl-3xl  hover:rounded-3xl "
@@ -146,13 +166,29 @@ function SignIn() {
             </div>
           </form>
           <div className="flex flex-col space-y-3">
-            <p className="mt-4 text-center text-gray-600 dark:text-gray-400">
+            <p
+              data-aso-delay="500"
+              data-aos-duration="800"
+              data-aos="fade-up"
+              className="mt-4 text-center text-gray-600 dark:text-gray-400"
+            >
               or sign in with
             </p>
 
-            <GoogleLogin></GoogleLogin>
+            <div
+              data-aso-delay="550"
+              data-aos-duration="800"
+              data-aos="fade-up"
+            >
+              <GoogleLogin></GoogleLogin>
+            </div>
 
-            <div className="mt-6 text-center ">
+            <div
+              data-aos="fade-up"
+              data-aso-delay="600"
+              data-aos-duration="800"
+              className="mt-6 text-center "
+            >
               <Link
                 to="/signup"
                 className="text-sm text-primary dark:text-white underline dark:hover:text-primary hover:text-dark hover:no-underline"
