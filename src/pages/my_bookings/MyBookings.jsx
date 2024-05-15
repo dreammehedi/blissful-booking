@@ -145,7 +145,10 @@ function MyBookings() {
           // {/* hotel booking list */}
           <div className="container py-8 md:py-12">
             <div className="flex justify-between items-center gap-x-3">
-              <div className="flex flex-col md:flex-row items-center gap-4">
+              <div
+                data-aos="fade-left"
+                className="flex flex-col md:flex-row items-center gap-4"
+              >
                 <h2 className="text-lg font-medium text-gray-800 dark:text-white">
                   My Hotel Booking
                 </h2>
@@ -154,7 +157,10 @@ function MyBookings() {
                   {data?.length} Room
                 </span>
               </div>
-              <div className="flex flex-col md:flex-row items-center gap-4">
+              <div
+                data-aos="fade-right"
+                className="flex flex-col md:flex-row items-center gap-4"
+              >
                 <h2 className="text-lg font-medium text-gray-800 dark:text-white">
                   Change Layout
                 </h2>
@@ -184,7 +190,11 @@ function MyBookings() {
             </div>
 
             {layout ? (
-              <div className="flex flex-col mt-6">
+              <div
+                data-aos="fade-down"
+                data-aos-duration="900"
+                className="flex flex-col mt-6"
+              >
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                   <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                     <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
@@ -355,6 +365,7 @@ function MyBookings() {
                   } = roomBook;
                   return (
                     <div
+                      data-aos="fade-left"
                       key={_id}
                       className="space-y-2 p-4 ring-1 ring-slate-100 rounded-lg"
                     >
